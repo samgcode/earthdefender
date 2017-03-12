@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */; };
+		05AFD3301E75FE7E001B2FC4 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD32F1E75FE7E001B2FC4 /* GameScene.sks */; };
+		05AFD3321E75FE7E001B2FC4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD3311E75FE7E001B2FC4 /* Actions.sks */; };
+		05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD3331E75FE7E001B2FC4 /* GameScene.swift */; };
+		05AFD3361E75FE7E001B2FC4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */; };
+		05AFD3391E75FE7E001B2FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD3371E75FE7E001B2FC4 /* Main.storyboard */; };
+		05AFD33B1E75FE7E001B2FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */; };
+		05AFD33E1E75FE7E001B2FC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthDefender.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		05AFD32F1E75FE7E001B2FC4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		05AFD3311E75FE7E001B2FC4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		05AFD3331E75FE7E001B2FC4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		05AFD3381E75FE7E001B2FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		05AFD33D1E75FE7E001B2FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		05AFD33F1E75FE7E001B2FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05AFD3271E75FE7E001B2FC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05AFD3211E75FE7E001B2FC4 = {
+			isa = PBXGroup;
+			children = (
+				05AFD32C1E75FE7E001B2FC4 /* EarthDefender */,
+				05AFD32B1E75FE7E001B2FC4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05AFD32B1E75FE7E001B2FC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05AFD32C1E75FE7E001B2FC4 /* EarthDefender */ = {
+			isa = PBXGroup;
+			children = (
+				05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */,
+				05AFD32F1E75FE7E001B2FC4 /* GameScene.sks */,
+				05AFD3311E75FE7E001B2FC4 /* Actions.sks */,
+				05AFD3331E75FE7E001B2FC4 /* GameScene.swift */,
+				05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */,
+				05AFD3371E75FE7E001B2FC4 /* Main.storyboard */,
+				05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */,
+				05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */,
+				05AFD33F1E75FE7E001B2FC4 /* Info.plist */,
+			);
+			path = EarthDefender;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05AFD3291E75FE7E001B2FC4 /* EarthDefender */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AFD3421E75FE7E001B2FC4 /* Build configuration list for PBXNativeTarget "EarthDefender" */;
+			buildPhases = (
+				05AFD3261E75FE7E001B2FC4 /* Sources */,
+				05AFD3271E75FE7E001B2FC4 /* Frameworks */,
+				05AFD3281E75FE7E001B2FC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EarthDefender;
+			productName = EarthDefender;
+			productReference = 05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05AFD3221E75FE7E001B2FC4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Sam;
+				TargetAttributes = {
+					05AFD3291E75FE7E001B2FC4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 05AFD3251E75FE7E001B2FC4 /* Build configuration list for PBXProject "EarthDefender" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 05AFD3211E75FE7E001B2FC4;
+			productRefGroup = 05AFD32B1E75FE7E001B2FC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05AFD3291E75FE7E001B2FC4 /* EarthDefender */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05AFD3281E75FE7E001B2FC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AFD3391E75FE7E001B2FC4 /* Main.storyboard in Resources */,
+				05AFD3301E75FE7E001B2FC4 /* GameScene.sks in Resources */,
+				05AFD33B1E75FE7E001B2FC4 /* Assets.xcassets in Resources */,
+				05AFD33E1E75FE7E001B2FC4 /* LaunchScreen.storyboard in Resources */,
+				05AFD3321E75FE7E001B2FC4 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05AFD3261E75FE7E001B2FC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */,
+				05AFD3361E75FE7E001B2FC4 /* GameViewController.swift in Sources */,
+				05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		05AFD3371E75FE7E001B2FC4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05AFD3381E75FE7E001B2FC4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05AFD33D1E75FE7E001B2FC4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05AFD3401E75FE7E001B2FC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		05AFD3411E75FE7E001B2FC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		05AFD3431E75FE7E001B2FC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EarthDefender/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samgaudet.EarthDefender;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		05AFD3441E75FE7E001B2FC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EarthDefender/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.samgaudet.EarthDefender;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05AFD3251E75FE7E001B2FC4 /* Build configuration list for PBXProject "EarthDefender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AFD3401E75FE7E001B2FC4 /* Debug */,
+				05AFD3411E75FE7E001B2FC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05AFD3421E75FE7E001B2FC4 /* Build configuration list for PBXNativeTarget "EarthDefender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AFD3431E75FE7E001B2FC4 /* Debug */,
+				05AFD3441E75FE7E001B2FC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05AFD3221E75FE7E001B2FC4 /* Project object */;
+}
