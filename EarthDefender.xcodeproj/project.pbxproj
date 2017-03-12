@@ -8,19 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */; };
-		05AFD3301E75FE7E001B2FC4 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD32F1E75FE7E001B2FC4 /* GameScene.sks */; };
 		05AFD3321E75FE7E001B2FC4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD3311E75FE7E001B2FC4 /* Actions.sks */; };
 		05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD3331E75FE7E001B2FC4 /* GameScene.swift */; };
 		05AFD3361E75FE7E001B2FC4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */; };
 		05AFD3391E75FE7E001B2FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD3371E75FE7E001B2FC4 /* Main.storyboard */; };
 		05AFD33B1E75FE7E001B2FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */; };
 		05AFD33E1E75FE7E001B2FC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */; };
+		0E06ECEC1E760F1000686674 /* hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECEB1E760F1000686674 /* hud.swift */; };
+		0E06ECEF1E760F4300686674 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECED1E760F4200686674 /* GameOverScene.swift */; };
+		0E06ECF01E760F4300686674 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECEE1E760F4300686674 /* TitleScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthDefender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		05AFD32F1E75FE7E001B2FC4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		05AFD3311E75FE7E001B2FC4 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		05AFD3331E75FE7E001B2FC4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +29,9 @@
 		05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05AFD33D1E75FE7E001B2FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05AFD33F1E75FE7E001B2FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E06ECEB1E760F1000686674 /* hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hud.swift; sourceTree = "<group>"; };
+		0E06ECED1E760F4200686674 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		0E06ECEE1E760F4300686674 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,13 +65,15 @@
 			isa = PBXGroup;
 			children = (
 				05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */,
-				05AFD32F1E75FE7E001B2FC4 /* GameScene.sks */,
-				05AFD3311E75FE7E001B2FC4 /* Actions.sks */,
 				05AFD3331E75FE7E001B2FC4 /* GameScene.swift */,
 				05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */,
+				0E06ECED1E760F4200686674 /* GameOverScene.swift */,
+				0E06ECEE1E760F4300686674 /* TitleScene.swift */,
+				0E06ECEB1E760F1000686674 /* hud.swift */,
 				05AFD3371E75FE7E001B2FC4 /* Main.storyboard */,
 				05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */,
 				05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */,
+				05AFD3311E75FE7E001B2FC4 /* Actions.sks */,
 				05AFD33F1E75FE7E001B2FC4 /* Info.plist */,
 			);
 			path = EarthDefender;
@@ -133,7 +139,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				05AFD3391E75FE7E001B2FC4 /* Main.storyboard in Resources */,
-				05AFD3301E75FE7E001B2FC4 /* GameScene.sks in Resources */,
 				05AFD33B1E75FE7E001B2FC4 /* Assets.xcassets in Resources */,
 				05AFD33E1E75FE7E001B2FC4 /* LaunchScreen.storyboard in Resources */,
 				05AFD3321E75FE7E001B2FC4 /* Actions.sks in Resources */,
@@ -147,9 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E06ECEF1E760F4300686674 /* GameOverScene.swift in Sources */,
 				05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */,
+				0E06ECEC1E760F1000686674 /* hud.swift in Sources */,
 				05AFD3361E75FE7E001B2FC4 /* GameViewController.swift in Sources */,
 				05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */,
+				0E06ECF01E760F4300686674 /* TitleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +317,7 @@
 				05AFD3441E75FE7E001B2FC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
