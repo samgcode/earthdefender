@@ -208,7 +208,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         monster.removeFromParent()
         monstersLeft -= 1
         self.monstersLeftLabel.text = "asteroids left: \(self.monstersLeft)"
-        //explosion(position: monster.position)
+        explosion(position: monster.position)
         if (monstersLeft == 0) {
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
             let gameOverScene = GameOverScene(size: self.size, won: true)
