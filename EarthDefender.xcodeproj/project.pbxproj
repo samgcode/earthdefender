@@ -68,19 +68,19 @@
 		05AFD32C1E75FE7E001B2FC4 /* EarthDefender */ = {
 			isa = PBXGroup;
 			children = (
-				0E06ECF31E762D8500686674 /* Explosion.sks */,
 				05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */,
-				05AFD3331E75FE7E001B2FC4 /* GameScene.swift */,
-				05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */,
-				0E06ECED1E760F4200686674 /* GameOverScene.swift */,
 				0E06ECEE1E760F4300686674 /* TitleScene.swift */,
-				0E06ECEB1E760F1000686674 /* hud.swift */,
-				05AFD3371E75FE7E001B2FC4 /* Main.storyboard */,
-				05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */,
-				05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */,
-				05AFD33F1E75FE7E001B2FC4 /* Info.plist */,
-				0E9642891E7D98B200FAB0F9 /* FireWork.sks */,
+				05AFD3331E75FE7E001B2FC4 /* GameScene.swift */,
+				0E06ECED1E760F4200686674 /* GameOverScene.swift */,
 				0E96428B1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift */,
+				05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */,
+				0E06ECEB1E760F1000686674 /* hud.swift */,
+				0E06ECF31E762D8500686674 /* Explosion.sks */,
+				0E9642891E7D98B200FAB0F9 /* FireWork.sks */,
+				05AFD3371E75FE7E001B2FC4 /* Main.storyboard */,
+				05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */,
+				05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */,
+				05AFD33F1E75FE7E001B2FC4 /* Info.plist */,
 			);
 			path = EarthDefender;
 			sourceTree = "<group>";

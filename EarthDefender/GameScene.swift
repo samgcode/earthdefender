@@ -34,7 +34,7 @@ extension CGPoint {
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var lives = 3000
+    var lives = 3
     var monstersLeft = 25
     struct PhysicsCategory {
         static let None      : UInt32 = 0
@@ -118,7 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Determine where to spawn the monster along the Y axis
         let actualY = size.height //random(min: monster.size.height/2, max: size.height - monster.size.height/2)
-        let actualX = random(min: 1, max: 300)
+        let actualX = random(min: 1, max: 350)
         monster.zPosition = background.zPosition + 1
         // Position the monster slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
@@ -146,8 +146,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if self.lives <= 0 {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameOverScene = GameOverScene(size: self.size, won: false)
-                self.view?.presentScene(gameOverScene, transition: reveal)
+                let gameScene = GameOverScene(size: self.size)
+                self.view?.presentScene(gameScene, transition: reveal)
             }
         }
         monster.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
@@ -211,8 +211,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion(position: monster.position)
         if (monstersLeft == 0) {
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameOverScene = GameOverScene(size: self.size, won: true)
-            self.view?.presentScene(gameOverScene, transition: reveal)
+            let gameScene = LevelCompleteScene(size: self.size)
+            self.view?.presentScene(gameScene, transition: reveal)
+            
+//            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+//            let gameOverScene = GameOverScene(size: self.size, won: true)
+//            self.view?.presentScene(gameOverScene, transition: reveal)
             
         }
     }
