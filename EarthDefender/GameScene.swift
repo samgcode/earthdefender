@@ -34,9 +34,8 @@ extension CGPoint {
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var lives = 3
-    var monstersLeft = 25
-    struct PhysicsCategory {
+    var newPlayer: Player = Player.init(lives: 3)
+        struct PhysicsCategory {
         static let None      : UInt32 = 0
         static let All       : UInt32 = UInt32.max
         static let Monster   : UInt32 = 0b1       // 1
@@ -50,6 +49,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let monstersLeftLabel: SKLabelNode = SKLabelNode()
     
     override func didMove(to view: SKView) {
+        
+        newPlayer.monstersLeftForLevel = 25
+        
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
         // 2
@@ -70,13 +72,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         livesLabel.position = CGPoint(x: 70, y: 630)
         livesLabel.zPosition = 100
-        livesLabel.text = "lives: \(lives)"
+        livesLabel.text = "lives: \(newPlayer.lives)"
         livesLabel.fontColor = UIColor.red
         livesLabel.fontSize = 25
         
         monstersLeftLabel.position = CGPoint(x: 270, y: 630)
         monstersLeftLabel.zPosition = 100
-        monstersLeftLabel.text = "asteroids left: \(monstersLeft)"
+        monstersLeftLabel.text = "asteroids left: \(newPlayer.monstersLeftForLevel)"
         monstersLeftLabel.fontColor = UIColor.green
         monstersLeftLabel.fontSize = 25
         
@@ -139,12 +141,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         
         let loseAction = SKAction.run() {
-            self.lives -= 1
-            self.livesLabel.text = "lives: \(self.lives)"
+            self.newPlayer.lives -= 1
+            self.livesLabel.text = "lives: \(self.newPlayer.lives)"
             
             
             
-            if self.lives <= 0 {
+            if self.newPlayer.lives <= 0 {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
                 let gameScene = GameOverScene(size: self.size)
                 self.view?.presentScene(gameScene, transition: reveal)
@@ -206,10 +208,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Hit")
         projectile.removeFromParent()
         monster.removeFromParent()
-        monstersLeft -= 1
-        self.monstersLeftLabel.text = "asteroids left: \(self.monstersLeft)"
+        newPlayer.decrementMonstersLeft()
+        newPlayer.incrumentMonsterCount()
+        self.monstersLeftLabel.text = "asteroids left: \(self.newPlayer.monstersLeftForLevel)"
         explosion(position: monster.position)
-        if (monstersLeft == 0) {
+        if (newPlayer.monstersLeftForLevel == 0) {
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
             let gameScene = LevelCompleteScene(size: self.size)
             self.view?.presentScene(gameScene, transition: reveal)
