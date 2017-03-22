@@ -47,6 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let background = SKSpriteNode(imageNamed: "earthDefenderbackground")
     let livesLabel: SKLabelNode = SKLabelNode()
     let monstersLeftLabel: SKLabelNode = SKLabelNode()
+
     
     override func didMove(to view: SKView) {
         
@@ -141,7 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         
         let loseAction = SKAction.run() {
-            self.newPlayer.lives -= 1
+            self.newPlayer.decrementLives()
             self.livesLabel.text = "lives: \(self.newPlayer.lives)"
             
             
@@ -214,7 +215,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion(position: monster.position)
         if (newPlayer.monstersLeftForLevel == 0) {
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameScene = LevelCompleteScene(size: self.size)
+            let gameScene = LevelCompleteScene(size: self.size, level: 1)
             self.view?.presentScene(gameScene, transition: reveal)
             
 //            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)

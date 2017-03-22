@@ -10,8 +10,8 @@ import Foundation
 
 class Player {
     
-    var lives: Int
-    var totalMonstersKilled: Int
+    private(set) var lives: Int
+    private(set) var totalMonstersKilled: Int
     var monstersLeftForLevel: Int
     
     init(lives: Int) {

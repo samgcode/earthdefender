@@ -150,7 +150,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         
         let loseAction = SKAction.run() {
-            self.newPlayer.lives -= 1
+            self.newPlayer.decrementLives()
             self.livesLabel.text = "lives: \(self.newPlayer.lives)"
             
             
@@ -223,7 +223,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         explosion(position: monster.position)
         if (newPlayer.monstersLeftForLevel == 0) {
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameScene = LevelCompleteScene(size: self.size)
+            let gameScene = LevelCompleteScene(size: self.size, level: 2)
             self.view?.presentScene(gameScene, transition: reveal)
             
             //            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
