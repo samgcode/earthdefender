@@ -30,6 +30,11 @@ class LevelCompleteScene: SKScene {
 
         
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        showLevel()
+    }
+
     func fireWork(position: CGPoint) {
         if let particles = SKEmitterNode(fileNamed: "FireWork.sks") {
             particles.position = position
@@ -37,4 +42,11 @@ class LevelCompleteScene: SKScene {
             addChild(particles)
         }
     }
+    
+    func showLevel() {
+        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        let gameScene = Level2(size: self.size)
+        self.view?.presentScene(gameScene, transition: reveal)
+    }
+
 }
