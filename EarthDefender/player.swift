@@ -7,4 +7,29 @@
 //
 
 import Foundation
-import SpriteKit
+
+class Player {
+    
+    var lives: Int
+    var totalMonstersKilled: Int
+    var monstersLeftForLevel: Int
+    
+    init(lives: Int) {
+        self.lives = lives
+        self.totalMonstersKilled = 0
+        self.monstersLeftForLevel = 25
+    }
+    
+    func incrumentMonsterCount() {
+        totalMonstersKilled += 1
+    }
+    
+    func decrementLives() {
+        lives -= 1
+    }
+    
+    func decrementMonstersLeft() {
+        monstersLeftForLevel -= 1
+    }
+
+}
