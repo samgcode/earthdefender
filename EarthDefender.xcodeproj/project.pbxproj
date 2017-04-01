@@ -17,6 +17,7 @@
 		0E06ECEF1E760F4300686674 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECED1E760F4200686674 /* GameOverScene.swift */; };
 		0E06ECF01E760F4300686674 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECEE1E760F4300686674 /* TitleScene.swift */; };
 		0E06ECF41E762D8500686674 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0E06ECF31E762D8500686674 /* Explosion.sks */; };
+		0E13C48E1E90013A00FC5F30 /* monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E13C48D1E90013A00FC5F30 /* monster.swift */; };
 		0E96428A1E7D98B200FAB0F9 /* FireWork.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0E9642891E7D98B200FAB0F9 /* FireWork.sks */; };
 		0E96428C1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96428B1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift */; };
 		0EA372CF1E81FB260076282F /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA372CE1E81FB260076282F /* Level2.swift */; };
@@ -36,6 +37,7 @@
 		0E06ECED1E760F4200686674 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		0E06ECEE1E760F4300686674 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
 		0E06ECF31E762D8500686674 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		0E13C48D1E90013A00FC5F30 /* monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = monster.swift; path = ../monster.swift; sourceTree = "<group>"; };
 		0E9642891E7D98B200FAB0F9 /* FireWork.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireWork.sks; sourceTree = "<group>"; };
 		0E96428B1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCompleteScene.swift; sourceTree = "<group>"; };
 		0EA372CE1E81FB260076282F /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				0E96428B1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift */,
 				0E06ECEB1E760F1000686674 /* hud.swift */,
 				0EBC8A011E80AA0A00EEFFF9 /* Player.swift */,
+				0E13C48D1E90013A00FC5F30 /* monster.swift */,
 				0E06ECF31E762D8500686674 /* Explosion.sks */,
 				0E9642891E7D98B200FAB0F9 /* FireWork.sks */,
 				05AFD3371E75FE7E001B2FC4 /* Main.storyboard */,
@@ -167,6 +170,7 @@
 			files = (
 				0EA372CF1E81FB260076282F /* Level2.swift in Sources */,
 				0E06ECEF1E760F4300686674 /* GameOverScene.swift in Sources */,
+				0E13C48E1E90013A00FC5F30 /* monster.swift in Sources */,
 				05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */,
 				0E96428C1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift in Sources */,
 				0E06ECEC1E760F1000686674 /* hud.swift in Sources */,

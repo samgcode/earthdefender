@@ -59,7 +59,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
-        newPlayer.monstersLeftForLevel = 30
+        newPlayer.monstersLeftForLevel = 40
         
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
@@ -96,10 +96,10 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         addChild(livesLabel)
         addChild(monstersLeftLabel)
         
-        run(SKAction.repeatForever(
+               run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(addMonster),
-                SKAction.wait(forDuration: 1.0)
+                SKAction.wait(forDuration: 0.5)
                 ])
         ))
         let backgroundMusic = SKAudioNode(fileNamed: "background-music-aac.caf")
@@ -120,7 +120,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     func addMonster() {
         
         // Create sprite
-        let monster = SKSpriteNode(imageNamed: "EarthDefenderasteroid")
+        let monster = SKSpriteNode(imageNamed: "EarthDefenderAsteroid2")
         monster.physicsBody = SKPhysicsBody(rectangleOf: monster.size) // 1
         monster.physicsBody?.isDynamic = true // 2
         monster.physicsBody?.categoryBitMask = PhysicsCategory.Monster // 3
@@ -142,7 +142,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         addChild(monster)
         
         // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(4.0))
+        let actualDuration = random(min: CGFloat(1.5), max: CGFloat(3.0))
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
