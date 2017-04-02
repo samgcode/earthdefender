@@ -43,7 +43,7 @@ extension CGPoint {
 
 
 class Level2: SKScene, SKPhysicsContactDelegate {
-    var newPlayer: Player = Player.init(lives: 3)
+    var newPlayer: Player = Player.sharedInstance
     struct PhysicsCategory {
         static let None      : UInt32 = 0
         static let All       : UInt32 = UInt32.max
@@ -60,6 +60,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         newPlayer.monstersLeftForLevel = 40
+        newPlayer.incrumentLives()
         
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self

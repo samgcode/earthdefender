@@ -14,8 +14,10 @@ class Player {
     private(set) var totalMonstersKilled: Int
     var monstersLeftForLevel: Int
     
-    init(lives: Int) {
-        self.lives = lives
+    static let sharedInstance = Player()
+    
+    init() {
+        self.lives = 3
         self.totalMonstersKilled = 0
         self.monstersLeftForLevel = 25
     }
@@ -30,6 +32,10 @@ class Player {
     
     func decrementMonstersLeft() {
         monstersLeftForLevel -= 1
+    }
+    
+    func incrumentLives() {
+        lives += 1
     }
 
 }

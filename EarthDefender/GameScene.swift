@@ -34,7 +34,7 @@ import SpriteKit
 //
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var newPlayer: Player = Player.init(lives: 3)
+    var newPlayer: Player = Player.sharedInstance
         struct PhysicsCategory {
         static let None      : UInt32 = 0
         static let All       : UInt32 = UInt32.max
