@@ -11,6 +11,12 @@ import SpriteKit
 
 class LevelSurvice {
     static let sharedInstance = LevelSurvice()
+    private(set) var curentLevel: Int
+    
+    init() {
+        self.curentLevel = 0
+    }
+    
     
     func loadTitleScene(size: CGSize) -> SKScene {
         return TitleScene(size: size)
@@ -18,5 +24,13 @@ class LevelSurvice {
     
     func loadNextLevel(size: CGSize) -> SKScene {
         return GameScene(size: size)
+    }
+    
+    func loadLevelComplete(size: CGSize) -> SKScene {
+        return LevelCompleteScene(size: size, level: curentLevel)
+    }
+    
+    func incrementLevel() {
+        curentLevel += 1
     }
 }

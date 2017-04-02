@@ -86,13 +86,13 @@
 				0E06ECEB1E760F1000686674 /* hud.swift */,
 				0EBC8A011E80AA0A00EEFFF9 /* Player.swift */,
 				0E13C48D1E90013A00FC5F30 /* monster.swift */,
+				0E88AC251E914C4D00B7E3DB /* LevelSurvice.swift */,
 				0E06ECF31E762D8500686674 /* Explosion.sks */,
 				0E9642891E7D98B200FAB0F9 /* FireWork.sks */,
 				05AFD3371E75FE7E001B2FC4 /* Main.storyboard */,
 				05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */,
 				05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */,
 				05AFD33F1E75FE7E001B2FC4 /* Info.plist */,
-				0E88AC251E914C4D00B7E3DB /* LevelSurvice.swift */,
 			);
 			path = EarthDefender;
 			sourceTree = "<group>";

@@ -59,7 +59,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
-        newPlayer.monstersLeftForLevel = 40
+        newPlayer.monstersLeftForLevel = 30
         newPlayer.incrumentLives()
         
         physicsWorld.gravity = CGVector.zero
@@ -100,7 +100,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(addMonster),
-                SKAction.wait(forDuration: 0.5)
+                SKAction.wait(forDuration: 1.0)
                 ])
         ))
         let backgroundMusic = SKAudioNode(fileNamed: "background-music-aac.caf")
@@ -223,8 +223,10 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         self.monstersLeftLabel.text = "asteroids left: \(self.newPlayer.monstersLeftForLevel)"
         explosion(position: monster.position)
         if (newPlayer.monstersLeftForLevel == 0) {
+            let levelSurvice: LevelSurvice = LevelSurvice.sharedInstance
+            levelSurvice.incrementLevel()
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameScene = LevelCompleteScene(size: self.size, level: 2)
+            let gameScene = levelSurvice.loadLevelComplete(size: self.size)
             self.view?.presentScene(gameScene, transition: reveal)
             
             //            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
