@@ -6,9 +6,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let levelSurvice: LevelSurvice = LevelSurvice.sharedInstance
+        let levelService: LevelService = LevelService.sharedInstance
         
-        let scene = levelSurvice.loadTitleScene(size: view.bounds.size)
+        let scene = levelService.loadTitleScene(size: view.bounds.size)
         
         let skView = view as! SKView
         skView.showsFPS = true

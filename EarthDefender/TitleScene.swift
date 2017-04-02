@@ -23,9 +23,9 @@ class TitleScene: SKScene {
     }
     
     func showLevel() {
-        let levelSurvice: LevelSurvice = LevelSurvice.sharedInstance
+        let levelService: LevelService = LevelService.sharedInstance
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-        let gameScene = levelSurvice.loadNextLevel(size: self.size)
+        let gameScene = levelService.loadNextLevel(size: self.size)
         self.view?.presentScene(gameScene, transition: reveal)
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

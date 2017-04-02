@@ -9,8 +9,8 @@
 import Foundation
 import SpriteKit
 
-class LevelSurvice {
-    static let sharedInstance = LevelSurvice()
+class LevelService {
+    static let sharedInstance = LevelService()
     private(set) var curentLevel: Int
     
     init() {

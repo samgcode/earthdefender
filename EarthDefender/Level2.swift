@@ -223,10 +223,10 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         self.monstersLeftLabel.text = "asteroids left: \(self.newPlayer.monstersLeftForLevel)"
         explosion(position: monster.position)
         if (newPlayer.monstersLeftForLevel == 0) {
-            let levelSurvice: LevelSurvice = LevelSurvice.sharedInstance
-            levelSurvice.incrementLevel()
+            let levelService: LevelService = LevelService.sharedInstance
+            levelService.incrementLevel()
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameScene = levelSurvice.loadLevelComplete(size: self.size)
+            let gameScene = levelService.loadLevelComplete(size: self.size)
             self.view?.presentScene(gameScene, transition: reveal)
             
             //            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
