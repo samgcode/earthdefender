@@ -60,7 +60,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         newPlayer.monstersLeftForLevel = 30
-        newPlayer.incrumentLives()
+        newPlayer.incrementLives()
         
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
@@ -219,7 +219,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         projectile.removeFromParent()
         monster.removeFromParent()
         newPlayer.decrementMonstersLeft()
-        newPlayer.incrumentMonsterCount()
+        newPlayer.incrementMonsterCount()
         self.monstersLeftLabel.text = "asteroids left: \(self.newPlayer.monstersLeftForLevel)"
         explosion(position: monster.position)
         if (newPlayer.monstersLeftForLevel == 0) {

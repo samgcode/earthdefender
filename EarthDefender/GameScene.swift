@@ -210,7 +210,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         projectile.removeFromParent()
         monster.removeFromParent()
         newPlayer.decrementMonstersLeft()
-        newPlayer.incrumentMonsterCount()
+        newPlayer.incrementMonsterCount()
         self.monstersLeftLabel.text = "asteroids left: \(self.newPlayer.monstersLeftForLevel)"
         explosion(position: monster.position)
         if (newPlayer.monstersLeftForLevel == 0) {

@@ -22,7 +22,7 @@ class Player {
         self.monstersLeftForLevel = 25
     }
     
-    func incrumentMonsterCount() {
+    func incrementMonsterCount() {
         totalMonstersKilled += 1
     }
     
@@ -34,7 +34,7 @@ class Player {
         monstersLeftForLevel -= 1
     }
     
-    func incrumentLives() {
+    func incrementLives() {
         lives += 1
     }
 
