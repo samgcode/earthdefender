@@ -61,8 +61,9 @@ class LevelCompleteScene: SKScene {
     }
     
     func showLevel() {
+        let levelService: LevelService = LevelService.sharedInstance
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-        let gameScene = Level2(size: self.size)
+        let gameScene = levelService.loadNextLevel(size: size)
         self.view?.presentScene(gameScene, transition: reveal)
     }
 
