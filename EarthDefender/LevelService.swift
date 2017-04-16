@@ -23,24 +23,15 @@ class LevelService {
     }
     
     func loadNextLevel(size: CGSize) -> SKScene {
-        if curentLevel == 0 {
-            incrementLevel()
-            return GameScene(size: size)
-        } else if curentLevel == 1{
-            incrementLevel()
+        curentLevel += 1
+
+        if curentLevel == 2 {
             return Level2(size: size)
-        } else {
-             return GameScene(size: size)
         }
-        
-       
+        return GameScene(size: size)
     }
     
     func loadLevelComplete(size: CGSize) -> SKScene {
         return LevelCompleteScene(size: size, level: curentLevel)
-    }
-    
-    func incrementLevel() {
-        curentLevel += 1
     }
 }
