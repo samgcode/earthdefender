@@ -10,8 +10,8 @@ import Foundation
 import SpriteKit
 
 struct Monster {
-    func createMonsterNode(position: CGPoint) -> SKSpriteNode {
-        let monster = SKSpriteNode(imageNamed: "EarthDefenderasteroid")
+    func createMonsterNode(position: CGPoint, spritename: String) -> SKSpriteNode {
+        let monster = SKSpriteNode(imageNamed: spritename)
         monster.physicsBody = SKPhysicsBody(rectangleOf: monster.size) // 1
         monster.physicsBody?.isDynamic = true // 2
         monster.physicsBody?.categoryBitMask = ScenePhysicsCategory.Monster // 3

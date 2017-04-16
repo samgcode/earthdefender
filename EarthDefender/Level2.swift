@@ -120,27 +120,14 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     
     func addMonster() {
         
-        // Create sprite
-        let monster = SKSpriteNode(imageNamed: "EarthDefenderAsteroid2")
-        monster.physicsBody = SKPhysicsBody(rectangleOf: monster.size) // 1
-        monster.physicsBody?.isDynamic = true // 2
-        monster.physicsBody?.categoryBitMask = PhysicsCategory.Monster // 3
-        monster.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile // 4
-        monster.physicsBody?.collisionBitMask = PhysicsCategory.None // 5
-        
-        // Determine where to spawn the monster along the Y axis
-        let actualY = size.height //random(min: monster.size.height/2, max: size.height - monster.size.height/2)
+        let monster: Monster = Monster()
+        let actualY = size.height
         let actualX = random(min: 1, max: 350)
-        monster.zPosition = background.zPosition + 1
-        // Position the monster slightly off-screen along the right edge,
-        // and along a random position along the Y axis as calculated above
-        monster.position = CGPoint(x: actualX, y: actualY)
-        
-        monster.xScale = 0.3
-        monster.yScale = 0.3
+        let monsterNode = monster.createMonsterNode(position: CGPoint(x: actualX, y: actualY), spritename: "EarthDefenderAsteroid2")
+        monsterNode.zPosition = background.zPosition + 1
         
         // Add the monster to the scene
-        addChild(monster)
+        addChild(monsterNode)
         
         // Determine speed of the monster
         let actualDuration = random(min: CGFloat(1.5), max: CGFloat(3.0))
@@ -162,7 +149,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                 self.view?.presentScene(gameScene, transition: reveal)
             }
         }
-        monster.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
+        monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
