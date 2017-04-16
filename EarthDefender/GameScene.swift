@@ -35,12 +35,7 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var newPlayer: Player = Player.sharedInstance
-        struct PhysicsCategory {
-        static let None      : UInt32 = 0
-        static let All       : UInt32 = UInt32.max
-        static let Monster   : UInt32 = 0b1       // 1
-        static let Projectile: UInt32 = 0b10      // 2
-    }
+    
     
     // 1
     let player = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
@@ -111,27 +106,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addMonster() {
         
-        // Create sprite
-        let monster = SKSpriteNode(imageNamed: "EarthDefenderasteroid")
-        monster.physicsBody = SKPhysicsBody(rectangleOf: monster.size) // 1
-        monster.physicsBody?.isDynamic = true // 2
-        monster.physicsBody?.categoryBitMask = PhysicsCategory.Monster // 3
-        monster.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile // 4
-        monster.physicsBody?.collisionBitMask = PhysicsCategory.None // 5
-        
-        // Determine where to spawn the monster along the Y axis
-        let actualY = size.height //random(min: monster.size.height/2, max: size.height - monster.size.height/2)
+        let monster: Monster = Monster()
+        let actualY = size.height
         let actualX = random(min: 1, max: 350)
-        monster.zPosition = background.zPosition + 1
-        // Position the monster slightly off-screen along the right edge,
-        // and along a random position along the Y axis as calculated above
-        monster.position = CGPoint(x: actualX, y: actualY)
-        
-        monster.xScale = 0.3
-        monster.yScale = 0.3
+        let monsterNode = monster.createMonsterNode(position: CGPoint(x: actualX, y: actualY))
+        monsterNode.zPosition = background.zPosition + 1
         
         // Add the monster to the scene
-        addChild(monster)
+        addChild(monsterNode)
         
         // Determine speed of the monster
         let actualDuration = random(min: CGFloat(2.0), max: CGFloat(4.0))
@@ -153,8 +135,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.view?.presentScene(gameScene, transition: reveal)
             }
         }
-        monster.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
+        monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
     }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         run(SKAction.playSoundFileNamed("pew-pew-lei.caf", waitForCompletion: false))
@@ -176,9 +159,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)
         projectile.physicsBody?.isDynamic = true
-        projectile.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
-        projectile.physicsBody?.contactTestBitMask = PhysicsCategory.Monster
-        projectile.physicsBody?.collisionBitMask = PhysicsCategory.None
+        projectile.physicsBody?.categoryBitMask = ScenePhysicsCategory.Projectile
+        projectile.physicsBody?.contactTestBitMask = ScenePhysicsCategory.Monster
+        projectile.physicsBody?.collisionBitMask = ScenePhysicsCategory.None
         projectile.physicsBody?.usesPreciseCollisionDetection = true
         
         // 3 - Determine offset of location to projectile
@@ -205,6 +188,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         projectile.run(SKAction.sequence([actionMove, actionMoveDone]))
         
     }
+    
     func projectileDidCollideWithMonster(projectile: SKSpriteNode, monster: SKSpriteNode) {
         print("Hit")
         projectile.removeFromParent()
@@ -219,14 +203,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
             let gameScene = levelService.loadLevelComplete(size: self.size)
             self.view?.presentScene(gameScene, transition: reveal)
-            
-            
-//            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-//            let gameOverScene = GameOverScene(size: self.size, won: true)
-//            self.view?.presentScene(gameOverScene, transition: reveal)
-            
         }
     }
+    
     func didBegin(_ contact: SKPhysicsContact) {
         
         // 1
@@ -241,8 +220,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // 2
-        if ((firstBody.categoryBitMask & PhysicsCategory.Monster != 0) &&
-            (secondBody.categoryBitMask & PhysicsCategory.Projectile != 0)) {
+        if ((firstBody.categoryBitMask & ScenePhysicsCategory.Monster != 0) &&
+            (secondBody.categoryBitMask & ScenePhysicsCategory.Projectile != 0)) {
             if let monster = firstBody.node as? SKSpriteNode, let
                 projectile = secondBody.node as? SKSpriteNode {
                 projectileDidCollideWithMonster(projectile: projectile, monster: monster)
