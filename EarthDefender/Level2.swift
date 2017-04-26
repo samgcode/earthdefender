@@ -43,32 +43,26 @@ extension CGPoint {
 
 
 class Level2: SKScene, SKPhysicsContactDelegate {
-    var newPlayer: Player = Player.sharedInstance
-    struct PhysicsCategory {
-        static let None      : UInt32 = 0
-        static let All       : UInt32 = UInt32.max
-        static let Monster   : UInt32 = 0b1       // 1
-        static let Projectile: UInt32 = 0b10      // 2
-    }
+    var player: Player = Player.sharedInstance
     
     // 1
-    let player = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
+    let playerSprite = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
     let background = SKSpriteNode(imageNamed: "earthDefenderbackground")
     let livesLabel: SKLabelNode = SKLabelNode()
     let monstersLeftLabel: SKLabelNode = SKLabelNode()
     
     override func didMove(to view: SKView) {
         
-        newPlayer.monstersLeftForLevel = 30
-        newPlayer.incrementLives()
+        player.monstersLeftForLevel = 30
+        player.incrementLives()
         
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
         // 2
         backgroundColor = SKColor.white
         // 3
-        player.xScale = 0.4
-        player.yScale = 0.4
+        playerSprite.xScale = 0.4
+        playerSprite.yScale = 0.4
         
         background.xScale = 0.9
         background.yScale = 1.3
@@ -76,24 +70,24 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         background.position = CGPoint(x: size.width * 0.3, y: size.height * 0.5)
         background.zPosition = 1
         
-        player.position = CGPoint(x: size.width * 0.5, y: size.height * 0.18)
-        player.zPosition = background.zPosition + 1
+        playerSprite.position = CGPoint(x: size.width * 0.5, y: size.height * 0.18)
+        playerSprite.zPosition = background.zPosition + 1
         // 4
         
         livesLabel.position = CGPoint(x: 70, y: 630)
         livesLabel.zPosition = 100
-        livesLabel.text = "lives: \(newPlayer.lives)"
+        livesLabel.text = "lives: \(player.lives)"
         livesLabel.fontColor = UIColor.red
         livesLabel.fontSize = 25
         
         monstersLeftLabel.position = CGPoint(x: 270, y: 630)
         monstersLeftLabel.zPosition = 100
-        monstersLeftLabel.text = "asteroids left: \(newPlayer.monstersLeftForLevel)"
+        monstersLeftLabel.text = "asteroids left: \(player.monstersLeftForLevel)"
         monstersLeftLabel.fontColor = UIColor.green
         monstersLeftLabel.fontSize = 25
         
         addChild(background)
-        addChild(player)
+        addChild(playerSprite)
         addChild(livesLabel)
         addChild(monstersLeftLabel)
         
@@ -138,12 +132,12 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         
         let loseAction = SKAction.run() {
-            self.newPlayer.decrementLives()
-            self.livesLabel.text = "lives: \(self.newPlayer.lives)"
+            self.player.decrementLives()
+            self.livesLabel.text = "lives: \(self.player.lives)"
             
             
             
-            if self.newPlayer.lives <= 0 {
+            if self.player.lives <= 0 {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
                 let gameScene = GameOverScene(size: self.size)
                 self.view?.presentScene(gameScene, transition: reveal)
@@ -163,7 +157,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         
         // 2 - Set up initial location of projectile
         let projectile = SKSpriteNode(imageNamed: "earthDefenderlazerCircle")
-        projectile.position = player.position
+        projectile.position = playerSprite.position
         
         projectile.zPosition = background.zPosition + 1
         projectile.xScale = 0.15
@@ -172,9 +166,9 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)
         projectile.physicsBody?.isDynamic = true
-        projectile.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
-        projectile.physicsBody?.contactTestBitMask = PhysicsCategory.Monster
-        projectile.physicsBody?.collisionBitMask = PhysicsCategory.None
+        projectile.physicsBody?.categoryBitMask = ScenePhysicsCategory.Projectile
+        projectile.physicsBody?.contactTestBitMask = ScenePhysicsCategory.Monster
+        projectile.physicsBody?.collisionBitMask = ScenePhysicsCategory.None
         projectile.physicsBody?.usesPreciseCollisionDetection = true
         
         // 3 - Determine offset of location to projectile
@@ -205,11 +199,11 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         print("Hit")
         projectile.removeFromParent()
         monster.removeFromParent()
-        newPlayer.decrementMonstersLeft()
-        newPlayer.incrementMonsterCount()
-        self.monstersLeftLabel.text = "asteroids left: \(self.newPlayer.monstersLeftForLevel)"
+        player.decrementMonstersLeft()
+        player.incrementMonsterCount()
+        self.monstersLeftLabel.text = "asteroids left: \(self.player.monstersLeftForLevel)"
         explosion(position: monster.position)
-        if (newPlayer.monstersLeftForLevel == 0) {
+        if (player.monstersLeftForLevel == 0) {
             let levelService: LevelService = LevelService.sharedInstance
             
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
@@ -237,8 +231,8 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         }
         
         // 2
-        if ((firstBody.categoryBitMask & PhysicsCategory.Monster != 0) &&
-            (secondBody.categoryBitMask & PhysicsCategory.Projectile != 0)) {
+        if ((firstBody.categoryBitMask & ScenePhysicsCategory.Monster != 0) &&
+            (secondBody.categoryBitMask & ScenePhysicsCategory.Projectile != 0)) {
             if let monster = firstBody.node as? SKSpriteNode, let
                 projectile = secondBody.node as? SKSpriteNode {
                 projectileDidCollideWithMonster(projectile: projectile, monster: monster)

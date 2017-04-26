@@ -34,11 +34,11 @@ import SpriteKit
 //
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var newPlayer: Player = Player.sharedInstance
+    var player: Player = Player.sharedInstance
     
     
     // 1
-    let player = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
+    let playerSprite = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
     let background = SKSpriteNode(imageNamed: "earthDefenderbackground")
     let livesLabel: SKLabelNode = SKLabelNode()
     let monstersLeftLabel: SKLabelNode = SKLabelNode()
@@ -46,15 +46,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
-        newPlayer.monstersLeftForLevel = 25
+        player.monstersLeftForLevel = 25
         
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
         // 2
         backgroundColor = SKColor.white
         // 3
-        player.xScale = 0.4
-        player.yScale = 0.4
+        playerSprite.xScale = 0.4
+        playerSprite.yScale = 0.4
         
         background.xScale = 0.9
         background.yScale = 1.3
@@ -62,24 +62,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.position = CGPoint(x: size.width * 0.3, y: size.height * 0.5)
         background.zPosition = 1
         
-        player.position = CGPoint(x: size.width * 0.5, y: size.height * 0.18)
-        player.zPosition = background.zPosition + 1
+        playerSprite.position = CGPoint(x: size.width * 0.5, y: size.height * 0.18)
+        playerSprite.zPosition = background.zPosition + 1
         // 4
         
         livesLabel.position = CGPoint(x: 70, y: 630)
         livesLabel.zPosition = 100
-        livesLabel.text = "lives: \(newPlayer.lives)"
+        livesLabel.text = "lives: \(player.lives)"
         livesLabel.fontColor = UIColor.red
         livesLabel.fontSize = 25
         
         monstersLeftLabel.position = CGPoint(x: 270, y: 630)
         monstersLeftLabel.zPosition = 100
-        monstersLeftLabel.text = "asteroids left: \(newPlayer.monstersLeftForLevel)"
+        monstersLeftLabel.text = "asteroids left: \(player.monstersLeftForLevel)"
         monstersLeftLabel.fontColor = UIColor.green
         monstersLeftLabel.fontSize = 25
         
         addChild(background)
-        addChild(player)
+        addChild(playerSprite)
         addChild(livesLabel)
         addChild(monstersLeftLabel)
         
@@ -124,12 +124,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         
         let loseAction = SKAction.run() {
-            self.newPlayer.decrementLives()
-            self.livesLabel.text = "lives: \(self.newPlayer.lives)"
+            self.player.decrementLives()
+            self.livesLabel.text = "lives: \(self.player.lives)"
             
             
             
-            if self.newPlayer.lives <= 0 {
+            if self.player.lives <= 0 {
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
                 let gameScene = GameOverScene(size: self.size)
                 self.view?.presentScene(gameScene, transition: reveal)
@@ -150,7 +150,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // 2 - Set up initial location of projectile
         let projectile = SKSpriteNode(imageNamed: "earthDefenderlazerCircle")
-        projectile.position = player.position
+        projectile.position = playerSprite.position
         
         projectile.zPosition = background.zPosition + 1
         projectile.xScale = 0.15
@@ -193,11 +193,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("Hit")
         projectile.removeFromParent()
         monster.removeFromParent()
-        newPlayer.decrementMonstersLeft()
-        newPlayer.incrementMonsterCount()
-        self.monstersLeftLabel.text = "asteroids left: \(self.newPlayer.monstersLeftForLevel)"
+        player.decrementMonstersLeft()
+        player.incrementMonsterCount()
+        self.monstersLeftLabel.text = "asteroids left: \(self.player.monstersLeftForLevel)"
         explosion(position: monster.position)
-        if (newPlayer.monstersLeftForLevel == 0) {
+        if (player.monstersLeftForLevel == 0) {
             let levelService: LevelService = LevelService.sharedInstance
             
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
