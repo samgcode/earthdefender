@@ -9,9 +9,11 @@
 import Foundation
 import SpriteKit
 
-struct Monster {
-    func createMonsterNode(position: CGPoint, spritename: String) -> SKSpriteNode {
-        let monster = SKSpriteNode(imageNamed: spritename)
+class Monster: SKSpriteNode {
+    init (position: CGPoint, spriteName: String) {
+        let texture = SKTexture(imageNamed: spriteName)
+        super.init(texture: texture, color: UIColor.clear, size: texture.size())
+        let monster = self
         monster.physicsBody = SKPhysicsBody(rectangleOf: monster.size) // 1
         monster.physicsBody?.isDynamic = true // 2
         monster.physicsBody?.categoryBitMask = ScenePhysicsCategory.Monster // 3
@@ -25,6 +27,9 @@ struct Monster {
         monster.xScale = 0.3
         monster.yScale = 0.3
         
-        return monster
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

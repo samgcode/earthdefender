@@ -113,11 +113,9 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     }
     
     func addMonster() {
-        
-        let monster: Monster = Monster()
         let actualY = size.height
         let actualX = random(min: 1, max: 350)
-        let monsterNode = monster.createMonsterNode(position: CGPoint(x: actualX, y: actualY), spritename: "EarthDefenderAsteroid2")
+        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), spriteName: "EarthDefenderAsteroid2")
         monsterNode.zPosition = background.zPosition + 1
         
         // Add the monster to the scene
