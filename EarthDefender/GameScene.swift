@@ -189,12 +189,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func projectileDidCollideWithMonster(projectile: SKSpriteNode, monster: SKSpriteNode) {
         print("Hit")
+        
+        let actualY = size.height
+        let actualX = random(min: 1, max: 350)
+        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), spriteName: "EarthDefenderasteroid")
+        monsterNode.zPosition = background.zPosition + 1
+        monsterNode.decrementLives()
         projectile.removeFromParent()
-        monster.removeFromParent()
-        player.decrementMonstersLeft()
-        player.incrementMonsterCount()
         self.monstersLeftLabel.text = "asteroids left: \(self.player.monstersLeftForLevel)"
         explosion(position: monster.position)
+        player.decrementMonstersLeft()
+        player.incrementMonsterCount()
+
+        if monsterNode.lives >= 0 {
+              monster.removeFromParent()
+        }
+        
         if (player.monstersLeftForLevel == 0) {
             let levelService: LevelService = LevelService.sharedInstance
             
