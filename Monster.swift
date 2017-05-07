@@ -14,8 +14,9 @@ class Monster: SKSpriteNode {
     private (set) var lives: Int
     var player: Player = Player.sharedInstance
     
-    init (position: CGPoint, spriteName: String) {
-        self.lives = 1
+    init (position: CGPoint, monsterType: MonsterType) {
+        self.lives = getLives(for: monsterType)
+        let spriteName = fileName(for: monsterType)
         let texture = SKTexture(imageNamed: spriteName)
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
         let monster = self
@@ -32,10 +33,6 @@ class Monster: SKSpriteNode {
         monster.xScale = 0.3
         monster.yScale = 0.3
         
-//        if lives <= 0 {
-//            player.decrementMonstersLeft()
-//            player.incrementMonsterCount()
-//        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,6 +42,8 @@ class Monster: SKSpriteNode {
     func decrementLives() {
         lives -= 1
     }
+   
+    
     
 }
 

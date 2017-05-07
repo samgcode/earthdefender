@@ -115,7 +115,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     func addMonster() {
         let actualY = size.height
         let actualX = random(min: 1, max: 350)
-        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), spriteName: "EarthDefenderAsteroid2")
+        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: .asteroid)
         monsterNode.zPosition = background.zPosition + 1
         
         // Add the monster to the scene
@@ -193,21 +193,15 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         projectile.run(SKAction.sequence([actionMove, actionMoveDone]))
         
     }
-    func projectileDidCollideWithMonster(projectile: SKSpriteNode, monster: SKSpriteNode) {
-        print("Hit")
-        
-        let actualY = size.height
-        let actualX = random(min: 1, max: 350)
-        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), spriteName: "EarthDefenderAsteroid2")
-        monsterNode.zPosition = background.zPosition + 1
-        monsterNode.decrementLives()
+    func projectileDidCollideWithMonster(projectile: SKSpriteNode, monster: Monster) {
+        monster.decrementLives()
         projectile.removeFromParent()
         self.monstersLeftLabel.text = "asteroids left: \(self.player.monstersLeftForLevel)"
         explosion(position: monster.position)
         player.decrementMonstersLeft()
         player.incrementMonsterCount()
         
-        if monsterNode.lives >= 0 {
+        if monster.lives <= 0 {
             monster.removeFromParent()
         }
         
@@ -241,7 +235,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         // 2
         if ((firstBody.categoryBitMask & ScenePhysicsCategory.Monster != 0) &&
             (secondBody.categoryBitMask & ScenePhysicsCategory.Projectile != 0)) {
-            if let monster = firstBody.node as? SKSpriteNode, let
+            if let monster = firstBody.node as? Monster, let
                 projectile = secondBody.node as? SKSpriteNode {
                 projectileDidCollideWithMonster(projectile: projectile, monster: monster)
                 

@@ -23,6 +23,7 @@
 		0E96428A1E7D98B200FAB0F9 /* FireWork.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0E9642891E7D98B200FAB0F9 /* FireWork.sks */; };
 		0E96428C1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96428B1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift */; };
 		0EA372CF1E81FB260076282F /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA372CE1E81FB260076282F /* Level2.swift */; };
+		0EB0997E1EBF855D00E91C24 /* MonsterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0997D1EBF855D00E91C24 /* MonsterType.swift */; };
 		0EBC8A021E80AA0A00EEFFF9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC8A011E80AA0A00EEFFF9 /* Player.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		0E9642891E7D98B200FAB0F9 /* FireWork.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireWork.sks; sourceTree = "<group>"; };
 		0E96428B1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCompleteScene.swift; sourceTree = "<group>"; };
 		0EA372CE1E81FB260076282F /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
+		0EB0997D1EBF855D00E91C24 /* MonsterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterType.swift; sourceTree = "<group>"; };
 		0EBC8A011E80AA0A00EEFFF9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				0E06ECEB1E760F1000686674 /* hud.swift */,
 				0EBC8A011E80AA0A00EEFFF9 /* Player.swift */,
 				0E13C48D1E90013A00FC5F30 /* Monster.swift */,
+				0EB0997D1EBF855D00E91C24 /* MonsterType.swift */,
 				0E88AC251E914C4D00B7E3DB /* LevelService.swift */,
 				0E9392D31EA3E3870061AD66 /* ScenePhysicsCategory.swift */,
 				0E06ECF31E762D8500686674 /* Explosion.sks */,
@@ -178,6 +181,7 @@
 				0E06ECEF1E760F4300686674 /* GameOverScene.swift in Sources */,
 				0E88AC261E914C4D00B7E3DB /* LevelService.swift in Sources */,
 				0E13C48E1E90013A00FC5F30 /* Monster.swift in Sources */,
+				0EB0997E1EBF855D00E91C24 /* MonsterType.swift in Sources */,
 				05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */,
 				0E96428C1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift in Sources */,
 				0E06ECEC1E760F1000686674 /* hud.swift in Sources */,
