@@ -26,3 +26,10 @@ func getLives(for monsterType: MonsterType) -> Int {
     case .asteroid: return 2
     }
 }
+
+func getSpeed(for monsterType: MonsterType) -> Double {
+    switch monsterType {
+    case .commet: return 5.0
+    case .asteroid: return 6.0
+    }
+}

@@ -26,6 +26,9 @@
 		0EB0997E1EBF855D00E91C24 /* MonsterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0997D1EBF855D00E91C24 /* MonsterType.swift */; };
 		0EBC8A021E80AA0A00EEFFF9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC8A011E80AA0A00EEFFF9 /* Player.swift */; };
 		0ECB239D1EC914BA00BE6F7B /* lazersound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB239C1EC914BA00BE6F7B /* lazersound.m4a */; };
+		0ECB23A01EC917DA00BE6F7B /* AssetCredits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB239E1EC917DA00BE6F7B /* AssetCredits.txt */; };
+		0ECB23A11EC917DA00BE6F7B /* Features.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB239F1EC917DA00BE6F7B /* Features.txt */; };
+		0ECB23A31EC9186F00BE6F7B /* BackgroundMusic.aac in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB23A21EC9186F00BE6F7B /* BackgroundMusic.aac */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		0EB0997D1EBF855D00E91C24 /* MonsterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterType.swift; sourceTree = "<group>"; };
 		0EBC8A011E80AA0A00EEFFF9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0ECB239C1EC914BA00BE6F7B /* lazersound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = lazersound.m4a; sourceTree = "<group>"; };
+		0ECB239E1EC917DA00BE6F7B /* AssetCredits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AssetCredits.txt; sourceTree = "<group>"; };
+		0ECB239F1EC917DA00BE6F7B /* Features.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Features.txt; sourceTree = "<group>"; };
+		0ECB23A21EC9186F00BE6F7B /* BackgroundMusic.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundMusic.aac; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,8 @@
 		05AFD32C1E75FE7E001B2FC4 /* EarthDefender */ = {
 			isa = PBXGroup;
 			children = (
+				0ECB239E1EC917DA00BE6F7B /* AssetCredits.txt */,
+				0ECB239F1EC917DA00BE6F7B /* Features.txt */,
 				05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */,
 				05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */,
 				0E06ECEE1E760F4300686674 /* TitleScene.swift */,
@@ -98,6 +106,7 @@
 				0E06ECF31E762D8500686674 /* Explosion.sks */,
 				0E9642891E7D98B200FAB0F9 /* FireWork.sks */,
 				0ECB239C1EC914BA00BE6F7B /* lazersound.m4a */,
+				0ECB23A21EC9186F00BE6F7B /* BackgroundMusic.aac */,
 				05AFD3371E75FE7E001B2FC4 /* Main.storyboard */,
 				05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */,
 				05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */,
@@ -166,9 +175,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E96428A1E7D98B200FAB0F9 /* FireWork.sks in Resources */,
+				0ECB23A11EC917DA00BE6F7B /* Features.txt in Resources */,
 				05AFD3391E75FE7E001B2FC4 /* Main.storyboard in Resources */,
 				05AFD33B1E75FE7E001B2FC4 /* Assets.xcassets in Resources */,
+				0ECB23A01EC917DA00BE6F7B /* AssetCredits.txt in Resources */,
 				0ECB239D1EC914BA00BE6F7B /* lazersound.m4a in Resources */,
+				0ECB23A31EC9186F00BE6F7B /* BackgroundMusic.aac in Resources */,
 				0E06ECF41E762D8500686674 /* Explosion.sks in Resources */,
 				05AFD33E1E75FE7E001B2FC4 /* LaunchScreen.storyboard in Resources */,
 			);

@@ -89,7 +89,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 SKAction.wait(forDuration: 1.0)
                 ])
         ))
-        let backgroundMusic = SKAudioNode(fileNamed: "background-music-aac.caf")
+        let backgroundMusic = SKAudioNode(fileNamed: "BackgroundMusic.aac")
         backgroundMusic.autoplayLooped = true
         addChild(backgroundMusic)
         
@@ -114,7 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(monsterNode)
         
         // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(4.0))
+        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(getSpeed(for: .commet)))
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
