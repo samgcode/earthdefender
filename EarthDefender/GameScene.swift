@@ -35,7 +35,16 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var player: Player = Player.sharedInstance
+    private (set) var monsterType: MonsterType
     
+    init(monster: MonsterType, size: CGSize) {
+        monsterType = monster
+        super.init(size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // 1
     let playerSprite = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
@@ -107,14 +116,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addMonster() {
         let actualY = size.height
         let actualX = random(min: 1, max: 350)
-        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: .commet)
+        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: monsterType)
         monsterNode.zPosition = background.zPosition + 1
         
         // Add the monster to the scene
         addChild(monsterNode)
         
         // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(getSpeed(for: .commet)))
+        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(getSpeed(for: monsterType)))
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))

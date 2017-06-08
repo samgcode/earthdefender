@@ -122,7 +122,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         addChild(monsterNode)
         
         // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(1.5), max: CGFloat(3.0))
+        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(getSpeed(for: .asteroid)))
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
