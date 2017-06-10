@@ -36,9 +36,11 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var player: Player = Player.sharedInstance
     private (set) var monsterType: MonsterType
+    private (set) var numberOfMonsters: Int
     
-    init(monster: MonsterType, size: CGSize) {
+    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int) {
         monsterType = monster
+        self.numberOfMonsters = numberOfMonsters
         super.init(size: size)
     }
     
@@ -83,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         monstersLeftLabel.position = CGPoint(x: 270, y: 630)
         monstersLeftLabel.zPosition = 100
-        monstersLeftLabel.text = "asteroids left: \(player.monstersLeftForLevel)"
+        monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
         monstersLeftLabel.fontColor = UIColor.green
         monstersLeftLabel.fontSize = 25
         
@@ -199,16 +201,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func projectileDidCollideWithMonster(projectile: SKSpriteNode, monster: Monster) {
         monster.decrementLives()
         projectile.removeFromParent()
-        self.monstersLeftLabel.text = "asteroids left: \(self.player.monstersLeftForLevel)"
         explosion(position: monster.position)
-        player.decrementMonstersLeft()
-        player.incrementMonsterCount()
+        
 
         if monster.lives <= 0 {
               monster.removeFromParent()
+            player.incrementMonsterCount()
+            numberOfMonsters -= 1
+            self.monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
         }
         
-        if (player.monstersLeftForLevel == 0) {
+        if (numberOfMonsters == 0) {
             let levelService: LevelService = LevelService.sharedInstance
             
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)

@@ -26,11 +26,11 @@ class LevelService {
         curentLevel += 1
 
         if curentLevel == 2 {
-            return GameScene.init(monster: .asteroid, size: size)
+            return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: 30)
         } else if curentLevel == 3 {
-            return GameScene.init(monster: .spaceship, size: size)
+            return GameScene.init(monster: .spaceship, size: size, numberOfMonsters: 35)
         } else {
-        return GameScene.init(monster: .commet, size: size)
+        return GameScene.init(monster: .commet, size: size, numberOfMonsters: 25)
       }
     }
     func loadLevelComplete(size: CGSize) -> SKScene {
