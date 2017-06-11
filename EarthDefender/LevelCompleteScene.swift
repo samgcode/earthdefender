@@ -12,7 +12,9 @@ import SpriteKit
 class LevelCompleteScene: SKScene {
 
     var levelNumberLabel: SKLabelNode = SKLabelNode()
+    var monstersKilledLabel: SKLabelNode = SKLabelNode()
     let background = SKSpriteNode(imageNamed: "EarthDefenderLevelCompleteScene")
+    var player: Player = Player.sharedInstance
     private let level: Int
     
     init(size: CGSize, level: Int) {
@@ -38,7 +40,14 @@ class LevelCompleteScene: SKScene {
         levelNumberLabel.position = CGPoint(x: 110, y: 70)
         levelNumberLabel.fontColor = UIColor.yellow
         levelNumberLabel.fontSize = 50
+        
+        monstersKilledLabel.text = "monsters killed: \(player.totalMonstersKilled)"
+        monstersKilledLabel.zPosition = 100
+        monstersKilledLabel.position = CGPoint(x: 180, y: 300)
+        monstersKilledLabel.fontColor = UIColor.red
+        monstersKilledLabel.fontSize = 45
     
+        addChild(monstersKilledLabel)
         addChild(levelNumberLabel)
         addChild(background)
         fireWork(position: CGPoint(x: 100, y: 200))
