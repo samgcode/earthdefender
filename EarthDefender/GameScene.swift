@@ -35,12 +35,16 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var player: Player = Player.sharedInstance
+    let background: SKSpriteNode
     private (set) var monsterType: MonsterType
     private (set) var numberOfMonsters: Int
     
-    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int) {
+    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType) {
         monsterType = monster
         self.numberOfMonsters = numberOfMonsters
+        self.background = SKSpriteNode(imageNamed: fileName(for: backgroundType))
+        background.xScale = xSize(for: backgroundType)
+        background.yScale = ySize(for: backgroundType)
         super.init(size: size)
     }
     
@@ -50,7 +54,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // 1
     let playerSprite = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
-    let background = SKSpriteNode(imageNamed: "earthDefenderbackground")
     let livesLabel: SKLabelNode = SKLabelNode()
     let monstersLeftLabel: SKLabelNode = SKLabelNode()
 
@@ -67,9 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerSprite.xScale = 0.4
         playerSprite.yScale = 0.4
         
-        background.xScale = 0.9
-        background.yScale = 1.3
-        
+       
         background.position = CGPoint(x: size.width * 0.3, y: size.height * 0.5)
         background.zPosition = 1
         
