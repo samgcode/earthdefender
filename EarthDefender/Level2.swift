@@ -44,17 +44,32 @@ extension CGPoint {
 
 class Level2: SKScene, SKPhysicsContactDelegate {
     var player: Player = Player.sharedInstance
+    let background: SKSpriteNode
+    private (set) var monsterType: MonsterType
+    private (set) var numberOfMonsters: Int
+    
+    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType) {
+        monsterType = monster
+        self.numberOfMonsters = numberOfMonsters
+        self.background = SKSpriteNode(imageNamed: fileName(for: backgroundType))
+        background.xScale = xSize(for: backgroundType)
+        background.yScale = ySize(for: backgroundType)
+        super.init(size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // 1
     let playerSprite = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
-    let background = SKSpriteNode(imageNamed: "earthDefenderbackground")
     let livesLabel: SKLabelNode = SKLabelNode()
     let monstersLeftLabel: SKLabelNode = SKLabelNode()
     
+    
     override func didMove(to view: SKView) {
         
-        player.monstersLeftForLevel = 30
-        player.incrementLives()
+        player.monstersLeftForLevel = 25
         
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
@@ -64,8 +79,6 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         playerSprite.xScale = 0.4
         playerSprite.yScale = 0.4
         
-        background.xScale = 0.9
-        background.yScale = 1.3
         
         background.position = CGPoint(x: size.width * 0.3, y: size.height * 0.5)
         background.zPosition = 1
@@ -82,7 +95,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         
         monstersLeftLabel.position = CGPoint(x: 270, y: 630)
         monstersLeftLabel.zPosition = 100
-        monstersLeftLabel.text = "asteroids left: \(player.monstersLeftForLevel)"
+        monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
         monstersLeftLabel.fontColor = UIColor.green
         monstersLeftLabel.fontSize = 25
         
@@ -90,14 +103,14 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         addChild(playerSprite)
         addChild(livesLabel)
         addChild(monstersLeftLabel)
+        addMonster()
         
-               run(SKAction.repeatForever(
+        run(SKAction.repeatForever(
             SKAction.sequence([
-                SKAction.run(addMonster),
-                SKAction.wait(forDuration: 1.0)
+            SKAction.wait(forDuration: 1.0)
                 ])
         ))
-        let backgroundMusic = SKAudioNode(fileNamed: "background-music-aac.caf")
+        let backgroundMusic = SKAudioNode(fileNamed: "BackgroundMusic.aac")
         backgroundMusic.autoplayLooped = true
         addChild(backgroundMusic)
         
@@ -114,15 +127,15 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     
     func addMonster() {
         let actualY = size.height
-        let actualX = random(min: 1, max: 350)
-        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: .asteroid)
+        let actualX = size.width / 2
+        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: monsterType)
         monsterNode.zPosition = background.zPosition + 1
         
         // Add the monster to the scene
         addChild(monsterNode)
         
         // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(2.0), max: CGFloat(getSpeed(for: .asteroid)))
+        let actualDuration = random(min: CGFloat(8.0), max: CGFloat(getSpeed(for: monsterType)))
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
@@ -143,9 +156,10 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         }
         monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
     }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        run(SKAction.playSoundFileNamed("pew-pew-lei.caf", waitForCompletion: false))
+        run(SKAction.playSoundFileNamed("lazersound.m4a", waitForCompletion: false))
         
         // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
@@ -193,32 +207,29 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         projectile.run(SKAction.sequence([actionMove, actionMoveDone]))
         
     }
+    
     func projectileDidCollideWithMonster(projectile: SKSpriteNode, monster: Monster) {
         monster.decrementLives()
         projectile.removeFromParent()
-        self.monstersLeftLabel.text = "asteroids left: \(self.player.monstersLeftForLevel)"
         explosion(position: monster.position)
-        player.decrementMonstersLeft()
-        player.incrementMonsterCount()
+        
         
         if monster.lives <= 0 {
             monster.removeFromParent()
+            player.incrementMonsterCount()
+            numberOfMonsters -= 1
+            self.monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
         }
         
-        if (player.monstersLeftForLevel == 0) {
+        if (numberOfMonsters == 0) {
             let levelService: LevelService = LevelService.sharedInstance
             
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameScene =  levelService.loadLevelComplete(size: self.size)
-
+            let gameScene = levelService.loadLevelComplete(size: self.size)
             self.view?.presentScene(gameScene, transition: reveal)
-            
-            //            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            //            let gameOverScene = GameOverScene(size: self.size, won: true)
-            //            self.view?.presentScene(gameOverScene, transition: reveal)
-            
         }
     }
+    
     func didBegin(_ contact: SKPhysicsContact) {
         
         // 1

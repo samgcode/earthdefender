@@ -12,6 +12,8 @@ enum MonsterType: Int {
     case commet
     case asteroid
     case spaceship
+    case commetBoss
+    case asteroidBoss
 }
 
 func fileName(for monsterType: MonsterType) -> String {
@@ -19,6 +21,8 @@ func fileName(for monsterType: MonsterType) -> String {
     case .commet: return "EarthDefenderasteroid"
     case .asteroid: return "EarthDefenderAsteroid2"
     case .spaceship: return "EarthDefenderAsteroid3"
+    case .commetBoss: return "EarthDefenderCommetBoss"
+    case .asteroidBoss: return "EarthDefenderAsteroid2"
     }
 }
 
@@ -27,13 +31,17 @@ func getLives(for monsterType: MonsterType) -> Int {
     case .commet: return 1
     case .asteroid: return 1
     case .spaceship: return 2
+    case .commetBoss: return 10
+    case .asteroidBoss: return 15
     }
 }
 
 func getSpeed(for monsterType: MonsterType) -> Double {
     switch monsterType {
-    case .commet: return 5.0
+    case .commet: return 7.0
     case .asteroid: return 6.0
-    case .spaceship: return 7.0
+    case .spaceship: return 5.0
+    case .commetBoss: return 8.0
+    case .asteroidBoss: return 8.5
     }
 }

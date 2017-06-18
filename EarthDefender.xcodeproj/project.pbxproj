@@ -26,6 +26,7 @@
 		0EA4DA1F1EED8F7F00F4BD4C /* BackgroundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4DA1E1EED8F7F00F4BD4C /* BackgroundType.swift */; };
 		0EB0997E1EBF855D00E91C24 /* MonsterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0997D1EBF855D00E91C24 /* MonsterType.swift */; };
 		0EBC8A021E80AA0A00EEFFF9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC8A011E80AA0A00EEFFF9 /* Player.swift */; };
+		0EBE07401EF6D0EA00C78817 /* BossType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE073F1EF6D0EA00C78817 /* BossType.swift */; };
 		0ECB239D1EC914BA00BE6F7B /* lazersound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB239C1EC914BA00BE6F7B /* lazersound.m4a */; };
 		0ECB23A01EC917DA00BE6F7B /* AssetCredits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB239E1EC917DA00BE6F7B /* AssetCredits.txt */; };
 		0ECB23A11EC917DA00BE6F7B /* Features.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB239F1EC917DA00BE6F7B /* Features.txt */; };
@@ -54,6 +55,7 @@
 		0EA4DA1E1EED8F7F00F4BD4C /* BackgroundType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundType.swift; sourceTree = "<group>"; };
 		0EB0997D1EBF855D00E91C24 /* MonsterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterType.swift; sourceTree = "<group>"; };
 		0EBC8A011E80AA0A00EEFFF9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0EBE073F1EF6D0EA00C78817 /* BossType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BossType.swift; sourceTree = "<group>"; };
 		0ECB239C1EC914BA00BE6F7B /* lazersound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = lazersound.m4a; sourceTree = "<group>"; };
 		0ECB239E1EC917DA00BE6F7B /* AssetCredits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AssetCredits.txt; sourceTree = "<group>"; };
 		0ECB239F1EC917DA00BE6F7B /* Features.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Features.txt; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				0EBC8A011E80AA0A00EEFFF9 /* Player.swift */,
 				0562BD871EBF9B86003D3D38 /* Monster.swift */,
 				0EB0997D1EBF855D00E91C24 /* MonsterType.swift */,
+				0EBE073F1EF6D0EA00C78817 /* BossType.swift */,
 				0EA4DA1E1EED8F7F00F4BD4C /* BackgroundType.swift */,
 				0E88AC251E914C4D00B7E3DB /* LevelService.swift */,
 				0E9392D31EA3E3870061AD66 /* ScenePhysicsCategory.swift */,
@@ -199,6 +202,7 @@
 				0EA372CF1E81FB260076282F /* Level2.swift in Sources */,
 				0E06ECEF1E760F4300686674 /* GameOverScene.swift in Sources */,
 				0E88AC261E914C4D00B7E3DB /* LevelService.swift in Sources */,
+				0EBE07401EF6D0EA00C78817 /* BossType.swift in Sources */,
 				0EB0997E1EBF855D00E91C24 /* MonsterType.swift in Sources */,
 				05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */,
 				0E96428C1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift in Sources */,
