@@ -46,13 +46,13 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     var player: Player = Player.sharedInstance
     let background: SKSpriteNode
     private (set) var monsterType: MonsterType
-    private (set) var numberOfMonsters: Int
     private (set) var bossType: MonsterType
+    private (set) var bossLives: Int
     
-    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType, boss: MonsterType) {
+    init(monster: MonsterType, size: CGSize, backgroundType: BackgroundType, boss: MonsterType) {
         monsterType = monster
         bossType = boss
-        self.numberOfMonsters = numberOfMonsters
+        bossLives = getLives(for: bossType)
         self.background = SKSpriteNode(imageNamed: fileName(for: backgroundType))
         background.xScale = xSize(for: backgroundType)
         background.yScale = ySize(for: backgroundType)
@@ -66,7 +66,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     // 1
     let playerSprite = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
     let livesLabel: SKLabelNode = SKLabelNode()
-    let monstersLeftLabel: SKLabelNode = SKLabelNode()
+    let bossHealth: SKLabelNode = SKLabelNode()
     
     
     override func didMove(to view: SKView) {
@@ -95,16 +95,16 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         livesLabel.fontColor = UIColor.red
         livesLabel.fontSize = 25
         
-//        monstersLeftLabel.position = CGPoint(x: 270, y: 630)
-//        monstersLeftLabel.zPosition = 100
-//        monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
-//        monstersLeftLabel.fontColor = UIColor.green
-//        monstersLeftLabel.fontSize = 25
+        bossHealth.position = CGPoint(x: 270, y: 630)
+        bossHealth.zPosition = 100
+        bossHealth.text = "boss health: \(bossLives)"
+        bossHealth.fontColor = UIColor.green
+        bossHealth.fontSize = 25
         
         addChild(background)
         addChild(playerSprite)
         addChild(livesLabel)
-        addChild(monstersLeftLabel)
+        addChild(bossHealth)
         addBoss()
         
         run(SKAction.repeatForever(
@@ -138,7 +138,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         addChild(monsterNode)
         
         // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(7.0), max: CGFloat(getSpeed(for: monsterType)))
+        let actualDuration = random(min: CGFloat(1.5), max: CGFloat(getSpeed(for: monsterType)))
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
@@ -248,16 +248,16 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         monster.decrementLives()
         projectile.removeFromParent()
         explosion(position: monster.position)
-        
+        bossLives -= 1
+        bossHealth.text = "boss health: \(bossLives)"
+
         
         if monster.lives <= 0 {
             monster.removeFromParent()
             player.incrementMonsterCount()
-            numberOfMonsters -= 1
-            self.monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
         }
         
-        if (numberOfMonsters == 0) {
+        if (bossLives == 0) {
             let levelService: LevelService = LevelService.sharedInstance
             
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
