@@ -47,9 +47,11 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     let background: SKSpriteNode
     private (set) var monsterType: MonsterType
     private (set) var numberOfMonsters: Int
+    private (set) var bossType: MonsterType
     
-    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType) {
+    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType, boss: MonsterType) {
         monsterType = monster
+        bossType = boss
         self.numberOfMonsters = numberOfMonsters
         self.background = SKSpriteNode(imageNamed: fileName(for: backgroundType))
         background.xScale = xSize(for: backgroundType)
@@ -93,21 +95,22 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         livesLabel.fontColor = UIColor.red
         livesLabel.fontSize = 25
         
-        monstersLeftLabel.position = CGPoint(x: 270, y: 630)
-        monstersLeftLabel.zPosition = 100
-        monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
-        monstersLeftLabel.fontColor = UIColor.green
-        monstersLeftLabel.fontSize = 25
+//        monstersLeftLabel.position = CGPoint(x: 270, y: 630)
+//        monstersLeftLabel.zPosition = 100
+//        monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
+//        monstersLeftLabel.fontColor = UIColor.green
+//        monstersLeftLabel.fontSize = 25
         
         addChild(background)
         addChild(playerSprite)
         addChild(livesLabel)
         addChild(monstersLeftLabel)
-        addMonster()
+        addBoss()
         
         run(SKAction.repeatForever(
             SKAction.sequence([
-            SKAction.wait(forDuration: 1.0)
+                SKAction.run(addMonster),
+                SKAction.wait(forDuration: 2.0)
                 ])
         ))
         let backgroundMusic = SKAudioNode(fileNamed: "BackgroundMusic.aac")
@@ -127,7 +130,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     
     func addMonster() {
         let actualY = size.height
-        let actualX = size.width / 2
+        let actualX = random(min: 1, max: 350)
         let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: monsterType)
         monsterNode.zPosition = background.zPosition + 1
         
@@ -135,7 +138,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         addChild(monsterNode)
         
         // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(8.0), max: CGFloat(getSpeed(for: monsterType)))
+        let actualDuration = random(min: CGFloat(7.0), max: CGFloat(getSpeed(for: monsterType)))
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
@@ -157,6 +160,39 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
     }
     
+    func addBoss() {
+        let actualY = size.height
+        let actualX = size.width / 2
+        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: bossType)
+        monsterNode.zPosition = background.zPosition + 1
+        
+        // Add the monster to the scene
+        addChild(monsterNode)
+        
+        // Determine speed of the monster
+        let actualDuration = random(min: CGFloat(8.0), max: CGFloat(getSpeed(for: bossType)))
+        
+        // Create the actions
+        let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
+        
+        let actionMoveDone = SKAction.removeFromParent()
+        
+        let loseAction = SKAction.run() {
+            self.player.decrementLives()
+            self.livesLabel.text = "lives: \(self.player.lives)"
+            
+            
+            
+            if self.player.lives <= 0 {
+                let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+                let gameScene = GameOverScene(size: self.size)
+                self.view?.presentScene(gameScene, transition: reveal)
+            }
+        }
+        monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
+    }
+
+   
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         run(SKAction.playSoundFileNamed("lazersound.m4a", waitForCompletion: false))
