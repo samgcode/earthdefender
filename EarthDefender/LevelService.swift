@@ -12,11 +12,12 @@ import SpriteKit
 class LevelService {
     static let sharedInstance = LevelService()
     private(set) var curentLevel: Int
-    
+    var monsterCount: Int
     var player: Player = Player.sharedInstance
     
     init() {
         self.curentLevel = 0
+        monsterCount = 0
     }
     
     
@@ -28,37 +29,55 @@ class LevelService {
         curentLevel += 1
         player.incrementLives()
 
+        
         if curentLevel == 2 {
-            return GameScene.init(monster: .commet, size: size, numberOfMonsters: 30, backgroundType: .earth)
+            return GameScene.init(monster: .commet, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 3 {
-            return GameScene.init(monster: .commet, size: size, numberOfMonsters: 35, backgroundType: .earth)
+            return GameScene.init(monster: .commet, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 4 {
-            return GameScene.init(monster: .commet, size: size, numberOfMonsters: 40, backgroundType: .earth)
+            return GameScene.init(monster: .commet, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 5 {
             return Level2.init(monster: .commet, size: size, backgroundType: .earth, boss: .commetBoss)
         } else if curentLevel == 6 {
             player.incrementLives()
-            return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: 25, backgroundType: .earth)
+            return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 7 {
-            return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: 30, backgroundType: .earth)
+            return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 8 {
-            return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: 35, backgroundType: .earth)
+            return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 9 {
-            return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: 40, backgroundType: .earth)
+            return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 10 {
             return Level2.init(monster: .asteroid, size: size, backgroundType: .earth, boss: .asteroidBoss)
         } else if curentLevel == 11 {
             player.incrementLives()
-            return GameScene.init(monster: .spaceship, size: size, numberOfMonsters: 25, backgroundType: .mars)
+            return GameScene.init(monster: .spaceship, size: size, numberOfMonsters: monsterAmount(), backgroundType: .mars)
         } else {
-            return GameScene.init(monster: .commet, size: size, numberOfMonsters: 25, backgroundType: .earth)
+            return GameScene.init(monster: .commet, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
       }
     }
     func loadLevelComplete(size: CGSize) -> SKScene {
         return LevelCompleteScene(size: size, level: curentLevel)
     }
+    func monsterAmount() -> Int {
+        if (curentLevel == 1 || curentLevel == 2 || curentLevel == 3 || curentLevel == 4) {
+            monsterCount = curentLevel * 5
+            monsterCount += 20
+            return monsterCount
+            
+        } else if (curentLevel == 6 || curentLevel == 7 || curentLevel == 8 || curentLevel == 9) {
+            monsterCount = curentLevel * 5
+            monsterCount -= 5
+            return monsterCount
+        } else if (curentLevel == 11 || curentLevel == 12 || curentLevel == 13 || curentLevel == 14){
+            monsterCount = curentLevel * 5
+            monsterCount -= 30
+            return monsterCount
+        } else {
+            return 0
+        }
+    }
 }
-
 
 
 
