@@ -32,20 +32,23 @@ class LevelService {
         if (curentLevel == 1 || curentLevel == 2 || curentLevel == 3 || curentLevel == 4) {
             return GameScene.init(monster: .commet, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 5{
-            player.incrementLives()
-            return Level2.init(monster: .commet, size: size, backgroundType: .earth, boss: .commetBoss)
+            return Level2.init(monster: .commet, size: size, backgroundType: .earth, boss: .spaceshipBoss1)
         } else if (curentLevel == 6 || curentLevel == 7 || curentLevel == 8 || curentLevel == 9) {
             return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 10 {
-            player.incrementLives()
             return Level2.init(monster: .asteroid, size: size, backgroundType: .earth, boss: .asteroidBoss)
         } else if (curentLevel == 11 || curentLevel == 12 || curentLevel == 13 || curentLevel == 14) {
             return GameScene.init(monster: .spaceship, size: size, numberOfMonsters: monsterAmount(), backgroundType: .mars)
         } else if curentLevel == 15 {
-            return Level2.init(monster: .spaceship, size: size, backgroundType: .mars, boss: .spaceship)
+            return Level2.init(monster: .spaceship, size: size, backgroundType: .mars, boss: .spaceshipBoss1)
+        } else if (curentLevel == 16 || curentLevel == 17 || curentLevel == 18 || curentLevel == 19) {
+            return GameScene.init(monster: .spaceship2, size: size, numberOfMonsters: monsterAmount(), backgroundType: .mars)
+        } else if curentLevel == 20 {
+            return Level2.init(monster: .spaceship2, size: size, backgroundType: .mars, boss: .spaceshipBoss2)
         } else {
             return GameScene.init(monster: .commet, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
       }
+   
     }
     
     func loadLevelComplete(size: CGSize) -> SKScene {
@@ -55,7 +58,7 @@ class LevelService {
         if (curentLevel == 1 || curentLevel == 2 || curentLevel == 3 || curentLevel == 4) {
             monsterCount = curentLevel * 5
             monsterCount += 20
-            return monsterCount
+            return 1
             
         } else if (curentLevel == 6 || curentLevel == 7 || curentLevel == 8 || curentLevel == 9) {
             monsterCount = curentLevel * 5
@@ -64,6 +67,10 @@ class LevelService {
         } else if (curentLevel == 11 || curentLevel == 12 || curentLevel == 13 || curentLevel == 14){
             monsterCount = curentLevel * 5
             monsterCount -= 30
+            return monsterCount
+        } else if (curentLevel == 16 || curentLevel == 17 || curentLevel == 18 || curentLevel == 19) {
+            monsterCount = curentLevel * 5
+            monsterCount -= 55
             return monsterCount
         } else {
             return 0

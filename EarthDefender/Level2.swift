@@ -258,6 +258,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         }
         
         if (bossLives == 0) {
+            player.incrementLives()
             let levelService: LevelService = LevelService.sharedInstance
             
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
