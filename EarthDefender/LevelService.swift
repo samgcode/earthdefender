@@ -32,7 +32,7 @@ class LevelService {
         if (curentLevel == 1 || curentLevel == 2 || curentLevel == 3 || curentLevel == 4) {
             return GameScene.init(monster: .commet, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 5{
-            return Level2.init(monster: .commet, size: size, backgroundType: .earth, boss: .spaceshipBoss1)
+            return Level2.init(monster: .commet, size: size, backgroundType: .earth, boss: .commetBoss)
         } else if (curentLevel == 6 || curentLevel == 7 || curentLevel == 8 || curentLevel == 9) {
             return GameScene.init(monster: .asteroid, size: size, numberOfMonsters: monsterAmount(), backgroundType: .earth)
         } else if curentLevel == 10 {

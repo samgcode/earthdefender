@@ -1,0 +1,11 @@
+* Fix bug where it makes shooting sound even if you shoot behind the player
+** Change the code so you can shoot a little further back than currently
+* Fix bug where boss for level 5 does not appear
+* When you loose all of your lives
+** Add totals of monsters killed and highest level achieved
+** Add restart button
+* Change music so it does not have such a long lead in
+* Start screen should say tap screen to start
+* Maybe the boss should move back and forth instead of down
+* Need a click to email support button
+* fix screen sizes
