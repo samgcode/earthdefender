@@ -89,17 +89,19 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         playerSprite.zPosition = background.zPosition + 1
         // 4
         
-        livesLabel.position = CGPoint(x: 70, y: 630)
+        livesLabel.position = CGPoint(x: 55, y: 535)
         livesLabel.zPosition = 100
         livesLabel.text = "lives: \(player.lives)"
         livesLabel.fontColor = UIColor.red
         livesLabel.fontSize = 25
+        livesLabel.fontName = "AmericanTypewriter"
         
-        bossHealth.position = CGPoint(x: 270, y: 630)
+        bossHealth.position = CGPoint(x: 210, y: 535)
         bossHealth.zPosition = 100
         bossHealth.text = "boss health: \(bossLives)"
         bossHealth.fontColor = UIColor.green
         bossHealth.fontSize = 25
+        bossHealth.fontName = "AmericanTypewriter"
         
         addChild(background)
         addChild(playerSprite)
@@ -152,8 +154,10 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             
             
             if self.player.lives <= 0 {
+                let levelService: LevelService = LevelService.sharedInstance
+                
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = GameOverScene(size: self.size)
+                let gameScene = levelService.getGameOverScene(size: self.size)
                 self.view?.presentScene(gameScene, transition: reveal)
             }
         }
@@ -184,18 +188,17 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             
             
             if self.player.lives <= 0 {
+                let levelService: LevelService = LevelService.sharedInstance
+                
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = GameOverScene(size: self.size)
-                self.view?.presentScene(gameScene, transition: reveal)
-            }
+                let gameScene = levelService.getGameOverScene(size: self.size)
+                self.view?.presentScene(gameScene, transition: reveal)            }
         }
         monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
     }
 
    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        run(SKAction.playSoundFileNamed("lazersound.m4a", waitForCompletion: false))
         
         // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
@@ -223,7 +226,9 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         let offset = touchLocation - projectile.position
         
         // 4 - Bail out if you are shooting down or backwards
-        if (offset.y < size.height * 0.15) { return }
+        if (offset.y < size.height * 0.005) { return }
+        
+        run(SKAction.playSoundFileNamed("lazersound.m4a", waitForCompletion: false))
         
         // 5 - OK to add now - you've double checked position
         addChild(projectile)

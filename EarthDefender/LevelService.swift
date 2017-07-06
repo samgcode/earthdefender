@@ -58,7 +58,7 @@ class LevelService {
         if (curentLevel == 1 || curentLevel == 2 || curentLevel == 3 || curentLevel == 4) {
             monsterCount = curentLevel * 5
             monsterCount += 20
-            return 1
+            return monsterCount
             
         } else if (curentLevel == 6 || curentLevel == 7 || curentLevel == 8 || curentLevel == 9) {
             monsterCount = curentLevel * 5
@@ -75,6 +75,10 @@ class LevelService {
         } else {
             return 0
         }
+    }
+
+    func getGameOverScene(size: CGSize) -> SKScene {
+        return GameOverScene.init(size: size, level: curentLevel)
     }
 }
 

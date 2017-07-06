@@ -28,7 +28,7 @@ func fileName(for monsterType: MonsterType) -> String {
     case .commetBoss: return "EarthDefenderCommetBoss"
     case .asteroidBoss: return "EarthDefenderAsteroidboss"
     case .spaceshipBoss1: return "EarthDefenderSpaceshipboss1"
-    case .spaceshipBoss2: return "EarthDefenderSpaceshipboss2"
+    case .spaceshipBoss2: return "EarthDefenderShipboss2"
     }
 }
 

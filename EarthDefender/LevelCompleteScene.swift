@@ -37,16 +37,18 @@ class LevelCompleteScene: SKScene {
         
         levelNumberLabel.text = " You have copleted level:\(level)"
         levelNumberLabel.zPosition = 100
-        levelNumberLabel.position = CGPoint(x: 177, y: 400)
+        levelNumberLabel.position = CGPoint(x: 165, y: 400)
         levelNumberLabel.fontColor = UIColor.yellow
-        levelNumberLabel.fontSize = 35
-    
+        levelNumberLabel.fontSize = 25
+        levelNumberLabel.fontName = "AmericanTypewriter"
+        
         monstersKilledLabel.text = "monsters killed: \(player.totalMonstersKilled)"
         monstersKilledLabel.zPosition = 100
-        monstersKilledLabel.position = CGPoint(x: 180, y: 300)
+        monstersKilledLabel.position = CGPoint(x: 165, y: 300)
         monstersKilledLabel.fontColor = UIColor.red
-        monstersKilledLabel.fontSize = 45
-    
+        monstersKilledLabel.fontSize = 30
+        monstersKilledLabel.fontName = "AmericanTypewriter"
+        
         addChild(monstersKilledLabel)
         addChild(levelNumberLabel)
         addChild(background)
