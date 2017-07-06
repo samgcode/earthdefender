@@ -12,6 +12,7 @@ import SpriteKit
 class TitleScene: SKScene {
     
      let background = SKSpriteNode(imageNamed: "EarthDefenderTitleScreen")
+     let clickToStartLabel: SKLabelNode = SKLabelNode()
     
     override func didMove(to view: SKView) {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
@@ -19,6 +20,14 @@ class TitleScene: SKScene {
         background.xScale = 0.95
         background.yScale = 1.35
         
+        clickToStartLabel.position = CGPoint(x: 150, y: 140)
+        clickToStartLabel.zPosition = 100
+        clickToStartLabel.text = "tap to start"
+        clickToStartLabel.fontColor = UIColor.blue
+        clickToStartLabel.fontSize = 35
+        clickToStartLabel.fontName = "AmericanTypewriter"
+        
+        addChild(clickToStartLabel)
         addChild(background)
     }
     

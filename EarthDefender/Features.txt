@@ -5,7 +5,7 @@
 ** Add totals of monsters killed and highest level achievedX
 ** Add restart button
 * Change music so it does not have such a long lead in
-* Start screen should say tap screen to start
+* Start screen should say tap screen to startX
 * Maybe the boss should move back and forth instead of down
 * Need a click to email support button
-* fix screen sizes
+* fix screen sizesX
