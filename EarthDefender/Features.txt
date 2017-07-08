@@ -9,3 +9,4 @@
 * Maybe the boss should move back and forth instead of down
 * Need a click to email support button
 * fix screen sizesX
+* make it so it says if its monster or monsters

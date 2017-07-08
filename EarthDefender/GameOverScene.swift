@@ -6,6 +6,8 @@ class GameOverScene: SKScene {
     let background = SKSpriteNode(imageNamed: "EarthDefenderYouLoseScene")
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
     let completedLevelsLabel: SKLabelNode = SKLabelNode()
+    let tapToStartLabel: SKLabelNode = SKLabelNode()
+    
     
     var level: Int
     
@@ -27,20 +29,28 @@ class GameOverScene: SKScene {
         
         level -= 1
         
-        monstersKilledLabel.position = CGPoint(x: 155, y: 100)
+        monstersKilledLabel.position = CGPoint(x: 155, y: 170)
         monstersKilledLabel.zPosition = 100
         monstersKilledLabel.text = "You Killed \(player.totalMonstersKilled) monsters"
         monstersKilledLabel.fontColor = UIColor.blue
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontName = "AmericanTypewriter"
         
-        completedLevelsLabel.position = CGPoint(x: 155, y: 60)
+        completedLevelsLabel.position = CGPoint(x: 155, y: 130)
         completedLevelsLabel.zPosition = 100
         completedLevelsLabel.text = "You completed Level \(level)"
         completedLevelsLabel.fontColor = UIColor.green
         completedLevelsLabel.fontSize = 25
         completedLevelsLabel.fontName = "AmericanTypewriter"
         
+        tapToStartLabel.position = CGPoint(x: 155, y: 60)
+        tapToStartLabel.zPosition = 100
+        tapToStartLabel.text = "Tap to restart"
+        tapToStartLabel.fontColor = UIColor.red
+        tapToStartLabel.fontSize = 25
+        tapToStartLabel.fontName = "AmericanTypewriter"
+        
+        addChild(tapToStartLabel)
         addChild(completedLevelsLabel)
         addChild(monstersKilledLabel)
         addChild(background)
