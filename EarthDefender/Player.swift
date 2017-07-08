@@ -38,4 +38,6 @@ class Player {
         lives += 1
     }
 
+    //Reset player func
+
 }

@@ -23,6 +23,7 @@
 		0E96428A1E7D98B200FAB0F9 /* FireWork.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0E9642891E7D98B200FAB0F9 /* FireWork.sks */; };
 		0E96428C1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96428B1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift */; };
 		0EA372CF1E81FB260076282F /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA372CE1E81FB260076282F /* Level2.swift */; };
+		0EA42D061F1184F900EA6693 /* GameOverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA42D051F1184F900EA6693 /* GameOverService.swift */; };
 		0EA4DA1F1EED8F7F00F4BD4C /* BackgroundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4DA1E1EED8F7F00F4BD4C /* BackgroundType.swift */; };
 		0EB0997E1EBF855D00E91C24 /* MonsterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0997D1EBF855D00E91C24 /* MonsterType.swift */; };
 		0EBC8A021E80AA0A00EEFFF9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBC8A011E80AA0A00EEFFF9 /* Player.swift */; };
@@ -52,6 +53,7 @@
 		0E9642891E7D98B200FAB0F9 /* FireWork.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireWork.sks; sourceTree = "<group>"; };
 		0E96428B1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCompleteScene.swift; sourceTree = "<group>"; };
 		0EA372CE1E81FB260076282F /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
+		0EA42D051F1184F900EA6693 /* GameOverService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverService.swift; sourceTree = "<group>"; };
 		0EA4DA1E1EED8F7F00F4BD4C /* BackgroundType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundType.swift; sourceTree = "<group>"; };
 		0EB0997D1EBF855D00E91C24 /* MonsterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterType.swift; sourceTree = "<group>"; };
 		0EBC8A011E80AA0A00EEFFF9 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				0EBE073F1EF6D0EA00C78817 /* BossType.swift */,
 				0EA4DA1E1EED8F7F00F4BD4C /* BackgroundType.swift */,
 				0E88AC251E914C4D00B7E3DB /* LevelService.swift */,
+				0EA42D051F1184F900EA6693 /* GameOverService.swift */,
 				0E9392D31EA3E3870061AD66 /* ScenePhysicsCategory.swift */,
 				0E06ECF31E762D8500686674 /* Explosion.sks */,
 				0E9642891E7D98B200FAB0F9 /* FireWork.sks */,
@@ -206,6 +209,7 @@
 				0EB0997E1EBF855D00E91C24 /* MonsterType.swift in Sources */,
 				05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */,
 				0E96428C1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift in Sources */,
+				0EA42D061F1184F900EA6693 /* GameOverService.swift in Sources */,
 				0E06ECEC1E760F1000686674 /* hud.swift in Sources */,
 				0EA4DA1F1EED8F7F00F4BD4C /* BackgroundType.swift in Sources */,
 				0EBC8A021E80AA0A00EEFFF9 /* Player.swift in Sources */,

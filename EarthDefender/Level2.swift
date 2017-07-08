@@ -154,10 +154,10 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             
             
             if self.player.lives <= 0 {
-                let levelService: LevelService = LevelService.sharedInstance
+                let gameOver: GameOverService = GameOverService.sharedInstance
                 
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = levelService.getGameOverScene(size: self.size)
+                let gameScene = gameOver.loadGameOverScene(size: self.size)
                 self.view?.presentScene(gameScene, transition: reveal)
             }
         }
@@ -188,11 +188,12 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             
             
             if self.player.lives <= 0 {
-                let levelService: LevelService = LevelService.sharedInstance
+                let gameOver: GameOverService = GameOverService.sharedInstance
                 
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = levelService.getGameOverScene(size: self.size)
-                self.view?.presentScene(gameScene, transition: reveal)            }
+                let gameScene = gameOver.loadGameOverScene(size: self.size)
+                self.view?.presentScene(gameScene, transition: reveal)
+            }
         }
         monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
     }

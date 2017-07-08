@@ -75,11 +75,6 @@ class LevelService {
             return 0
         }
     }
-
-    func getGameOverScene(size: CGSize) -> SKScene {
-        
-        return GameOverScene.init(size: size, level: curentLevel)
-    }
 }
 
 
