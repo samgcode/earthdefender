@@ -107,11 +107,11 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         addChild(playerSprite)
         addChild(livesLabel)
         addChild(bossHealth)
-        addBoss()
+        addMonster(enemyType: bossType)
         
         run(SKAction.repeatForever(
             SKAction.sequence([
-                SKAction.run(addMonster),
+                SKAction.run({self.addMonster(enemyType: self.monsterType)}),
                 SKAction.wait(forDuration: 2.0)
                 ])
         ))
@@ -130,17 +130,23 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         return random() * (max - min) + min
     }
     
-    func addMonster() {
+    func addMonster(enemyType: MonsterType) {
         let actualY = size.height
-        let actualX = random(min: 1, max: 350)
-        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: monsterType)
+        var actualX = random(min: 1, max: 350)
+        var minSpeed = CGFloat(1.5)
+        
+        if enemyType == bossType {
+            minSpeed = CGFloat(8.0)
+            actualX = size.width / 2
+        }
+        
+        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: enemyType)
         monsterNode.zPosition = background.zPosition + 1
         
         // Add the monster to the scene
         addChild(monsterNode)
         
-        // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(1.5), max: CGFloat(getSpeed(for: monsterType)))
+         let actualDuration = random(min: minSpeed, max: CGFloat(getSpeed(for: enemyType)))
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
@@ -150,8 +156,6 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         let loseAction = SKAction.run() {
             self.player.decrementLives()
             self.livesLabel.text = "lives: \(self.player.lives)"
-            
-            
             
             if self.player.lives <= 0 {
                 let gameOver: GameOverService = GameOverService.sharedInstance
@@ -163,41 +167,6 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         }
         monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
     }
-    
-    func addBoss() {
-        let actualY = size.height
-        let actualX = size.width / 2
-        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: bossType)
-        monsterNode.zPosition = background.zPosition + 1
-        
-        // Add the monster to the scene
-        addChild(monsterNode)
-        
-        // Determine speed of the monster
-        let actualDuration = random(min: CGFloat(8.0), max: CGFloat(getSpeed(for: bossType)))
-        
-        // Create the actions
-        let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
-        
-        let actionMoveDone = SKAction.removeFromParent()
-        
-        let loseAction = SKAction.run() {
-            self.player.decrementLives()
-            self.livesLabel.text = "lives: \(self.player.lives)"
-            
-            
-            
-            if self.player.lives <= 0 {
-                let gameOver: GameOverService = GameOverService.sharedInstance
-                
-                let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = gameOver.loadGameOverScene(size: self.size)
-                self.view?.presentScene(gameScene, transition: reveal)
-            }
-        }
-        monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
-    }
-
    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
