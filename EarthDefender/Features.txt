@@ -13,7 +13,12 @@
 ** When shooting the non-boss monsters the boss health should not go down
 ** If boss gets to bottom player needs to loose all lives
 * Need a Game finished screen
+* Need more levels
+** Probably 4 different monster types
+** Probably one more background
 * Display asset credits as needed
+* Clean up level service
+** There should be one set of if statments, which sets everything, then one call to load the level
 
 ****Add Restart Functionality*****
 Player
