@@ -1,12 +1,34 @@
-* Fix bug where it makes shooting sound even if you shoot behind the playerX
-** Change the code so you can shoot a little further back than currentlyX
-* Fix bug where boss for level 5 does not appearX
-* When you loose all of your lives X
-** Add totals of monsters killed and highest level achievedX
+* Fix bug where boss for level 5 does not appear
 ** Add restart button
 * Change music so it does not have such a long lead in
-* Start screen should say tap screen to startX
 * Maybe the boss should move back and forth instead of down
 * Need a click to email support button
-* fix screen sizesX
-* make it so it says if its monster or monsters
+* fix screen sizes
+** Test with iPhone5
+** Test with iPhone7 Plus
+* On boss level, make it so when you kill monsters it doesn't lower the boss life'
+* Game Scenes
+** Use one levelService in the whole class
+* Level2
+** When shooting the non-boss monsters the boss health should not go down
+** If boss gets to bottom player needs to loose all lives
+* Need a Game finished screen
+* Display asset credits as needed
+
+****Add Restart Functionality*****
+Player
+* ResetPlayer
+** lives, monsters killed
+
+LevelService
+* Reset Levels
+** current level
+
+Game Over Service
+* ResetCounters
+** ResetPlayer, ResetLevel
+
+GamoOverScene
+* when tapped
+** ResetCounters
+** load next level
