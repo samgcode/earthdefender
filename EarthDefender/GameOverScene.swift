@@ -2,16 +2,17 @@ import Foundation
 import SpriteKit
 
 class GameOverScene: SKScene {
-    var player: Player = Player.sharedInstance
     var gameOverService: GameOverService = GameOverService.sharedInstance
     let background = SKSpriteNode(imageNamed: "EarthDefenderYouLoseScene")
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
     let completedLevelsLabel: SKLabelNode = SKLabelNode()
     let tapToStartLabel: SKLabelNode = SKLabelNode()
-    var level: Int
+    var currentLevel: Int
+    let monstersKilled: Int
     
-    init(size: CGSize, level: Int) {
-        self.level = level
+    init(size: CGSize, currentLevel: Int, monstersKilled: Int) {
+        self.currentLevel = currentLevel
+        self.monstersKilled = monstersKilled
         
         super.init(size: size)
     }
@@ -28,15 +29,14 @@ class GameOverScene: SKScene {
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 170)
         monstersKilledLabel.zPosition = 100
-        monstersKilledLabel.text = "You Killed \(player.totalMonstersKilled) monsters"
+        monstersKilledLabel.text = "You Killed \(monstersKilled) monsters"
         monstersKilledLabel.fontColor = UIColor.blue
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontName = "AmericanTypewriter"
         
-        level -= 1
         completedLevelsLabel.position = CGPoint(x: 155, y: 130)
         completedLevelsLabel.zPosition = 100
-        completedLevelsLabel.text = "You completed Level \(level)"
+        completedLevelsLabel.text = "You completed Level \(currentLevel - 1)"
         completedLevelsLabel.fontColor = UIColor.green
         completedLevelsLabel.fontSize = 25
         completedLevelsLabel.fontName = "AmericanTypewriter"
@@ -68,9 +68,9 @@ class GameOverScene: SKScene {
     }
     
     func showLevel() {
-                let levelService: LevelService = LevelService.sharedInstance
-                let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = levelService.loadNextLevel(size: size)
-                self.view?.presentScene(gameScene, transition: reveal)
-        }
+        let levelService: LevelService = LevelService.sharedInstance
+        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        let gameScene = levelService.loadNextLevel(size: size)
+        self.view?.presentScene(gameScene, transition: reveal)
+    }
 }

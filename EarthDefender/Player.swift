@@ -39,7 +39,7 @@ class Player {
     }
 
     func resetPlayer() {
-        self.lives = 4
+        lives = 4
         totalMonstersKilled = 0
     }
 

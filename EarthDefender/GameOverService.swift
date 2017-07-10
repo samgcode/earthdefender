@@ -10,16 +10,9 @@ import SpriteKit
 import Foundation
 
 class GameOverService {
-        static let sharedInstance = GameOverService()
-        let levelService: LevelService = LevelService.sharedInstance
-        let player: Player = Player.sharedInstance
-        let level: Int
-        var monstersKilled: Int
-    
-    init() {
-        level = levelService.curentLevel
-        monstersKilled = player.totalMonstersKilled
-    }
+    static let sharedInstance = GameOverService()
+    let levelService: LevelService = LevelService.sharedInstance
+    let player: Player = Player.sharedInstance
     
     func resetCouters() {
         levelService.resetCurentLevel()
@@ -27,7 +20,7 @@ class GameOverService {
     }
     
     func loadGameOverScene(size: CGSize) -> SKScene {
-        return GameOverScene.init(size: size, level: level)
+        return GameOverScene.init(size: size, currentLevel: levelService.curentLevel, monstersKilled: player.totalMonstersKilled)
     }
 
 }

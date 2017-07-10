@@ -6,6 +6,7 @@
 * fix screen sizes
 ** Test with iPhone5
 ** Test with iPhone7 Plus
+**fix title screen size
 * On boss level, make it so when you kill monsters it doesn't lower the boss life'
 * Game Scenes
 ** Use one levelService in the whole class
