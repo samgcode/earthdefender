@@ -52,6 +52,8 @@ class LevelService {
             backgroundType = .mars
         case 20:
             return Level2.init(monster: .spaceship2, size: size, backgroundType: .mars, boss: .spaceshipBoss2)
+        case 21:
+            return GameCompleteScene.init(size: size)
         default:
             return GameScene.init(monster: monsterType, size: size, numberOfMonsters: monsterCount, backgroundType: backgroundType)
         }

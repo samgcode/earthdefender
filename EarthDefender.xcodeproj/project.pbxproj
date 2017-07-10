@@ -32,6 +32,7 @@
 		0ECB23A01EC917DA00BE6F7B /* AssetCredits.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB239E1EC917DA00BE6F7B /* AssetCredits.txt */; };
 		0ECB23A11EC917DA00BE6F7B /* Features.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB239F1EC917DA00BE6F7B /* Features.txt */; };
 		0ECB23A31EC9186F00BE6F7B /* BackgroundMusic.aac in Resources */ = {isa = PBXBuildFile; fileRef = 0ECB23A21EC9186F00BE6F7B /* BackgroundMusic.aac */; };
+		0EDB60631F13D1F8008E87C3 /* GameCompleteScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDB60621F13D1F8008E87C3 /* GameCompleteScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		0ECB239E1EC917DA00BE6F7B /* AssetCredits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AssetCredits.txt; sourceTree = "<group>"; };
 		0ECB239F1EC917DA00BE6F7B /* Features.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Features.txt; sourceTree = "<group>"; };
 		0ECB23A21EC9186F00BE6F7B /* BackgroundMusic.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundMusic.aac; sourceTree = "<group>"; };
+		0EDB60621F13D1F8008E87C3 /* GameCompleteScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCompleteScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				0E06ECEE1E760F4300686674 /* TitleScene.swift */,
 				05AFD3331E75FE7E001B2FC4 /* GameScene.swift */,
 				0EA372CE1E81FB260076282F /* Level2.swift */,
+				0EDB60621F13D1F8008E87C3 /* GameCompleteScene.swift */,
 				0E06ECED1E760F4200686674 /* GameOverScene.swift */,
 				0EA42D051F1184F900EA6693 /* GameOverService.swift */,
 				0E88AC251E914C4D00B7E3DB /* LevelService.swift */,
@@ -214,6 +217,7 @@
 				0EA4DA1F1EED8F7F00F4BD4C /* BackgroundType.swift in Sources */,
 				0EBC8A021E80AA0A00EEFFF9 /* Player.swift in Sources */,
 				0E9392D41EA3E3870061AD66 /* ScenePhysicsCategory.swift in Sources */,
+				0EDB60631F13D1F8008E87C3 /* GameCompleteScene.swift in Sources */,
 				05AFD3361E75FE7E001B2FC4 /* GameViewController.swift in Sources */,
 				05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */,
 				0E06ECF01E760F4300686674 /* TitleScene.swift in Sources */,

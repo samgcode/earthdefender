@@ -17,7 +17,7 @@ class Player {
     static let sharedInstance = Player()
     
     init() {
-        self.lives = 4
+        self.lives = 9
         self.totalMonstersKilled = 0
         self.monstersLeftForLevel = 25
     }
@@ -39,7 +39,7 @@ class Player {
     }
 
     func resetPlayer() {
-        lives = 4
+        lives = 9
         totalMonstersKilled = 0
     }
 
