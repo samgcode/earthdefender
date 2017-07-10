@@ -15,12 +15,12 @@ class GameOverService {
     let player: Player = Player.sharedInstance
     
     func resetCouters() {
-        levelService.resetCurentLevel()
+        levelService.resetCurrentLevel()
         player.resetPlayer()
     }
     
     func loadGameOverScene(size: CGSize) -> SKScene {
-        return GameOverScene.init(size: size, currentLevel: levelService.curentLevel, monstersKilled: player.totalMonstersKilled)
+        return GameOverScene.init(size: size, currentLevel: levelService.currentLevel, monstersKilled: player.totalMonstersKilled)
     }
 
 }
