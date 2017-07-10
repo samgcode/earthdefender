@@ -75,6 +75,10 @@ class LevelService {
             return 0
         }
     }
+    
+    func resetCurentLevel() {
+        curentLevel = 0
+    }
 }
 
 

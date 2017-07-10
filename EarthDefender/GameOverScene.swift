@@ -3,12 +3,11 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     var player: Player = Player.sharedInstance
+    var gameOverService: GameOverService = GameOverService.sharedInstance
     let background = SKSpriteNode(imageNamed: "EarthDefenderYouLoseScene")
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
     let completedLevelsLabel: SKLabelNode = SKLabelNode()
     let tapToStartLabel: SKLabelNode = SKLabelNode()
-    
-    
     var level: Int
     
     init(size: CGSize, level: Int) {
@@ -24,10 +23,8 @@ class GameOverScene: SKScene {
     override func didMove(to view: SKView) {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
-        background.xScale = 0.80
+        background.xScale = 0.70
         background.yScale = 1.05
-        
-        level -= 1
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 170)
         monstersKilledLabel.zPosition = 100
@@ -36,6 +33,7 @@ class GameOverScene: SKScene {
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontName = "AmericanTypewriter"
         
+        level -= 1
         completedLevelsLabel.position = CGPoint(x: 155, y: 130)
         completedLevelsLabel.zPosition = 100
         completedLevelsLabel.text = "You completed Level \(level)"
@@ -65,6 +63,7 @@ class GameOverScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        gameOverService.resetCouters()
         showLevel()
     }
     
