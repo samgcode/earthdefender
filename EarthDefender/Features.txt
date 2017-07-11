@@ -1,40 +1,19 @@
-* Fix bug where boss for level 5 does not appear
-** Add restart button
-* Change music so it does not have such a long lead in
-* Maybe the boss should move back and forth instead of down
+* Need a Game finished screen
+** Show total monsters killed
+** Show number of levels finished
+* Need more levels
+** Probably one more background
+* GameOverScene
+** If you die and haven't killed a monster or finished a level, the labels should not show
 * Need a click to email support button
 * fix screen sizes
 ** Test with iPhone5
 ** Test with iPhone7 Plus
-**fix title screen size
-* On boss level, make it so when you kill monsters it doesn't lower the boss life'
-* Game Scenes
-** Use one levelService in the whole class
 * Level2
 ** When shooting the non-boss monsters the boss health should not go down
 ** If boss gets to bottom player needs to loose all lives
-* Need a Game finished screen
-* Need more levels
-** Probably 4 different monster types
-** Probably one more background
+* Maybe the boss should move back and forth instead of down
+* Game Scenes
+** Use one levelService in the whole class
 * Display asset credits as needed
-* Clean up level service
-** There should be one set of if statments, which sets everything, then one call to load the level
-
-****Add Restart Functionality*****
-Player
-* ResetPlayer
-** lives, monsters killed
-
-LevelService
-* Reset Levels
-** current level
-
-Game Over Service
-* ResetCounters
-** ResetPlayer, ResetLevel
-
-GamoOverScene
-* when tapped
-** ResetCounters
-** load next level
+* Change music so it does not have such a long lead in
