@@ -1,6 +1,6 @@
-* Need a Game finished screen
+X* Need a Game finished screen
 X** Show total monsters killed
-** Show number of levels finished
+X** Show number of levels finished
 * Need more levels
 ** Probably one more background
 * GameOverScene

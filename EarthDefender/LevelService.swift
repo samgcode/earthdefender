@@ -28,7 +28,6 @@ class LevelService {
         var monsterType: MonsterType = .commet
         var monsterCount = 25
         var backgroundType: BackgroundType = .earth
-        
         switch currentLevel {
         case 1, 2, 3, 4:
             monsterCount = currentLevel * 5 + 20
@@ -52,7 +51,11 @@ class LevelService {
             backgroundType = .mars
         case 20:
             return Level2.init(monster: .spaceship2, size: size, backgroundType: .mars, boss: .spaceshipBoss2)
-        case 21:
+        case 21, 22, 23, 24:
+            monsterType = .alien
+            monsterCount = currentLevel * 5 - 80
+            backgroundType = .pluto
+        case 25:
             return GameCompleteScene.init(size: size)
         default:
             return GameScene.init(monster: monsterType, size: size, numberOfMonsters: monsterCount, backgroundType: backgroundType)
