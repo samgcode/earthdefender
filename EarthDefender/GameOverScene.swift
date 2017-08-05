@@ -3,10 +3,11 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     var gameOverService: GameOverService = GameOverService.sharedInstance
-    let background = SKSpriteNode(imageNamed: "EarthDefenderYouLoseScene")
+    let background = SKSpriteNode(imageNamed: "earthDefenderbackground")
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
     let completedLevelsLabel: SKLabelNode = SKLabelNode()
     let tapToStartLabel: SKLabelNode = SKLabelNode()
+    let youLoseLabel: SKLabelNode = SKLabelNode()
     var currentLevel: Int
     let monstersKilled: Int
     
@@ -22,9 +23,9 @@ class GameOverScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
+        background.position = CGPoint(x: 125, y: 290)
         background.zPosition = 1
-        background.xScale = 0.70
+        background.xScale = 0.85
         background.yScale = 1.05
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 170)
@@ -41,6 +42,13 @@ class GameOverScene: SKScene {
         completedLevelsLabel.fontSize = 25
         completedLevelsLabel.fontName = "AmericanTypewriter"
         
+        youLoseLabel.position = CGPoint(x: 155, y: 220)
+        youLoseLabel.zPosition = 100
+        youLoseLabel.text = "You Lose"
+        youLoseLabel.fontColor = UIColor.red
+        youLoseLabel.fontSize = 70
+        youLoseLabel.fontName = "AmericanTypewriter"
+        
         tapToStartLabel.position = CGPoint(x: 155, y: 60)
         tapToStartLabel.zPosition = 100
         tapToStartLabel.text = "Tap to restart"
@@ -48,6 +56,7 @@ class GameOverScene: SKScene {
         tapToStartLabel.fontSize = 25
         tapToStartLabel.fontName = "AmericanTypewriter"
         
+        addChild(youLoseLabel)
         addChild(tapToStartLabel)
         addChild(completedLevelsLabel)
         addChild(monstersKilledLabel)
