@@ -33,8 +33,8 @@ func xSize(for backgroundType: BackgroundType) -> CGFloat {
 
 func ySize(for backgroundType: BackgroundType) -> CGFloat {
     switch backgroundType {
-    case .earth: return 1.3
-    case .mars: return 1.8
+    case .earth: return 1.1
+    case .mars: return 1.5
     case .pluto: return 1.2
     }
 }

@@ -24,14 +24,14 @@ class GameCompleteScene: SKScene {
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 200)
         monstersKilledLabel.zPosition = 100
-        monstersKilledLabel.text = "you killed \(player.totalMonstersKilled) monsters"
+        monstersKilledLabel.text = "Monsters Killed: \(player.totalMonstersKilled)"
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontColor = UIColor.cyan
         monstersKilledLabel.fontName = "AmericanTypewriter"
         
         levelsBeatLabel.position = CGPoint(x: 155, y: 150)
         levelsBeatLabel.zPosition = 100
-        levelsBeatLabel.text = "you beat \(levelService.currentLevel - 1) levels"
+        levelsBeatLabel.text = "Levels Completed \(levelService.currentLevel - 1)"
         levelsBeatLabel.fontSize = 25
         levelsBeatLabel.fontColor = UIColor.orange
         levelsBeatLabel.fontName = "AmericanTypewriter"

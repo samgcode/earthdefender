@@ -29,14 +29,14 @@ class GameOverScene: SKScene {
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 170)
         monstersKilledLabel.zPosition = 100
-        monstersKilledLabel.text = "You Killed \(monstersKilled) monsters"
+        monstersKilledLabel.text = "Monsters Killed: \(monstersKilled)"
         monstersKilledLabel.fontColor = UIColor.blue
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontName = "AmericanTypewriter"
         
         completedLevelsLabel.position = CGPoint(x: 155, y: 130)
         completedLevelsLabel.zPosition = 100
-        completedLevelsLabel.text = "You completed Level \(currentLevel - 1)"
+        completedLevelsLabel.text = "Levels completed \(currentLevel - 1)"
         completedLevelsLabel.fontColor = UIColor.green
         completedLevelsLabel.fontSize = 25
         completedLevelsLabel.fontName = "AmericanTypewriter"

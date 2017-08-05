@@ -2,9 +2,9 @@ X* Need a Game finished screen
 X** Show total monsters killed
 X** Show number of levels finished
 * Need more levels
-** Probably one more background
+x** Probably one more background
 * GameOverScene
-** If you die and haven't killed a monster or finished a level, the labels should not show
+X** If you die and haven't killed a monster or finished a level, the labels should not show
 * Need a click to email support button
 * fix screen sizes
 ** Test with iPhone5
