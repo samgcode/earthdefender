@@ -19,8 +19,8 @@ class GameCompleteScene: SKScene {
     override func didMove(to view: SKView) {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
-        background.xScale = 0.90
-        background.yScale = 1.20
+        background.xScale = 0.95
+        background.yScale = 2
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 200)
         monstersKilledLabel.zPosition = 100

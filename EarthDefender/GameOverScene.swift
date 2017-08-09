@@ -42,7 +42,7 @@ class GameOverScene: SKScene {
         completedLevelsLabel.fontSize = 25
         completedLevelsLabel.fontName = "AmericanTypewriter"
         
-        youLoseLabel.position = CGPoint(x: 155, y: 220)
+        youLoseLabel.position = CGPoint(x: 190, y: 300)
         youLoseLabel.zPosition = 100
         youLoseLabel.text = "You Lose"
         youLoseLabel.fontColor = UIColor.red
