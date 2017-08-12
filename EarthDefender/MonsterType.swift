@@ -18,6 +18,7 @@ enum MonsterType: Int {
     case asteroidBoss
     case spaceshipBoss1
     case spaceshipBoss2
+    case alienBoss
 }
 
 func fileName(for monsterType: MonsterType) -> String {
@@ -31,6 +32,7 @@ func fileName(for monsterType: MonsterType) -> String {
     case .asteroidBoss: return "EarthDefenderAsteroidboss"
     case .spaceshipBoss1: return "EarthDefenderSpaceshipboss1"
     case .spaceshipBoss2: return "EarthDefenderShipboss2"
+    case .alienBoss: return "EarthDefenderalienBoss"
     }
 }
 
@@ -45,6 +47,7 @@ func getLives(for monsterType: MonsterType) -> Int {
     case .asteroidBoss: return 10
     case .spaceshipBoss1: return 12
     case .spaceshipBoss2: return 14
+    case .alienBoss: return 16
     }
 }
 
@@ -59,5 +62,20 @@ func getSpeed(for monsterType: MonsterType) -> Double {
     case .asteroidBoss: return 8.5
     case .spaceshipBoss1: return 9.0
     case .spaceshipBoss2: return 10.0
+    case .alienBoss: return 10.5
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -56,7 +56,10 @@ class LevelService {
             monsterCount = currentLevel * 5 - 80
             backgroundType = .pluto
         case 25:
+            return Level2.init(monster: .alien, size: size, backgroundType: .pluto, boss: .alienBoss)
+        case 26:
             return GameCompleteScene.init(size: size)
+
         default:
             return GameScene.init(monster: monsterType, size: size, numberOfMonsters: monsterCount, backgroundType: backgroundType)
         }
