@@ -107,7 +107,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         addChild(playerSprite)
         addChild(livesLabel)
         addChild(bossHealth)
-        addMonster(enemyType: bossType)
+        addBoss(enemyType: bossType)
         
         run(SKAction.repeatForever(
             SKAction.sequence([
@@ -132,13 +132,8 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     
     func addMonster(enemyType: MonsterType) {
         let actualY = size.height
-        var actualX = random(min: 1, max: 350)
-        var minSpeed = CGFloat(1.5)
-        
-        if enemyType == bossType {
-            minSpeed = CGFloat(8.0)
-            actualX = size.width / 2
-        }
+        let actualX = random(min: 1, max: 350)
+        let minSpeed = CGFloat(1.5)
         
         let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: enemyType)
         monsterNode.zPosition = background.zPosition + 1
@@ -166,6 +161,27 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             }
         }
         monsterNode.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
+    }
+    
+    func addBoss(enemyType: MonsterType) {
+        let actualY = size.height
+        let actualX = size.width / 2
+        
+        let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: enemyType)
+        monsterNode.zPosition = background.zPosition + 1
+        
+        // Add the monster to the scene
+        addChild(monsterNode)
+        
+        let actualDuration = getSpeed(for: enemyType)
+        
+        // Create the actions
+        let actionMoveLeft = SKAction.move(to: CGPoint(x: actualX - actualX, y: actualY), duration: TimeInterval(actualDuration))
+        let actionMoveRight = SKAction.move(to: CGPoint(x: actualX + actualX, y: actualY), duration: TimeInterval(actualDuration))
+        
+        let backAndForthSequence = SKAction.sequence([actionMoveLeft, actionMoveRight]);
+        
+        monsterNode.run(SKAction.repeatForever(backAndForthSequence));
     }
    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
