@@ -17,7 +17,7 @@ class GameCompleteScene: SKScene {
     let levelsBeatLabel: SKLabelNode = SKLabelNode()
     
     override func didMove(to view: SKView) {
-        background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
+        background.position = CGPoint(x: size.width * 0.5, y: 220)
         background.zPosition = 1
         background.xScale = 0.95
         background.yScale = 2
