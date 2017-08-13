@@ -223,9 +223,10 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         monster.decrementLives()
         projectile.removeFromParent()
         explosion(position: monster.position)
+        if monster.typeOfMonster == bossType {
         bossLives -= 1
         bossHealth.text = "boss health: \(bossLives)"
-
+        }
         
         if monster.lives <= 0 {
             monster.removeFromParent()
