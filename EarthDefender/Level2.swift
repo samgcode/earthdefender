@@ -149,12 +149,13 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         
         let loseAction = SKAction.run() {
+            
             self.player.decrementLives()
             self.livesLabel.text = "lives: \(self.player.lives)"
             
             if self.player.lives <= 0 {
                 let gameOver: GameOverService = GameOverService.sharedInstance
-                
+               
                 let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
                 let gameScene = gameOver.loadGameOverScene(size: self.size)
                 self.view?.presentScene(gameScene, transition: reveal)

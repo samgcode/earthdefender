@@ -38,9 +38,27 @@ class Player {
         lives += 1
     }
 
+    func kill() {
+       lives -= lives
+    }
+    
     func resetPlayer() {
         lives = 9
         totalMonstersKilled = 0
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

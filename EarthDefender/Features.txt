@@ -7,15 +7,15 @@ x** Probably one more background
 X** If you die and haven't killed a monster or finished a level, the labels should not show
 * Need a click to email support button
 * fix screen sizes
-** Test with iPhone5
+X** Test with iPhone5
 ** Test with iPhone7 Plus
 * Level2
-** When shooting the non-boss monsters the boss health should not go down
-** If boss gets to bottom player needs to loose all lives
-* Maybe the boss should move back and forth instead of down
+X** When shooting the non-boss monsters the boss health should not go down
+X** If boss gets to bottom player needs to loose all lives
+X* Maybe the boss should move back and forth instead of down
 ** Make the boss move faster
 * Game Scenes
-** Use one levelService in the whole class
+X** Use one levelService in the whole class
 * Display asset credits as needed
 * Change music so it does not have such a long lead in
 * Test on many different phone versions
