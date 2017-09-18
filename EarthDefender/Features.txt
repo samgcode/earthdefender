@@ -28,3 +28,6 @@ X** Use one levelService in the whole class
 **** Game Over
 *** Level screens
 **** 3 level
+* Remove frame rates if not in debug mode
+* Add Analytics
+* Add CrashReporting
