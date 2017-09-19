@@ -37,7 +37,15 @@ class TitleScene: SKScene {
         let gameScene = levelService.loadNextLevel(size: self.size)
         self.view?.presentScene(gameScene, transition: reveal)
     }
+    
+    func showCredits(){
+        var vc: UIViewController = UIViewController()
+        vc = self.view!.window!.rootViewController!
+        vc.performSegue(withIdentifier: "GameViewToNavController", sender: vc)
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         showLevel()
+//        showCredits()
     }
 }

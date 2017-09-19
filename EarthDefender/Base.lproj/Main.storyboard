@@ -22,9 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="tg7-l3-mpz" kind="show" identifier="GameViewToNavController" id="q6Z-FJ-b2F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-94" y="63"/>
         </scene>
         <!--Credits Table View Controller-->
         <scene sceneID="eyd-av-TQn">
@@ -65,16 +69,23 @@
                             <outlet property="delegate" destination="aDJ-9i-SUx" id="cc5-kz-gxO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="F7V-PE-7Vv"/>
+                    <navigationItem key="navigationItem" id="F7V-PE-7Vv">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="kQX-oF-Com">
+                            <connections>
+                                <segue destination="mUZ-qj-zDn" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="bOa-af-LDr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hwb-dF-SO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mUZ-qj-zDn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1478" y="120"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tjf-Ju-smM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tg7-l3-mpz" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CreditsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="tg7-l3-mpz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uCZ-pA-BKQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

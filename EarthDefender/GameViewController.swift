@@ -3,6 +3,10 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
