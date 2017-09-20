@@ -11,8 +11,10 @@ import SpriteKit
 
 class TitleScene: SKScene {
     
-     let background = SKSpriteNode(imageNamed: "EarthDefenderTitleScreen")
-     let clickToStartLabel: SKLabelNode = SKLabelNode()
+    let background = SKSpriteNode(imageNamed: "EarthDefenderTitleScreen")
+    let clickToStartLabel: SKLabelNode = SKLabelNode()
+    let creditsSprite = SKSpriteNode(imageNamed: "earthDefenderbutton")
+    let CREDITS_SPRITE_NAME = "CREDITS_SPRITE_NAME"
     
     override func didMove(to view: SKView) {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
@@ -27,8 +29,15 @@ class TitleScene: SKScene {
         clickToStartLabel.fontSize = 35
         clickToStartLabel.fontName = "AmericanTypewriter"
         
+        creditsSprite.xScale = 0.4
+        creditsSprite.yScale = 0.4
+        creditsSprite.position = CGPoint(x: size.width * 0.5, y: 500)
+        creditsSprite.zPosition = background.zPosition + 1
+        creditsSprite.name = CREDITS_SPRITE_NAME
+        
         addChild(clickToStartLabel)
         addChild(background)
+        addChild(creditsSprite)
     }
     
     func showLevel() {
@@ -45,7 +54,17 @@ class TitleScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        showLevel()
-//        showCredits()
+        if let touch = touches.first {
+            let positionInScene = touch.location(in: self)
+            let touchedNode = self.atPoint(positionInScene)
+            if let name = touchedNode.name {
+                if name == CREDITS_SPRITE_NAME {
+                    showCredits()
+                }
+            }
+            else {
+                showLevel()
+            }
+        }
     }
 }
