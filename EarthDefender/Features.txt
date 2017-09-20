@@ -16,6 +16,7 @@ X* Maybe the boss should move back and forth instead of down
 ** Make the boss move faster
 * Game Scenes
 X** Use one levelService in the whole class
+* Make a button or text to load credits
 * Display asset credits as needed
 * Change music so it does not have such a long lead in
 * Test on many different phone versions
@@ -31,3 +32,4 @@ X** Use one levelService in the whole class
 * Remove frame rates if not in debug mode
 * Add Analytics
 * Add CrashReporting
+* Cleanup unwrapped optionals from CreditsTableViewController
