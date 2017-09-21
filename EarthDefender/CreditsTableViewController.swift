@@ -40,31 +40,36 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         let row: [String: [String]] = tableData[section] as! [String : [String]]
-        return row["Data"]!.count
+        if let data = row["Data"] {
+            return data.count
+        }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
-        let row: [String: [String]] = tableData[indexPath.section] as! [String : [String]]
-        cell.textLabel?.text = "\(row["Data"]![indexPath.row])"
+        if let row: [String: [String]] = tableData[indexPath.section] as? [String : [String]] {
+            cell.textLabel?.text = "\(row["Data"]![indexPath.row])"
+        }
         
         return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-       let row: [String: [String]] = tableData[section] as! [String : [String]]
-        return "\(row["Header"]![0])"
+        if let row: [String: [String]] = tableData[section] as? [String : [String]] {
+            return "\(row["Header"]![0])"
+        }
+        return ""
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(canSendMail()){
             let mailController = MFMailComposeViewController()
-            //mailController.delegate = self
             mailController.setToRecipients(["support@deangaudet.com"])
             mailController.setSubject("Support Request")
+            mailController.mailComposeDelegate = self
             
             self.navigationController?.present(mailController, animated: true, completion: {})
         }
@@ -75,17 +80,17 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        self.navigationController?.dismiss(animated: true, completion: {})
+        self.navigationController?.dismiss(animated: true, completion: {
+            if result == MFMailComposeResult.failed {
+                self.showSendMailErrorAlert()
+            }
+        })
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: UIAlertControllerStyle.alert)
+        let alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+        sendMailErrorAlert.addAction(alertAction)
+        self.present(sendMailErrorAlert, animated: true, completion: {})
     }
-    */
-
 }
