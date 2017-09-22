@@ -14,6 +14,8 @@
 		05AFD3391E75FE7E001B2FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD3371E75FE7E001B2FC4 /* Main.storyboard */; };
 		05AFD33B1E75FE7E001B2FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */; };
 		05AFD33E1E75FE7E001B2FC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */; };
+		05B430A71F6F1011006DB8E3 /* CreditsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B430A61F6F1011006DB8E3 /* CreditsTableViewController.swift */; };
+		05B430AA1F6F601C006DB8E3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B430A91F6F601C006DB8E3 /* MessageUI.framework */; };
 		0E06ECEC1E760F1000686674 /* hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECEB1E760F1000686674 /* hud.swift */; };
 		0E06ECEF1E760F4300686674 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECED1E760F4200686674 /* GameOverScene.swift */; };
 		0E06ECF01E760F4300686674 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECEE1E760F4300686674 /* TitleScene.swift */; };
@@ -45,6 +47,8 @@
 		05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05AFD33D1E75FE7E001B2FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05AFD33F1E75FE7E001B2FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05B430A61F6F1011006DB8E3 /* CreditsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsTableViewController.swift; sourceTree = "<group>"; };
+		05B430A91F6F601C006DB8E3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		0E06ECEB1E760F1000686674 /* hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hud.swift; sourceTree = "<group>"; };
 		0E06ECED1E760F4200686674 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		0E06ECEE1E760F4300686674 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B430AA1F6F601C006DB8E3 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +87,7 @@
 			children = (
 				05AFD32C1E75FE7E001B2FC4 /* EarthDefender */,
 				05AFD32B1E75FE7E001B2FC4 /* Products */,
+				05B430A81F6F601C006DB8E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,10 +102,10 @@
 		05AFD32C1E75FE7E001B2FC4 /* EarthDefender */ = {
 			isa = PBXGroup;
 			children = (
+				05B430A11F6F0989006DB8E3 /* ViewControllers */,
 				0ECB239E1EC917DA00BE6F7B /* AssetCredits.txt */,
 				0ECB239F1EC917DA00BE6F7B /* Features.txt */,
 				05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */,
-				05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */,
 				0E06ECEE1E760F4300686674 /* TitleScene.swift */,
 				05AFD3331E75FE7E001B2FC4 /* GameScene.swift */,
 				0EA372CE1E81FB260076282F /* Level2.swift */,
@@ -125,6 +131,23 @@
 				05AFD33F1E75FE7E001B2FC4 /* Info.plist */,
 			);
 			path = EarthDefender;
+			sourceTree = "<group>";
+		};
+		05B430A11F6F0989006DB8E3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */,
+				05B430A61F6F1011006DB8E3 /* CreditsTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		05B430A81F6F601C006DB8E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05B430A91F6F601C006DB8E3 /* MessageUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +234,7 @@
 				0EBE07401EF6D0EA00C78817 /* BossType.swift in Sources */,
 				0EB0997E1EBF855D00E91C24 /* MonsterType.swift in Sources */,
 				05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */,
+				05B430A71F6F1011006DB8E3 /* CreditsTableViewController.swift in Sources */,
 				0E96428C1E7D9D4F00FAB0F9 /* LevelCompleteScene.swift in Sources */,
 				0EA42D061F1184F900EA6693 /* GameOverService.swift in Sources */,
 				0E06ECEC1E760F1000686674 /* hud.swift in Sources */,
