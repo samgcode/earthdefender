@@ -13,7 +13,7 @@ class TitleScene: SKScene {
     
     let background = SKSpriteNode(imageNamed: "EarthDefenderTitleScreen")
     let clickToStartLabel: SKLabelNode = SKLabelNode()
-    let creditsSprite = SKSpriteNode(imageNamed: "earthDefenderbutton")
+    let creditsSprite = SKSpriteNode(imageNamed: "EarthDefenderButton2")
     let CREDITS_SPRITE_NAME = "CREDITS_SPRITE_NAME"
     
     override func didMove(to view: SKView) {
@@ -29,9 +29,9 @@ class TitleScene: SKScene {
         clickToStartLabel.fontSize = 35
         clickToStartLabel.fontName = "AmericanTypewriter"
         
-        creditsSprite.xScale = 0.4
-        creditsSprite.yScale = 0.4
-        creditsSprite.position = CGPoint(x: size.width * 0.5, y: 500)
+        creditsSprite.xScale = 0.5
+        creditsSprite.yScale = 0.5
+        creditsSprite.position = CGPoint(x: size.width * 0.5, y: 80)
         creditsSprite.zPosition = background.zPosition + 1
         creditsSprite.name = CREDITS_SPRITE_NAME
         
