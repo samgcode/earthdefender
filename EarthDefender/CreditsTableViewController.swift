@@ -14,11 +14,13 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupColors()
 
         self.title = "Credits and Info"
         
-        let section1: [String: [String]] = ["Header": ["Music"], "Data": ["K100 - Riot", "http://facebook.com/k100music"]]
-        let section2: [String: [String]] = ["Header": ["Support"], "Data": ["Click to email"]]
+        let section1: [String: [String]] = ["Header": ["Music"], "Data": ["K100 - Riot"]]
+        let section2: [String: [String]] = ["Header": ["Support"], "Data": ["Tap to send an email"]]
         self.tableData = [section1, section2]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,6 +52,10 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
+        cell.backgroundColor = UIColor.lightGray
+        cell.textLabel?.textColor = UIColor.yellow
+        cell.textLabel?.font = UIFont(name: "AmericanTypewriter", size: 20)
+        
         if let row: [String: [String]] = tableData[indexPath.section] as? [String : [String]] {
             cell.textLabel?.text = "\(row["Data"]![indexPath.row])"
         }
@@ -65,14 +71,24 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(canSendMail()){
-            let mailController = MFMailComposeViewController()
-            mailController.setToRecipients(["support@deangaudet.com"])
-            mailController.setSubject("Support Request")
-            mailController.mailComposeDelegate = self
-            
-            self.navigationController?.present(mailController, animated: true, completion: {})
+        if(indexPath.section == 1 && indexPath.row == 0) {
+            if(canSendMail()){
+                let mailController = MFMailComposeViewController()
+                mailController.setToRecipients(["support@deangaudet.com"])
+                mailController.setSubject("Support Request")
+                mailController.mailComposeDelegate = self
+                
+                self.navigationController?.present(mailController, animated: true, completion: {})
+            }
         }
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as? UITableViewHeaderFooterView
+        header?.textLabel?.font = UIFont(name: "AmericanTypewriter", size: 18)
+        header?.textLabel?.textColor = UIColor.blue
+        header?.backgroundView?.backgroundColor = UIColor.green
     }
     
     func canSendMail() -> Bool {
@@ -92,5 +108,18 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         let alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
         sendMailErrorAlert.addAction(alertAction)
         self.present(sendMailErrorAlert, animated: true, completion: {})
+    }
+    
+    func setupColors(){
+        self.tableView.backgroundColor = nil
+        self.tableView.backgroundColor = UIColor.black
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        let attrs = [
+            NSForegroundColorAttributeName: UIColor.red,
+            NSFontAttributeName: UIFont(name: "AmericanTypewriter", size: 24)!
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = attrs
     }
 }
