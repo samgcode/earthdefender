@@ -50,14 +50,20 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! SocialMediaTableViewCell
         
         cell.backgroundColor = UIColor.lightGray
-        cell.textLabel?.textColor = UIColor.yellow
-        cell.textLabel?.font = UIFont(name: "AmericanTypewriter", size: 20)
+        cell.InformationLabel?.textColor = UIColor.yellow
+        cell.InformationLabel?.font = UIFont(name: "AmericanTypewriter", size: 20)
         
         if let row: [String: [String]] = tableData[indexPath.section] as? [String : [String]] {
-            cell.textLabel?.text = "\(row["Data"]![indexPath.row])"
+            cell.InformationLabel?.text = "\(row["Data"]![indexPath.row])"
+        }
+        
+        if(indexPath.section == 1 && indexPath.row == 0) {
+            cell.LeftImageView?.image = UIImage(named: "FacebookIcon")
+            cell.CentreImageView?.image = UIImage(named: "YoutubeIcon")
+            cell.RightImageView?.image = UIImage(named: "TwitterIcon")
         }
         
         return cell
