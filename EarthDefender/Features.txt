@@ -32,4 +32,8 @@ X** Use one levelService in the whole class
 * Remove frame rates if not in debug mode
 * Add Analytics
 * Add CrashReporting
-* Cleanup unwrapped optionals from CreditsTableViewController
+* Credits
+** Cleanup unwrapped optionals from CreditsTableViewController
+** Use index paths to do custom work
+*** locationButtonIndexPath = [[NSIndexPath indexPathForRow:0 inSection:2] retain];
+** Create a theme helper class to store the fonts and other them specific info

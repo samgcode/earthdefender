@@ -10,10 +10,11 @@ import UIKit
 
 class SocialMediaTableViewCell: UITableViewCell {
     @IBOutlet weak var InformationLabel: UILabel!
-
-    @IBOutlet weak var LeftImageView: UIImageView!
-    @IBOutlet weak var CentreImageView: UIImageView!
-    @IBOutlet weak var RightImageView: UIImageView!
+    @IBOutlet weak var InformationSubTitleLable: UILabel!
+    
+    @IBOutlet weak var LeftImageButton: UIButton!
+    @IBOutlet weak var CenterImageButton: UIButton!
+    @IBOutlet weak var RightImageButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -56,19 +56,35 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         cell.InformationLabel?.textColor = UIColor.yellow
         cell.InformationLabel?.font = UIFont(name: "AmericanTypewriter", size: 20)
         
+        cell.InformationSubTitleLable?.textColor = UIColor.yellow
+        cell.InformationSubTitleLable?.font = UIFont(name: "AmericanTypewriter", size: 14)
+        cell.InformationSubTitleLable?.text = ""
+        
         if let row: [String: [String]] = tableData[indexPath.section] as? [String : [String]] {
             cell.InformationLabel?.text = "\(row["Data"]![indexPath.row])"
         }
         
-        if(indexPath.section == 1 && indexPath.row == 0) {
-            cell.LeftImageView?.image = UIImage(named: "FacebookIcon")
-            cell.CentreImageView?.image = UIImage(named: "YoutubeIcon")
-            cell.RightImageView?.image = UIImage(named: "TwitterIcon")
+        cell.LeftImageButton?.setTitle("", for: UIControlState.normal)
+        cell.CenterImageButton?.setTitle("", for: UIControlState.normal)
+        cell.RightImageButton?.setTitle("", for: UIControlState.normal)
+        
+        if(indexPath.section == 0 && indexPath.row == 0) {
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            cell.InformationSubTitleLable?.text = "View social details ->"
+            
+            cell.LeftImageButton?.setBackgroundImage(UIImage(named: "FacebookIcon"), for: UIControlState.normal)
+            cell.LeftImageButton?.addTarget(self, action: #selector(self.k100FaceBookTapped), for: UIControlEvents.touchUpInside)
+            
+            cell.CenterImageButton?.setBackgroundImage(UIImage(named: "TwitterIcon"), for: UIControlState.normal)
+            cell.CenterImageButton?.addTarget(self, action: #selector(self.k100TwitterTapped), for: UIControlEvents.touchUpInside)
+            
+            cell.RightImageButton?.setBackgroundImage(UIImage(named: "YoutubeIcon"), for: UIControlState.normal)
+            cell.RightImageButton?.addTarget(self, action: #selector(self.k100YouTubeTapped), for: UIControlEvents.touchUpInside)
         }
         
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let row: [String: [String]] = tableData[section] as? [String : [String]] {
             return "\(row["Header"]![0])"
@@ -127,5 +143,17 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         ]
         
         UINavigationBar.appearance().titleTextAttributes = attrs
+    }
+    
+    func k100YouTubeTapped(sender: UIButton!){
+        print("You tube tapped")
+    }
+    
+    func k100FaceBookTapped(sender: UIButton!){
+        print("facebook tapped")
+    }
+    
+    func k100TwitterTapped(sender: UIButton!){
+        print("twitter tapped")
     }
 }
