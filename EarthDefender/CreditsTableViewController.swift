@@ -20,8 +20,9 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         self.title = "Credits and Info"
         
         let section1: [String: [String]] = ["Header": ["Music"], "Data": ["K100 - Riot"]]
-        let section2: [String: [String]] = ["Header": ["Support"], "Data": ["Tap to send an email"]]
-        self.tableData = [section1, section2]
+        let section2: [String: [String]] = ["Header": ["Icons"], "Data": ["Icons8 - Social Media Icons"]]
+        let section3: [String: [String]] = ["Header": ["Support"], "Data": ["Tap to contact support"]]
+        self.tableData = [section1, section2, section3]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -70,7 +71,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         
         if(indexPath.section == 0 && indexPath.row == 0) {
             cell.selectionStyle = UITableViewCellSelectionStyle.none
-            cell.InformationSubTitleLable?.text = "View social details ->"
+            cell.InformationSubTitleLable?.text = "View social media details ->"
             
             cell.LeftImageButton?.setBackgroundImage(UIImage(named: "FacebookIcon"), for: UIControlState.normal)
             cell.LeftImageButton?.addTarget(self, action: #selector(self.k100FaceBookTapped), for: UIControlEvents.touchUpInside)
@@ -94,6 +95,10 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section == 1 && indexPath.row == 0) {
+            let url = URL(string: "https://icons8.com")
+            loadUrl(url: url!)
+        }
+        if(indexPath.section == 2 && indexPath.row == 0) {
             if(canSendMail()){
                 let mailController = MFMailComposeViewController()
                 mailController.setToRecipients(["support@deangaudet.com"])
@@ -103,6 +108,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
                 self.navigationController?.present(mailController, animated: true, completion: {})
             }
         }
+        
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -146,14 +152,33 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     }
     
     func k100YouTubeTapped(sender: UIButton!){
-        print("You tube tapped")
+        let url = URL(string: "http://youtube.com/watch?v=4ZHTb5RxQZo")
+        loadUrl(url: url!)
     }
     
     func k100FaceBookTapped(sender: UIButton!){
-        print("facebook tapped")
+        let url = URL(string: "http://fb.royaltrax.com")
+        loadUrl(url: url!)
     }
     
     func k100TwitterTapped(sender: UIButton!){
-        print("twitter tapped")
+        let url = URL(string: "http://twitter.royaltrax.com")
+        loadUrl(url: url!)
+    }
+    
+    func loadUrl(url: URL){
+        let applicationName = Bundle.main.infoDictionary!["CFBundleName"] as! String
+        if(UIApplication.shared.canOpenURL(url)){
+            let alert = UIAlertController.init(title: "Load page", message: "Do you want to leave \(applicationName) and load this page in browser?", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default) { action in
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            
+            let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { action in }
+            alert.addAction(defaultAction)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: {})
+        }
     }
 }
