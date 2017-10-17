@@ -23,11 +23,6 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         let section2: [String: [String]] = ["Header": ["Icons"], "Data": ["Icons8 - Social Media Icons"]]
         let section3: [String: [String]] = ["Header": ["Support"], "Data": ["Tap to contact support"]]
         self.tableData = [section1, section2, section3]
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +53,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         cell.InformationLabel?.font = UIFont(name: "AmericanTypewriter", size: 20)
         
         cell.InformationSubTitleLable?.textColor = UIColor.yellow
-        cell.InformationSubTitleLable?.font = UIFont(name: "AmericanTypewriter", size: 14)
+        cell.InformationSubTitleLable?.font = UIFont(name: "AmericanTypewriter", size: 13)
         cell.InformationSubTitleLable?.text = ""
         
         if let row: [String: [String]] = tableData[indexPath.section] as? [String : [String]] {
@@ -71,7 +66,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         
         if(indexPath.section == 0 && indexPath.row == 0) {
             cell.selectionStyle = UITableViewCellSelectionStyle.none
-            cell.InformationSubTitleLable?.text = "View social media details ->"
+            cell.InformationSubTitleLable?.text = "View social media details->"
             
             cell.LeftImageButton?.setBackgroundImage(UIImage(named: "FacebookIcon"), for: UIControlState.normal)
             cell.LeftImageButton?.addTarget(self, action: #selector(self.k100FaceBookTapped), for: UIControlEvents.touchUpInside)
