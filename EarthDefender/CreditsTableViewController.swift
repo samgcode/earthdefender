@@ -11,6 +11,9 @@ import MessageUI
 
 class CreditsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     private var tableData: NSMutableArray = []
+    private var socialMediaIndexPath: IndexPath = IndexPath(row: 0, section: 0)
+    private var iconsIndexPath: IndexPath = IndexPath(row: 0, section: 0)
+    private var mailIndexPath: IndexPath = IndexPath(row: 0, section: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,9 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
 
         self.title = "Credits and Info"
         
+        socialMediaIndexPath = IndexPath(row: 0, section: 0)
+        iconsIndexPath = IndexPath(row: 0, section: 1)
+        mailIndexPath = IndexPath(row: 0, section: 2)
         let section1: [String: [String]] = ["Header": ["Music"], "Data": ["K100 - Riot"]]
         let section2: [String: [String]] = ["Header": ["Icons"], "Data": ["Icons8 - Social Media Icons"]]
         let section3: [String: [String]] = ["Header": ["Support"], "Data": ["Tap to contact support"]]
@@ -64,7 +70,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         cell.CenterImageButton?.setTitle("", for: UIControlState.normal)
         cell.RightImageButton?.setTitle("", for: UIControlState.normal)
         
-        if(indexPath.section == 0 && indexPath.row == 0) {
+        if(indexPath.section == socialMediaIndexPath.section && indexPath.row == socialMediaIndexPath.row) {
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             cell.InformationSubTitleLable?.text = "View social media details->"
             
@@ -89,11 +95,11 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.section == 1 && indexPath.row == 0) {
+        if(indexPath.section == iconsIndexPath.section && indexPath.row == iconsIndexPath.row) {
             let url = URL(string: "https://icons8.com")
             loadUrl(url: url!)
         }
-        if(indexPath.section == 2 && indexPath.row == 0) {
+        if(indexPath.section == mailIndexPath.section && indexPath.row == mailIndexPath.row) {
             if(canSendMail()){
                 let mailController = MFMailComposeViewController()
                 mailController.setToRecipients(["support@deangaudet.com"])
