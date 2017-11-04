@@ -29,7 +29,7 @@ X* Display asset credits as needed
 **** Game Over
 *** Level screens
 **** 3 level
-* Remove frame rates if not in debug mode
+X* Remove frame rates if not in debug mode
 * Add Analytics
 * Add CrashReporting
 * Credits

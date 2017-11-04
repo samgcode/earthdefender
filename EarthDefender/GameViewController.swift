@@ -15,8 +15,12 @@ class GameViewController: UIViewController {
         let scene = levelService.loadTitleScene(size: view.bounds.size)
         
         let skView = view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        var showDebugInfo = false
+        #if DEBUG
+            showDebugInfo = true
+        #endif
+        skView.showsFPS = showDebugInfo
+        skView.showsNodeCount = showDebugInfo
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .resizeFill
         skView.presentScene(scene)
