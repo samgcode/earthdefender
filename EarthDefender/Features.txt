@@ -5,9 +5,9 @@ X** Show number of levels finished
 x** Probably one more background
 * GameOverScene
 X** If you die and haven't killed a monster or finished a level, the labels should not show
-* Need a click to email support button
-* fix screen sizes
+X* Need a click to email support button
 X** Test with iPhone5
+* fix screen sizes
 ** Test with iPhone7 Plus
 * Level2
 X** When shooting the non-boss monsters the boss health should not go down
@@ -17,7 +17,7 @@ X* Maybe the boss should move back and forth instead of down
 * Game Scenes
 X** Use one levelService in the whole class
 * Make a button or text to load credits
-* Display asset credits as needed
+X* Display asset credits as needed
 * Change music so it does not have such a long lead in
 * Test on many different phone versions
 ** Fix backgrounds for each
@@ -29,7 +29,9 @@ X** Use one levelService in the whole class
 **** Game Over
 *** Level screens
 **** 3 level
-* Remove frame rates if not in debug mode
+X* Remove frame rates if not in debug mode
 * Add Analytics
 * Add CrashReporting
-* Cleanup unwrapped optionals from CreditsTableViewController
+* Credits
+** Cleanup unwrapped optionals from CreditsTableViewController
+** Create a theme helper class to store the fonts and other them specific info

@@ -1,9 +1,12 @@
 * BackgroundMusic.aac
 ** ♫ K100 - Riot
 http://youtube.com/watch?v=4ZHTb5RxQZo
-http://facebook.com/k100music
-http://youtube.com/k100music
+http://fb.royaltrax.com
+http://twitter.royaltrax.com
 * Social Media Icons
 ** https://icons8.com/articles/social-media-icons/
-* Facebook icons
-** https://icons8.com/icon/434/facebook
+** They ask us to add a link to their site on the about or settings
+** They also want a link on the App Store description
+*** https://icons8.com
+** Facebook icons
+*** https://icons8.com/icon/434/facebook

@@ -21,6 +21,7 @@ class TitleScene: SKScene {
         background.zPosition = 1
         background.xScale = 0.95
         background.yScale = 1.35
+//        background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         
         clickToStartLabel.position = CGPoint(x: 150, y: 140)
         clickToStartLabel.zPosition = 100

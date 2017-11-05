@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051875621FAF9AA300DA7808 /* SpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051875611FAF9AA300DA7808 /* SpriteNodeExtension.swift */; };
 		0562BD881EBF9B86003D3D38 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562BD871EBF9B86003D3D38 /* Monster.swift */; };
 		05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */; };
 		05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD3331E75FE7E001B2FC4 /* GameScene.swift */; };
@@ -16,6 +17,7 @@
 		05AFD33E1E75FE7E001B2FC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */; };
 		05B430A71F6F1011006DB8E3 /* CreditsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B430A61F6F1011006DB8E3 /* CreditsTableViewController.swift */; };
 		05B430AA1F6F601C006DB8E3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B430A91F6F601C006DB8E3 /* MessageUI.framework */; };
+		05B430AC1F808712006DB8E3 /* SocialMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B430AB1F808712006DB8E3 /* SocialMediaTableViewCell.swift */; };
 		0E06ECEC1E760F1000686674 /* hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECEB1E760F1000686674 /* hud.swift */; };
 		0E06ECEF1E760F4300686674 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECED1E760F4200686674 /* GameOverScene.swift */; };
 		0E06ECF01E760F4300686674 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06ECEE1E760F4300686674 /* TitleScene.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		051875611FAF9AA300DA7808 /* SpriteNodeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteNodeExtension.swift; sourceTree = "<group>"; };
 		0562BD871EBF9B86003D3D38 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthDefender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		05AFD33F1E75FE7E001B2FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05B430A61F6F1011006DB8E3 /* CreditsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsTableViewController.swift; sourceTree = "<group>"; };
 		05B430A91F6F601C006DB8E3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		05B430AB1F808712006DB8E3 /* SocialMediaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaTableViewCell.swift; sourceTree = "<group>"; };
 		0E06ECEB1E760F1000686674 /* hud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hud.swift; sourceTree = "<group>"; };
 		0E06ECED1E760F4200686674 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		0E06ECEE1E760F4300686674 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */,
 				05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */,
 				05AFD33F1E75FE7E001B2FC4 /* Info.plist */,
+				05B430AB1F808712006DB8E3 /* SocialMediaTableViewCell.swift */,
+				051875611FAF9AA300DA7808 /* SpriteNodeExtension.swift */,
 			);
 			path = EarthDefender;
 			sourceTree = "<group>";
@@ -239,12 +245,14 @@
 				0EA42D061F1184F900EA6693 /* GameOverService.swift in Sources */,
 				0E06ECEC1E760F1000686674 /* hud.swift in Sources */,
 				0EA4DA1F1EED8F7F00F4BD4C /* BackgroundType.swift in Sources */,
+				05B430AC1F808712006DB8E3 /* SocialMediaTableViewCell.swift in Sources */,
 				0EBC8A021E80AA0A00EEFFF9 /* Player.swift in Sources */,
 				0E9392D41EA3E3870061AD66 /* ScenePhysicsCategory.swift in Sources */,
 				0EDB60631F13D1F8008E87C3 /* GameCompleteScene.swift in Sources */,
 				05AFD3361E75FE7E001B2FC4 /* GameViewController.swift in Sources */,
 				05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */,
 				0E06ECF01E760F4300686674 /* TitleScene.swift in Sources */,
+				051875621FAF9AA300DA7808 /* SpriteNodeExtension.swift in Sources */,
 				0562BD881EBF9B86003D3D38 /* Monster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
