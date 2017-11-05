@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051875621FAF9AA300DA7808 /* SpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051875611FAF9AA300DA7808 /* SpriteNodeExtension.swift */; };
 		0562BD881EBF9B86003D3D38 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562BD871EBF9B86003D3D38 /* Monster.swift */; };
 		05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */; };
 		05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD3331E75FE7E001B2FC4 /* GameScene.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		051875611FAF9AA300DA7808 /* SpriteNodeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteNodeExtension.swift; sourceTree = "<group>"; };
 		0562BD871EBF9B86003D3D38 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthDefender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */,
 				05AFD33F1E75FE7E001B2FC4 /* Info.plist */,
 				05B430AB1F808712006DB8E3 /* SocialMediaTableViewCell.swift */,
+				051875611FAF9AA300DA7808 /* SpriteNodeExtension.swift */,
 			);
 			path = EarthDefender;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				05AFD3361E75FE7E001B2FC4 /* GameViewController.swift in Sources */,
 				05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */,
 				0E06ECF01E760F4300686674 /* TitleScene.swift in Sources */,
+				051875621FAF9AA300DA7808 /* SpriteNodeExtension.swift in Sources */,
 				0562BD881EBF9B86003D3D38 /* Monster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
