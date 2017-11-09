@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		051875621FAF9AA300DA7808 /* SpriteNodeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051875611FAF9AA300DA7808 /* SpriteNodeExtension.swift */; };
+		051FBDEE1FB161E400528C5D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051FBDED1FB161E400528C5D /* Constants.swift */; };
+		051FBDF01FB1639E00528C5D /* FileRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051FBDEF1FB1639E00528C5D /* FileRetriever.swift */; };
 		0562BD881EBF9B86003D3D38 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562BD871EBF9B86003D3D38 /* Monster.swift */; };
 		05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */; };
 		05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD3331E75FE7E001B2FC4 /* GameScene.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		051875611FAF9AA300DA7808 /* SpriteNodeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteNodeExtension.swift; sourceTree = "<group>"; };
+		051FBDED1FB161E400528C5D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		051FBDEF1FB1639E00528C5D /* FileRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRetriever.swift; sourceTree = "<group>"; };
 		0562BD871EBF9B86003D3D38 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthDefender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				05AFD33F1E75FE7E001B2FC4 /* Info.plist */,
 				05B430AB1F808712006DB8E3 /* SocialMediaTableViewCell.swift */,
 				051875611FAF9AA300DA7808 /* SpriteNodeExtension.swift */,
+				051FBDED1FB161E400528C5D /* Constants.swift */,
+				051FBDEF1FB1639E00528C5D /* FileRetriever.swift */,
 			);
 			path = EarthDefender;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 			files = (
 				0EA372CF1E81FB260076282F /* Level2.swift in Sources */,
 				0E06ECEF1E760F4300686674 /* GameOverScene.swift in Sources */,
+				051FBDF01FB1639E00528C5D /* FileRetriever.swift in Sources */,
 				0E88AC261E914C4D00B7E3DB /* LevelService.swift in Sources */,
 				0EBE07401EF6D0EA00C78817 /* BossType.swift in Sources */,
 				0EB0997E1EBF855D00E91C24 /* MonsterType.swift in Sources */,
@@ -245,6 +252,7 @@
 				0EA42D061F1184F900EA6693 /* GameOverService.swift in Sources */,
 				0E06ECEC1E760F1000686674 /* hud.swift in Sources */,
 				0EA4DA1F1EED8F7F00F4BD4C /* BackgroundType.swift in Sources */,
+				051FBDEE1FB161E400528C5D /* Constants.swift in Sources */,
 				05B430AC1F808712006DB8E3 /* SocialMediaTableViewCell.swift in Sources */,
 				0EBC8A021E80AA0A00EEFFF9 /* Player.swift in Sources */,
 				0E9392D41EA3E3870061AD66 /* ScenePhysicsCategory.swift in Sources */,
