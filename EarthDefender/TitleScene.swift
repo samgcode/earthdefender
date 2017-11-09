@@ -11,7 +11,7 @@ import SpriteKit
 
 class TitleScene: SKScene {
     
-    let background = SKSpriteNode(imageNamed: "EarthDefenderTitleScreen")
+    let background = SKSpriteNode(imageNamed: "TitleScreen")
     let clickToStartLabel: SKLabelNode = SKLabelNode()
     let creditsSprite = SKSpriteNode(imageNamed: "EarthDefenderButton2")
     let CREDITS_SPRITE_NAME = "CREDITS_SPRITE_NAME"
@@ -19,9 +19,9 @@ class TitleScene: SKScene {
     override func didMove(to view: SKView) {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
-        background.xScale = 0.95
-        background.yScale = 1.35
-//        background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
+//        background.xScale = 0.95
+//        background.yScale = 1.35
+        background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         
         clickToStartLabel.position = CGPoint(x: 150, y: 140)
         clickToStartLabel.zPosition = 100
