@@ -13,7 +13,7 @@ class LevelCompleteScene: SKScene {
 
     var levelNumberLabel: SKLabelNode = SKLabelNode()
     var monstersKilledLabel: SKLabelNode = SKLabelNode()
-    let background = SKSpriteNode(imageNamed: "EarthDefenderLevelCompleteBackground")
+    let background = SKSpriteNode(imageNamed: "LevelComplete")
     var player: Player = Player.sharedInstance
     private let level: Int
     
@@ -30,10 +30,12 @@ class LevelCompleteScene: SKScene {
     
     
     override func didMove(to view: SKView) {
+        
+        background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
-        background.xScale = 1.14
-        background.yScale = 1.64
+//        background.xScale = 1.14
+//        background.yScale = 1.64
         
         levelNumberLabel.text = "Levels completed: \(level)"
         levelNumberLabel.zPosition = 100
