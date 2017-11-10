@@ -54,8 +54,8 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         bossType = boss
         bossLives = getLives(for: bossType)
         self.background = SKSpriteNode(imageNamed: fileName(for: backgroundType))
-        background.xScale = xSize(for: backgroundType)
-        background.yScale = ySize(for: backgroundType)
+//        background.xScale = xSize(for: backgroundType)
+//        background.yScale = ySize(for: backgroundType)
         super.init(size: size)
     }
     
@@ -71,6 +71,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
+        background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         player.monstersLeftForLevel = 25
         
         physicsWorld.gravity = CGVector.zero
@@ -82,10 +83,10 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         playerSprite.yScale = 0.4
         
         
-        background.position = CGPoint(x: size.width * 0.3, y: size.height * 0.5)
+        background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         
-        playerSprite.position = CGPoint(x: size.width * 0.5, y: size.height * 0.18)
+        playerSprite.position = CGPoint(x: size.width * 0.5, y: size.height * 0.35)
         playerSprite.zPosition = background.zPosition + 1
         // 4
         

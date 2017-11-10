@@ -17,25 +17,25 @@ enum BackgroundType: Int {
 
 func fileName(for backgroundType: BackgroundType) -> String {
     switch backgroundType {
-    case .earth: return "earthDefenderbackground"
-    case .mars: return "EarthDefenderBackground2"
-    case .pluto: return "EarthDefenderPlutoBackground"
+    case .earth: return "StartLevel"
+    case .mars: return "Level2"
+    case .pluto: return "Level3"
     }
 }
 
-func xSize(for backgroundType: BackgroundType) -> CGFloat {
-    switch backgroundType {
-    case .earth: return 0.9
-    case .mars: return 2.5
-    case .pluto: return 1.5
-    }
-}
-
-func ySize(for backgroundType: BackgroundType) -> CGFloat {
-    switch backgroundType {
-    case .earth: return 1.3
-    case .mars: return 1.9
-    case .pluto: return 1.3
-    }
-}
-
+//func xSize(for backgroundType: BackgroundType) -> CGFloat {
+//    switch backgroundType {
+//    case .earth: return 0.9
+//    case .mars: return 2.5
+//    case .pluto: return 1.5
+//    }
+//}
+//
+//func ySize(for backgroundType: BackgroundType) -> CGFloat {
+//    switch backgroundType {
+//    case .earth: return 1.3
+//    case .mars: return 1.9
+//    case .pluto: return 1.3
+//    }
+//}
+//
