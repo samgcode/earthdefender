@@ -9,7 +9,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType) {
         monsterType = monster
         self.numberOfMonsters = numberOfMonsters
-        self.background = SKSpriteNode(imageNamed: fileName(for: backgroundType))
+        let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
+        self.background = SKSpriteNode(imageNamed: backgroundImage)
 //        background.xScale = xSize(for: backgroundType)
 //        background.yScale = ySize(for: backgroundType)
         super.init(size: size)
@@ -26,7 +27,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     override func didMove(to view: SKView) {
-        
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         player.monstersLeftForLevel = 25
         

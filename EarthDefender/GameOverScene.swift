@@ -3,7 +3,7 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     var gameOverService: GameOverService = GameOverService.sharedInstance
-    let background = SKSpriteNode(imageNamed: "GameOver")
+   
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
     let completedLevelsLabel: SKLabelNode = SKLabelNode()
     let tapToStartLabel: SKLabelNode = SKLabelNode()
@@ -23,7 +23,8 @@ class GameOverScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-       
+        let backgroundImage = FileNameRetriever.imageFileName(fileName: "GameOver")
+        let background = SKSpriteNode(imageNamed: backgroundImage)
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1

@@ -53,7 +53,8 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         monsterType = monster
         bossType = boss
         bossLives = getLives(for: bossType)
-        self.background = SKSpriteNode(imageNamed: fileName(for: backgroundType))
+        let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
+        self.background = SKSpriteNode(imageNamed: backgroundImage)
 //        background.xScale = xSize(for: backgroundType)
 //        background.yScale = ySize(for: backgroundType)
         super.init(size: size)
