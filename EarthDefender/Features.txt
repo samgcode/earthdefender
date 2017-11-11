@@ -1,23 +1,18 @@
 X* Need a Game finished screen
 X** Show total monsters killed
 X** Show number of levels finished
-* Need more levels
-x** Probably one more background
-* GameOverScene
-X** If you die and haven't killed a monster or finished a level, the labels should not show
-X* Need a click to email support button
+* Fix Game Complete Background and Level Complete Background
+* Rename Backgrounds to match the planet they are
+* Fix earth to be much further down like pluto
+* Lower the player to be much further down
+* Fix the credits label, you can't see it
+** Don't just say I don't know what to do, think of a useful solution
+* Give the hud a background and keep it at the top of the screen
 X** Test with iPhone5
 * fix screen sizes
 ** Test with iPhone7 Plus
 * Level2
-X** When shooting the non-boss monsters the boss health should not go down
-X** If boss gets to bottom player needs to loose all lives
-X* Maybe the boss should move back and forth instead of down
 ** Make the boss move faster
-* Game Scenes
-X** Use one levelService in the whole class
-* Make a button or text to load credits
-X* Display asset credits as needed
 * Change music so it does not have such a long lead in
 * Test on many different phone versions
 ** Fix backgrounds for each
