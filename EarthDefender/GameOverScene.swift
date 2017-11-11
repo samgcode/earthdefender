@@ -28,8 +28,6 @@ class GameOverScene: SKScene {
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
-//        background.xScale = 0.85
-//        background.yScale = 1.05
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 170)
         monstersKilledLabel.zPosition = 100
