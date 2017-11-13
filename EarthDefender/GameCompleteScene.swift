@@ -12,16 +12,15 @@ import SpriteKit
 class GameCompleteScene: SKScene {
     let player: Player = Player.sharedInstance
     let levelService: LevelService = LevelService.sharedInstance
-    let background = SKSpriteNode(imageNamed: "EarthDefenderGameCompleteScene")
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
     let levelsBeatLabel: SKLabelNode = SKLabelNode()
     
     override func didMove(to view: SKView) {
-        background.position = CGPoint(x: size.width * 0.5, y: 220)
+        let backgroundImage = FileNameRetriever.imageFileName(fileName: "GameComplete")
+        let background = SKSpriteNode(imageNamed: backgroundImage)
+        background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
-        background.xScale = 0.95
-        background.yScale = 2
-        
+
         monstersKilledLabel.position = CGPoint(x: 155, y: 200)
         monstersKilledLabel.zPosition = 100
         monstersKilledLabel.text = "Monsters Killed: \(player.totalMonstersKilled)"
