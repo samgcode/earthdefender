@@ -66,11 +66,11 @@ func getSpeed(for monsterType: MonsterType) -> Double {
     case .spaceship3: return 3.0
     case .alien: return 3.5
     case .alien2: return 3.0
-    case .commetBoss: return 5.0
-    case .asteroidBoss: return 5.5
-    case .spaceshipBoss1: return 6.0
-    case .spaceshipBoss2: return 6.5
-    case .alienBoss: return 7.0
+    case .commetBoss: return 2.0
+    case .asteroidBoss: return 2.0
+    case .spaceshipBoss1: return 2.0
+    case .spaceshipBoss2: return 2.0
+    case .alienBoss: return 2.0
     }
 }
 
