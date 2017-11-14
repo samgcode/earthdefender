@@ -22,16 +22,16 @@ class TitleScene: SKScene {
         background.zPosition = 1
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         
-        clickToStartLabel.position = CGPoint(x: 150, y: 140)
+        clickToStartLabel.position = CGPoint(x: 180, y: 300)
         clickToStartLabel.zPosition = 100
-        clickToStartLabel.text = "tap to start"
+        clickToStartLabel.text = "tap screen to start"
         clickToStartLabel.fontColor = UIColor.blue
         clickToStartLabel.fontSize = 35
         clickToStartLabel.fontName = "AmericanTypewriter"
         
         creditsSprite.xScale = 0.5
         creditsSprite.yScale = 0.5
-        creditsSprite.position = CGPoint(x: size.width * 0.5, y: 80)
+        creditsSprite.position = CGPoint(x: size.width * 0.5, y: 220)
         creditsSprite.zPosition = background.zPosition + 1
         creditsSprite.name = CREDITS_SPRITE_NAME
         
