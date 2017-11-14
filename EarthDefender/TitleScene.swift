@@ -14,6 +14,7 @@ class TitleScene: SKScene {
     let clickToStartLabel: SKLabelNode = SKLabelNode()
     let creditsSprite = SKSpriteNode(imageNamed: "EarthDefenderButton2")
     let CREDITS_SPRITE_NAME = "CREDITS_SPRITE_NAME"
+    let creditsButtonLabel: SKLabelNode = SKLabelNode()
     
     override func didMove(to view: SKView) {
         let backgroundImage = FileNameRetriever.imageFileName(fileName: "TitleScreen")
@@ -29,12 +30,20 @@ class TitleScene: SKScene {
         clickToStartLabel.fontSize = 35
         clickToStartLabel.fontName = "AmericanTypewriter"
         
+        creditsButtonLabel.position = CGPoint(x: size.width * 0.5, y: 250)
+        creditsButtonLabel.zPosition = background.zPosition + 2
+        creditsButtonLabel.text = "credits:"
+        creditsButtonLabel.fontColor = UIColor.blue
+        creditsButtonLabel.fontSize = 30
+        creditsButtonLabel.fontName = "AmericanTypewriter"
+        
         creditsSprite.xScale = 0.5
         creditsSprite.yScale = 0.5
         creditsSprite.position = CGPoint(x: size.width * 0.5, y: 220)
         creditsSprite.zPosition = background.zPosition + 1
         creditsSprite.name = CREDITS_SPRITE_NAME
         
+        addChild(creditsButtonLabel)
         addChild(clickToStartLabel)
         addChild(background)
         addChild(creditsSprite)
