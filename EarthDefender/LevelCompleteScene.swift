@@ -34,8 +34,6 @@ class LevelCompleteScene: SKScene {
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
-//        background.xScale = 1.14
-//        background.yScale = 1.64
         
         levelNumberLabel.text = "Levels completed: \(level)"
         levelNumberLabel.zPosition = 100

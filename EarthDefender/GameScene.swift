@@ -11,8 +11,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.numberOfMonsters = numberOfMonsters
         let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
         self.background = SKSpriteNode(imageNamed: backgroundImage)
-//        background.xScale = xSize(for: backgroundType)
-//        background.yScale = ySize(for: backgroundType)
         super.init(size: size)
     }
     
