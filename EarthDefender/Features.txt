@@ -13,7 +13,7 @@ X* Level2
 X** When shooting the non-boss monsters the boss health should not go down
 X** If boss gets to bottom player needs to loose all lives
 X* Maybe the boss should move back and forth instead of down
-** Make the boss move faster
+X** Make the boss move faster
 * Game Scenes
 X** Use one levelService in the whole class
 X* Make a button or text to load credits
