@@ -25,7 +25,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
-        player.monstersLeftForLevel = 25
         
         physicsWorld.gravity = CGVector.zero
         physicsWorld.contactDelegate = self
