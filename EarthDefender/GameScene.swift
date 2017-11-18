@@ -1,16 +1,17 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var player: Player = Player.sharedInstance
-    let background: SKSpriteNode
+    private var player: Player = Player.sharedInstance
+    private let background: SKSpriteNode
+    private let hudNode: hud
+    
     private (set) var monsterType: MonsterType
-    private (set) var numberOfMonsters: Int
     
     init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType) {
         monsterType = monster
-        self.numberOfMonsters = numberOfMonsters
         let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
         self.background = SKSpriteNode(imageNamed: backgroundImage)
+        self.hudNode = hud.init(inViewSize: size, withPlayer: player, numberOfMonsters: numberOfMonsters)
         
         super.init(size: size)
     }
@@ -21,9 +22,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // 1
     let playerSprite = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
-    let livesLabel: SKLabelNode = SKLabelNode()
-    let monstersLeftLabel: SKLabelNode = SKLabelNode()
-
     
     override func didMove(to view: SKView) {
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
@@ -53,28 +51,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         hudBackground.position = CGPoint(x: 0, y: size.height - hudYPosition)
         hudBackground.zPosition = 99
         
-        let labelTextSize = 23
-        let labelYPosition = size.height - 50
-        
-        livesLabel.position = CGPoint(x: size.width * 0.2, y: labelYPosition)
-        livesLabel.zPosition = 100
-        livesLabel.text = "lives: \(player.lives)"
-        livesLabel.fontColor = UIColor.red
-        livesLabel.fontSize = CGFloat(labelTextSize)
-        livesLabel.fontName = "AmericanTypewriter"
-        
-        monstersLeftLabel.position = CGPoint(x: size.width * 0.7, y: labelYPosition)
-        monstersLeftLabel.zPosition = 100
-        monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
-        monstersLeftLabel.fontColor = UIColor.green
-        monstersLeftLabel.fontSize = CGFloat(labelTextSize)
-        monstersLeftLabel.fontName = "AmericanTypewriter"
-        
         addChild(background)
         addChild(playerSprite)
-        addChild(livesLabel)
-        addChild(monstersLeftLabel)
-        addChild(hudBackground)
+        
+        
+        hudNode.zPosition = 99
+        addChild(hudNode)
         
         run(SKAction.repeatForever(
             SKAction.sequence([
@@ -115,10 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let actionMoveDone = SKAction.removeFromParent()
         
         let loseAction = SKAction.run() {
-            self.player.decrementLives()
-            self.livesLabel.text = "lives: \(self.player.lives)"
-            
-            
+            self.hudNode.looseLife()
             
             if self.player.lives <= 0 {
                 let gameOver: GameOverService = GameOverService.sharedInstance
@@ -189,13 +168,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
 
         if monster.lives <= 0 {
-              monster.removeFromParent()
-            player.incrementMonsterCount()
-            numberOfMonsters -= 1
-            self.monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
+            monster.removeFromParent()
+            hudNode.killedMonster()
         }
         
-        if (numberOfMonsters == 0) {
+        if (hudNode.currentNumberOfMonsters() < 1) {
             let levelService: LevelService = LevelService.sharedInstance
             
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
