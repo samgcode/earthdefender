@@ -11,6 +11,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.numberOfMonsters = numberOfMonsters
         let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
         self.background = SKSpriteNode(imageNamed: backgroundImage)
+        
         super.init(size: size)
     }
     
@@ -36,7 +37,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerSprite.xScale = 0.4
         playerSprite.yScale = 0.4
         
-       
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         
@@ -44,24 +44,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerSprite.zPosition = background.zPosition + 1
         // 4
         
-        livesLabel.position = CGPoint(x: 55, y: 535)
+        let hudBackground = SKShapeNode(rectOf: CGSize(width: 1000, height: 55))
+
+        hudBackground.name = "bar"
+        hudBackground.fillColor = SKColor.white
+        hudBackground.position = CGPoint(x: 0, y: 10)
+        hudBackground.zPosition = 99
+        
+        let labelTextSize = 23
+        
+        livesLabel.position = CGPoint(x: size.width * 0.2, y: 10)
         livesLabel.zPosition = 100
         livesLabel.text = "lives: \(player.lives)"
         livesLabel.fontColor = UIColor.red
-        livesLabel.fontSize = 25
+        livesLabel.fontSize = CGFloat(labelTextSize)
         livesLabel.fontName = "AmericanTypewriter"
         
-        monstersLeftLabel.position = CGPoint(x: 210, y: 535)
+        monstersLeftLabel.position = CGPoint(x: size.width * 0.7, y: 10)
         monstersLeftLabel.zPosition = 100
         monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
         monstersLeftLabel.fontColor = UIColor.green
-        monstersLeftLabel.fontSize = 25
+        monstersLeftLabel.fontSize = CGFloat(labelTextSize)
         monstersLeftLabel.fontName = "AmericanTypewriter"
         
         addChild(background)
         addChild(playerSprite)
         addChild(livesLabel)
         addChild(monstersLeftLabel)
+        addChild(hudBackground)
         
         run(SKAction.repeatForever(
             SKAction.sequence([

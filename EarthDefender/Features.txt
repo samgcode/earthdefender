@@ -1,8 +1,8 @@
-* Fix Game Complete Background and Level Complete Background
-* Rename Backgrounds to match the planet they are
-* Fix earth to be much further down like pluto
-* Lower the player to be much further down
-* Fix the credits label, you can't see it
+X* Fix Game Complete Background and Level Complete Background
+X* Rename Backgrounds to match the planet they are
+X* Fix earth to be much further down like pluto
+X* Lower the player to be much further down
+X* Fix the credits label, you can't see it
 * Give the hud a background and keep it at the top of the screen
 X* GameOverScene
 X** If you die and haven't killed a monster or finished a level, the labels should not show

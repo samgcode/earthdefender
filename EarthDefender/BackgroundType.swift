@@ -17,9 +17,9 @@ enum BackgroundType: Int {
 
 func fileName(for backgroundType: BackgroundType) -> String {
     switch backgroundType {
-    case .earth: return "StartLevel"
-    case .mars: return "Level2"
-    case .pluto: return "Level3"
+    case .earth: return "Earth"
+    case .mars: return "Mars"
+    case .pluto: return "Pluto"
     }
 }
 
