@@ -40,27 +40,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         
-        playerSprite.position = CGPoint(x: size.width * 0.5, y: size.height * 0.25)
+        playerSprite.position = CGPoint(x: size.width * 0.5, y: 170)
         playerSprite.zPosition = background.zPosition + 1
         // 4
         
-        let hudBackground = SKShapeNode(rectOf: CGSize(width: 1000, height: 55))
+        let hudBackground = SKShapeNode(rectOf: CGSize(width: 1000, height: 70))
 
+        let hudYPosition = hudBackground.frame.size.height / 2.3
+        
         hudBackground.name = "bar"
         hudBackground.fillColor = SKColor.white
-        hudBackground.position = CGPoint(x: 0, y: 10)
+        hudBackground.position = CGPoint(x: 0, y: size.height - hudYPosition)
         hudBackground.zPosition = 99
         
         let labelTextSize = 23
+        let labelYPosition = size.height - 50
         
-        livesLabel.position = CGPoint(x: size.width * 0.2, y: 10)
+        livesLabel.position = CGPoint(x: size.width * 0.2, y: labelYPosition)
         livesLabel.zPosition = 100
         livesLabel.text = "lives: \(player.lives)"
         livesLabel.fontColor = UIColor.red
         livesLabel.fontSize = CGFloat(labelTextSize)
         livesLabel.fontName = "AmericanTypewriter"
         
-        monstersLeftLabel.position = CGPoint(x: size.width * 0.7, y: 10)
+        monstersLeftLabel.position = CGPoint(x: size.width * 0.7, y: labelYPosition)
         monstersLeftLabel.zPosition = 100
         monstersLeftLabel.text = "asteroids left: \(numberOfMonsters)"
         monstersLeftLabel.fontColor = UIColor.green

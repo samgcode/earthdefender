@@ -85,24 +85,37 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         
-        playerSprite.position = CGPoint(x: size.width * 0.5, y: size.height * 0.35)
+        playerSprite.position = CGPoint(x: size.width * 0.5, y: 170)
         playerSprite.zPosition = background.zPosition + 1
         // 4
         
-        livesLabel.position = CGPoint(x: 55, y: 535)
+        let hudBackground = SKShapeNode(rectOf: CGSize(width: 1000, height: 70))
+        
+        let hudYPosition = hudBackground.frame.size.height / 2.3
+        
+        hudBackground.name = "bar"
+        hudBackground.fillColor = SKColor.white
+        hudBackground.position = CGPoint(x: 0, y: size.height - hudYPosition)
+        hudBackground.zPosition = 99
+        
+        let labelTextSize = 23
+        let labelYPosition = size.height - 50
+        
+        livesLabel.position = CGPoint(x: size.width * 0.2, y: labelYPosition)
         livesLabel.zPosition = 100
         livesLabel.text = "lives: \(player.lives)"
         livesLabel.fontColor = UIColor.red
-        livesLabel.fontSize = 25
+        livesLabel.fontSize = CGFloat(labelTextSize)
         livesLabel.fontName = "AmericanTypewriter"
         
-        bossHealth.position = CGPoint(x: 210, y: 535)
+        bossHealth.position = CGPoint(x: size.width * 0.7, y: labelYPosition)
         bossHealth.zPosition = 100
-        bossHealth.text = "boss health: \(bossLives)"
+        bossHealth.text = "asteroids left: \(bossLives)"
         bossHealth.fontColor = UIColor.green
-        bossHealth.fontSize = 25
+        bossHealth.fontSize = CGFloat(labelTextSize)
         bossHealth.fontName = "AmericanTypewriter"
         
+        addChild(hudBackground)
         addChild(background)
         addChild(playerSprite)
         addChild(livesLabel)
