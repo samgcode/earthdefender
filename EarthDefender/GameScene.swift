@@ -11,7 +11,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         monsterType = monster
         let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
         self.background = SKSpriteNode(imageNamed: backgroundImage)
-        self.hudNode = hud.init(inViewSize: size, withPlayer: player, numberOfMonsters: numberOfMonsters)
+        self.hudNode = hud.init(inViewSize: size, withPlayer: player, numberOfMonsters: numberOfMonsters, isBossLevel: false)
         
         super.init(size: size)
     }
@@ -42,7 +42,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // 4
         
         let hudBackground = SKShapeNode(rectOf: CGSize(width: 1000, height: 70))
-
         let hudYPosition = hudBackground.frame.size.height / 2.3
         
         hudBackground.name = "bar"

@@ -15,10 +15,12 @@ class hud: SKNode {
     private var _numberOfMonsters: Int
     private let _monstersLeftLabel: SKLabelNode
     private let _livesLabel: SKLabelNode
+    private var _isBossLevel: Bool
     
-    init(player: Player, numberOfMonsters: Int){
+    init(player: Player, numberOfMonsters: Int, BossLevel: Bool){
         self._player = player
         self._numberOfMonsters = numberOfMonsters
+        self._isBossLevel = BossLevel
         
         let labelTextSize = CGFloat(23)
         
@@ -38,8 +40,8 @@ class hud: SKNode {
         self.updateMonstersLabel(monstersLeft: _numberOfMonsters)
     }
     
-    convenience init(inViewSize: CGSize, withPlayer: Player, numberOfMonsters: Int) {
-        self.init(player: withPlayer, numberOfMonsters: numberOfMonsters)
+    convenience init(inViewSize: CGSize, withPlayer: Player, numberOfMonsters: Int, isBossLevel: Bool) {
+        self.init(player: withPlayer, numberOfMonsters: numberOfMonsters, BossLevel: isBossLevel)
         self.position = CGPoint(x: 0, y: 0)
         
         let hudBackground = SKShapeNode(rectOf: CGSize(width: 1000, height: 70))
@@ -58,7 +60,11 @@ class hud: SKNode {
     }
     
     private func updateMonstersLabel(monstersLeft: Int){
-        _monstersLeftLabel.text = "asteroids left: \(monstersLeft)"
+        if _isBossLevel == false{
+            _monstersLeftLabel.text = "asteroids left: \(monstersLeft)"
+        } else {
+            _monstersLeftLabel.text = "boss health: \(monstersLeft)"
+        }
     }
     
     private func updateLivesLabel(livesLeft: Int){

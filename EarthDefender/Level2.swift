@@ -48,6 +48,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     private (set) var monsterType: MonsterType
     private (set) var bossType: MonsterType
     private (set) var bossLives: Int
+    private let hudNode: hud
     
     init(monster: MonsterType, size: CGSize, backgroundType: BackgroundType, boss: MonsterType) {
         monsterType = monster
@@ -55,6 +56,8 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         bossLives = getLives(for: bossType)
         let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
         self.background = SKSpriteNode(imageNamed: backgroundImage)
+        self.hudNode = hud.init(inViewSize: size, withPlayer: player, numberOfMonsters:  bossLives, isBossLevel: true)
+        
         super.init(size: size)
     }
     
@@ -89,37 +92,10 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         playerSprite.zPosition = background.zPosition + 1
         // 4
         
-        let hudBackground = SKShapeNode(rectOf: CGSize(width: 1000, height: 70))
-        
-        let hudYPosition = hudBackground.frame.size.height / 2.3
-        
-        hudBackground.name = "bar"
-        hudBackground.fillColor = SKColor.white
-        hudBackground.position = CGPoint(x: 0, y: size.height - hudYPosition)
-        hudBackground.zPosition = 99
-        
-        let labelTextSize = 23
-        let labelYPosition = size.height - 50
-        
-        livesLabel.position = CGPoint(x: size.width * 0.2, y: labelYPosition)
-        livesLabel.zPosition = 100
-        livesLabel.text = "lives: \(player.lives)"
-        livesLabel.fontColor = UIColor.red
-        livesLabel.fontSize = CGFloat(labelTextSize)
-        livesLabel.fontName = "AmericanTypewriter"
-        
-        bossHealth.position = CGPoint(x: size.width * 0.7, y: labelYPosition)
-        bossHealth.zPosition = 100
-        bossHealth.text = "asteroids left: \(bossLives)"
-        bossHealth.fontColor = UIColor.green
-        bossHealth.fontSize = CGFloat(labelTextSize)
-        bossHealth.fontName = "AmericanTypewriter"
-        
-        addChild(hudBackground)
+        hudNode.zPosition = 99
+        addChild(hudNode)
         addChild(background)
         addChild(playerSprite)
-        addChild(livesLabel)
-        addChild(bossHealth)
         addBoss(enemyType: bossType)
         
         run(SKAction.repeatForever(
@@ -255,7 +231,8 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         explosion(position: monster.position)
         if monster.typeOfMonster == bossType {
         bossLives -= 1
-        bossHealth.text = "boss health: \(bossLives)"
+        hudNode.killedMonster()
+        //bossHealth.text = "boss health: \(bossLives)"
         }
         
         if monster.lives <= 0 {
