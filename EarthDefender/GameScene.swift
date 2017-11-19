@@ -41,17 +41,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerSprite.zPosition = background.zPosition + 1
         // 4
         
-        let hudBackground = SKShapeNode(rectOf: CGSize(width: 1000, height: 70))
-        let hudYPosition = hudBackground.frame.size.height / 2.3
-        
-        hudBackground.name = "bar"
-        hudBackground.fillColor = SKColor.white
-        hudBackground.position = CGPoint(x: 0, y: size.height - hudYPosition)
-        hudBackground.zPosition = 99
-        
         addChild(background)
         addChild(playerSprite)
-        
         
         hudNode.zPosition = 99
         addChild(hudNode)

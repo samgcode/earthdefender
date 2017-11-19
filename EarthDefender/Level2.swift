@@ -67,9 +67,6 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     
     // 1
     let playerSprite = SKSpriteNode(imageNamed: "earthDefenderSataliteSprite")
-    let livesLabel: SKLabelNode = SKLabelNode()
-    let bossHealth: SKLabelNode = SKLabelNode()
-    
     
     override func didMove(to view: SKView) {
         
@@ -139,8 +136,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         
         let loseAction = SKAction.run() {
             
-            self.player.decrementLives()
-            self.livesLabel.text = "lives: \(self.player.lives)"
+            self.hudNode.looseLife()
             
             if self.player.lives <= 0 {
                 let gameOver: GameOverService = GameOverService.sharedInstance
