@@ -150,7 +150,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     }
     
     func addBoss(enemyType: MonsterType) {
-        let actualY = size.height
+        let actualY = size.height - 190
         let actualX = size.width / 2
         
         let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: enemyType)
