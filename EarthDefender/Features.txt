@@ -18,7 +18,6 @@ X* Game Scenes
 X** Use one levelService in the whole class
 X* Make a button or text to load credits
 X* Display asset credits as needed
-* Change music so it does not have such a long lead in
 X* Test on many different phone versions
 X** Fix backgrounds for each
 X** Fix label sizes for each
@@ -30,8 +29,13 @@ X**** Game Over
 X*** Level screens
 X**** 3 level
 X* Remove frame rates if not in debug mode
+* Add a count of shots fired
+** Figure out a way for a high score based off of
+*** how many shots and how many monsters killed
+* Move the player even lower, it's still too high up
 * Add Analytics
 * Add CrashReporting
 * Credits
+* Change music so it does not have such a long lead in
 ** Cleanup unwrapped optionals from CreditsTableViewController
 ** Create a theme helper class to store the fonts and other them specific info
