@@ -115,6 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         projectile.xScale = 0.15
         projectile.yScale = 0.15
         
+        player.incrementShotsFired()
         
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)
         projectile.physicsBody?.isDynamic = true

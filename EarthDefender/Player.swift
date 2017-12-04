@@ -13,6 +13,7 @@ class Player {
     private(set) var lives: Int
     private(set) var totalMonstersKilled: Int
     var monstersLeftForLevel: Int
+    var _shotsFired: Int
     
     static let sharedInstance = Player()
     
@@ -20,6 +21,7 @@ class Player {
         self.lives = 9
         self.totalMonstersKilled = 0
         self.monstersLeftForLevel = 25
+        self._shotsFired = 0
     }
     
     func incrementMonsterCount() {
@@ -45,6 +47,10 @@ class Player {
     func resetPlayer() {
         lives = 9
         totalMonstersKilled = 0
+    }
+    
+    func incrementShotsFired() {
+        _shotsFired += 1
     }
 
 }

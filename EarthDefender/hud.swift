@@ -89,4 +89,17 @@ class hud: SKNode {
     func currentNumberOfMonsters() -> Int {
         return _numberOfMonsters
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+

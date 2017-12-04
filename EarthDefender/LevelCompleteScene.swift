@@ -15,6 +15,7 @@ class LevelCompleteScene: SKScene {
     var monstersKilledLabel: SKLabelNode = SKLabelNode()
     let background = SKSpriteNode(imageNamed: "LevelComplete")
     var player: Player = Player.sharedInstance
+    var shotsFired: SKLabelNode = SKLabelNode()
     private let level: Int
     
     init(size: CGSize, level: Int) {
@@ -35,6 +36,13 @@ class LevelCompleteScene: SKScene {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         
+        shotsFired.text = "shots fired: \(player._shotsFired)"
+        shotsFired.zPosition = 100
+        shotsFired.position = CGPoint(x: 165, y: 200)
+        shotsFired.fontColor = UIColor.cyan
+        shotsFired.fontSize = 30
+        shotsFired.fontName = "AmericanTypewriter"
+        
         levelNumberLabel.text = "Levels completed: \(level)"
         levelNumberLabel.zPosition = 100
         levelNumberLabel.position = CGPoint(x: 165, y: 400)
@@ -49,6 +57,7 @@ class LevelCompleteScene: SKScene {
         monstersKilledLabel.fontSize = 30
         monstersKilledLabel.fontName = "AmericanTypewriter"
         
+        addChild(shotsFired)
         addChild(monstersKilledLabel)
         addChild(levelNumberLabel)
         addChild(background)
