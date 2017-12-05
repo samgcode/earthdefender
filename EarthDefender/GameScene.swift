@@ -116,6 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         projectile.yScale = 0.15
         
         player.incrementShotsFired()
+        player.updateScore()
         
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)
         projectile.physicsBody?.isDynamic = true
@@ -160,6 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if monster.lives <= 0 {
             monster.removeFromParent()
             hudNode.killedMonster()
+            player.updateScore()
         }
         
         if (hudNode.currentNumberOfMonsters() < 1) {
