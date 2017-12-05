@@ -3,13 +3,14 @@ import SpriteKit
 
 class GameOverScene: SKScene {
     var gameOverService: GameOverService = GameOverService.sharedInstance
-   
+    var player: Player = Player.sharedInstance
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
     let completedLevelsLabel: SKLabelNode = SKLabelNode()
     let tapToStartLabel: SKLabelNode = SKLabelNode()
     let youLoseLabel: SKLabelNode = SKLabelNode()
     var currentLevel: Int
     let monstersKilled: Int
+    var shotsFired: SKLabelNode = SKLabelNode()
     
     init(size: CGSize, currentLevel: Int, monstersKilled: Int) {
         self.currentLevel = currentLevel
@@ -28,6 +29,13 @@ class GameOverScene: SKScene {
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
+        
+        shotsFired.text = "shots fired: \(player._shotsFired)"
+        shotsFired.zPosition = 100
+        shotsFired.position = CGPoint(x: 165, y: 200)
+        shotsFired.fontColor = UIColor.cyan
+        shotsFired.fontSize = 25
+        shotsFired.fontName = "AmericanTypewriter"
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 170)
         monstersKilledLabel.zPosition = 100
@@ -57,6 +65,7 @@ class GameOverScene: SKScene {
         tapToStartLabel.fontSize = 25
         tapToStartLabel.fontName = "AmericanTypewriter"
         
+        addChild(shotsFired)
         addChild(youLoseLabel)
         addChild(tapToStartLabel)
         addChild(completedLevelsLabel)

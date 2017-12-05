@@ -14,6 +14,7 @@ class GameCompleteScene: SKScene {
     let levelService: LevelService = LevelService.sharedInstance
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
     let levelsBeatLabel: SKLabelNode = SKLabelNode()
+    var shotsFired: SKLabelNode = SKLabelNode()
     
     override func didMove(to view: SKView) {
         let backgroundImage = FileNameRetriever.imageFileName(fileName: "GameComplete")
@@ -21,6 +22,13 @@ class GameCompleteScene: SKScene {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
 
+        shotsFired.text = "shots fired: \(player._shotsFired)"
+        shotsFired.zPosition = 100
+        shotsFired.position = CGPoint(x: 165, y: 100)
+        shotsFired.fontColor = UIColor.cyan
+        shotsFired.fontSize = 30
+        shotsFired.fontName = "AmericanTypewriter"
+        
         monstersKilledLabel.position = CGPoint(x: 155, y: 200)
         monstersKilledLabel.zPosition = 100
         monstersKilledLabel.text = "Monsters Killed: \(player.totalMonstersKilled)"
@@ -35,6 +43,7 @@ class GameCompleteScene: SKScene {
         levelsBeatLabel.fontColor = UIColor.orange
         levelsBeatLabel.fontName = "AmericanTypewriter"
         
+        addChild(shotsFired)
         addChild(levelsBeatLabel)
         addChild(monstersKilledLabel)
         addChild(background)

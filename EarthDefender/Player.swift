@@ -44,15 +44,16 @@ class Player {
        lives -= lives
     }
     
-    func resetPlayer() {
-        lives = 9
-        totalMonstersKilled = 0
-    }
-    
     func incrementShotsFired() {
         _shotsFired += 1
     }
-
+    
+    func resetPlayer() {
+        lives = 9
+        totalMonstersKilled = 0
+        _shotsFired = 0
+    }
+    
 }
 
 
