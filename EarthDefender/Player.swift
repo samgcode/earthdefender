@@ -51,7 +51,7 @@ class Player {
     }
     
     func updateScore() {
-        score = totalMonstersKilled + _shotsFired
+        score = lives * 5 + totalMonstersKilled - _shotsFired / 4
     }
     
     func resetPlayer() {

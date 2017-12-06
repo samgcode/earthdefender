@@ -186,7 +186,8 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         projectile.xScale = 0.15
         projectile.yScale = 0.15
         
-         player.incrementShotsFired()
+        player.incrementShotsFired()
+        player.updateScore()
         
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)
         projectile.physicsBody?.isDynamic = true
@@ -229,12 +230,12 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         if monster.typeOfMonster == bossType {
         bossLives -= 1
         hudNode.killedMonster()
-        //bossHealth.text = "boss health: \(bossLives)"
         }
         
         if monster.lives <= 0 {
             monster.removeFromParent()
             player.incrementMonsterCount()
+            player.updateScore()
         }
         
         if (bossLives == 0) {
