@@ -85,7 +85,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         
-        playerSprite.position = CGPoint(x: size.width * 0.5, y: 170)
+        playerSprite.position = CGPoint(x: size.width * 0.5, y: size.height / 6.5)
         playerSprite.zPosition = background.zPosition + 1
         // 4
         

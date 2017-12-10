@@ -29,9 +29,9 @@ X**** Game Over
 X*** Level screens
 X**** 3 level
 X* Remove frame rates if not in debug mode
-* Add a count of shots fired
-** Figure out a way for a high score based off of
-*** how many shots and how many monsters killed
+X* Add a count of shots fired
+X** Figure out a way for a high score based off of
+X*** how many shots and how many monsters killed
 * Move the player even lower, it's still too high up
 * Add Analytics
 * Add CrashReporting
