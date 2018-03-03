@@ -53,7 +53,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 SKAction.wait(forDuration: 1.0)
                 ])
         ))
-        let backgroundMusic = SKAudioNode(fileNamed: "BackgroundMusic.aac")
+        let musicFileName = "TrimmedBackground.mp3"
+        let backgroundMusic = SKAudioNode(fileNamed: musicFileName)
         backgroundMusic.autoplayLooped = true
         addChild(backgroundMusic)
         

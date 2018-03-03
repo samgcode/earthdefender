@@ -11,6 +11,7 @@
 		051FBDEE1FB161E400528C5D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051FBDED1FB161E400528C5D /* Constants.swift */; };
 		051FBDF01FB1639E00528C5D /* FileRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051FBDEF1FB1639E00528C5D /* FileRetriever.swift */; };
 		0562BD881EBF9B86003D3D38 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0562BD871EBF9B86003D3D38 /* Monster.swift */; };
+		05648462204B63FC00C60D55 /* TrimmedBackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 05648461204B63FC00C60D55 /* TrimmedBackground.mp3 */; };
 		05AFD32E1E75FE7E001B2FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */; };
 		05AFD3341E75FE7E001B2FC4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD3331E75FE7E001B2FC4 /* GameScene.swift */; };
 		05AFD3361E75FE7E001B2FC4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */; };
@@ -46,6 +47,7 @@
 		051FBDED1FB161E400528C5D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		051FBDEF1FB1639E00528C5D /* FileRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRetriever.swift; sourceTree = "<group>"; };
 		0562BD871EBF9B86003D3D38 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		05648461204B63FC00C60D55 /* TrimmedBackground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TrimmedBackground.mp3; sourceTree = "<group>"; };
 		05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthDefender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05AFD3331E75FE7E001B2FC4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				0E9642891E7D98B200FAB0F9 /* FireWork.sks */,
 				0ECB239C1EC914BA00BE6F7B /* lazersound.m4a */,
 				0ECB23A21EC9186F00BE6F7B /* BackgroundMusic.aac */,
+				05648461204B63FC00C60D55 /* TrimmedBackground.mp3 */,
 				05AFD3371E75FE7E001B2FC4 /* Main.storyboard */,
 				05AFD33C1E75FE7E001B2FC4 /* LaunchScreen.storyboard */,
 				05AFD33A1E75FE7E001B2FC4 /* Assets.xcassets */,
@@ -226,6 +229,7 @@
 				05AFD3391E75FE7E001B2FC4 /* Main.storyboard in Resources */,
 				05AFD33B1E75FE7E001B2FC4 /* Assets.xcassets in Resources */,
 				0ECB23A01EC917DA00BE6F7B /* AssetCredits.txt in Resources */,
+				05648462204B63FC00C60D55 /* TrimmedBackground.mp3 in Resources */,
 				0ECB239D1EC914BA00BE6F7B /* lazersound.m4a in Resources */,
 				0ECB23A31EC9186F00BE6F7B /* BackgroundMusic.aac in Resources */,
 				0E06ECF41E762D8500686674 /* Explosion.sks in Resources */,
