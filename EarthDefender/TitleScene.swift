@@ -15,6 +15,9 @@ class TitleScene: SKScene {
     let creditsSprite = SKSpriteNode(imageNamed: "EarthDefenderButton2")
     let CREDITS_SPRITE_NAME = "CREDITS_SPRITE_NAME"
     let creditsButtonLabel: SKLabelNode = SKLabelNode()
+    let planetLabel: SKLabelNode = SKLabelNode()
+    let defenderLabel: SKLabelNode = SKLabelNode()
+    
     
     override func didMove(to view: SKView) {
         let backgroundImage = FileNameRetriever.imageFileName(fileName: "TitleScreen")
@@ -22,6 +25,20 @@ class TitleScene: SKScene {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
+        
+        planetLabel.position = CGPoint(x: size.width * 0.5, y: size.height - 150)
+        planetLabel.zPosition = 100
+        planetLabel.text = "P L A N E T"
+        planetLabel.fontColor = UIColor.yellow
+        planetLabel.fontSize = 50
+        planetLabel.fontName = "AmericanTypewriter"
+        
+        defenderLabel.position = CGPoint(x: size.width * 0.5, y: size.height - 250)
+        defenderLabel.zPosition = 100
+        defenderLabel.text = "Defender"
+        defenderLabel.fontColor = UIColor.yellow
+        defenderLabel.fontSize = 40
+        defenderLabel.fontName = "AmericanTypewriter"
         
         clickToStartLabel.position = CGPoint(x: 180, y: 300)
         clickToStartLabel.zPosition = 100
@@ -43,6 +60,8 @@ class TitleScene: SKScene {
         creditsSprite.zPosition = background.zPosition + 1
         creditsSprite.name = CREDITS_SPRITE_NAME
         
+        addChild(defenderLabel)
+        addChild(planetLabel)
         addChild(creditsButtonLabel)
         addChild(clickToStartLabel)
         addChild(background)
