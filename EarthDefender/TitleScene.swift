@@ -33,10 +33,10 @@ class TitleScene: SKScene {
         planetLabel.fontSize = 50
         planetLabel.fontName = "AmericanTypewriter"
         
-        defenderLabel.position = CGPoint(x: size.width * 0.5, y: size.height - 250)
+        defenderLabel.position = CGPoint(x: size.width * 0.5, y: size.height - 220)
         defenderLabel.zPosition = 100
         defenderLabel.text = "Defender"
-        defenderLabel.fontColor = UIColor.yellow
+        defenderLabel.fontColor = UIColor.orange
         defenderLabel.fontSize = 40
         defenderLabel.fontName = "AmericanTypewriter"
         
