@@ -28,7 +28,8 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         let section1: [String: [String]] = ["Header": ["Music"], "Data": ["K100 - Riot"]]
         let section2: [String: [String]] = ["Header": ["Icons"], "Data": ["Icons8 - Social Media Icons"]]
         let section3: [String: [String]] = ["Header": ["Support"], "Data": ["Tap to contact support"]]
-        self.tableData = [section1, section2, section3]
+        let section4: [String: [String]] = ["Header": ["Version"], "Data": [DeviceService.applicationVersion()]]
+        self.tableData = [section1, section2, section3, section4]
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,6 +105,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
                 let mailController = MFMailComposeViewController()
                 mailController.setToRecipients(["support@deangaudet.com"])
                 mailController.setSubject("Support Request")
+                mailController.setMessageBody("\n\n\n\n\n\n\nEmail generated from App Version:\(DeviceService.applicationVersion())", isHTML: false)
                 mailController.mailComposeDelegate = self
                 
                 self.navigationController?.present(mailController, animated: true, completion: {})
@@ -168,7 +170,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     }
     
     func loadUrl(url: URL){
-        let applicationName = Bundle.main.infoDictionary!["CFBundleName"] as! String
+        let applicationName = DeviceService.applicationName()
         if(UIApplication.shared.canOpenURL(url)){
             let alert = UIAlertController.init(title: "Load page", message: "Do you want to leave \(applicationName) and load this page in browser?", preferredStyle: UIAlertControllerStyle.alert)
             let defaultAction = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default) { action in
