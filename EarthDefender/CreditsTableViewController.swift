@@ -103,7 +103,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         if(indexPath.section == mailIndexPath.section && indexPath.row == mailIndexPath.row) {
             if(canSendMail()){
                 let mailController = MFMailComposeViewController()
-                mailController.setToRecipients(["support@deangaudet.com"])
+                mailController.setToRecipients(["support@planet-defender.com"])
                 mailController.setSubject("Support Request")
                 mailController.setMessageBody("\n\n\n\n\n\n\nEmail generated from App Version:\(DeviceService.applicationVersion())", isHTML: false)
                 mailController.mailComposeDelegate = self
