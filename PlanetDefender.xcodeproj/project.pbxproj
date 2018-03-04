@@ -50,7 +50,7 @@
 		0562BD871EBF9B86003D3D38 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		05648461204B63FC00C60D55 /* TrimmedBackground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TrimmedBackground.mp3; sourceTree = "<group>"; };
 		05648463204B8FBF00C60D55 /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
-		05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthDefender.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AFD32A1E75FE7E001B2FC4 /* PlanetDefender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetDefender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AFD32D1E75FE7E001B2FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05AFD3331E75FE7E001B2FC4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		05AFD3351E75FE7E001B2FC4 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		05AFD32B1E75FE7E001B2FC4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */,
+				05AFD32A1E75FE7E001B2FC4 /* PlanetDefender.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,9 +171,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05AFD3291E75FE7E001B2FC4 /* EarthDefender */ = {
+		05AFD3291E75FE7E001B2FC4 /* PlanetDefender */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05AFD3421E75FE7E001B2FC4 /* Build configuration list for PBXNativeTarget "EarthDefender" */;
+			buildConfigurationList = 05AFD3421E75FE7E001B2FC4 /* Build configuration list for PBXNativeTarget "PlanetDefender" */;
 			buildPhases = (
 				05AFD3261E75FE7E001B2FC4 /* Sources */,
 				05AFD3271E75FE7E001B2FC4 /* Frameworks */,
@@ -183,9 +183,9 @@
 			);
 			dependencies = (
 			);
-			name = EarthDefender;
+			name = PlanetDefender;
 			productName = EarthDefender;
-			productReference = 05AFD32A1E75FE7E001B2FC4 /* EarthDefender.app */;
+			productReference = 05AFD32A1E75FE7E001B2FC4 /* PlanetDefender.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -204,7 +204,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 05AFD3251E75FE7E001B2FC4 /* Build configuration list for PBXProject "EarthDefender" */;
+			buildConfigurationList = 05AFD3251E75FE7E001B2FC4 /* Build configuration list for PBXProject "PlanetDefender" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -217,7 +217,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05AFD3291E75FE7E001B2FC4 /* EarthDefender */,
+				05AFD3291E75FE7E001B2FC4 /* PlanetDefender */,
 			);
 		};
 /* End PBXProject section */
@@ -393,7 +393,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EarthDefender/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.samgaudet.EarthDefender;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deangaudet.PlanetDefender;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -406,7 +406,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EarthDefender/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.samgaudet.EarthDefender;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deangaudet.PlanetDefender;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -415,7 +415,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05AFD3251E75FE7E001B2FC4 /* Build configuration list for PBXProject "EarthDefender" */ = {
+		05AFD3251E75FE7E001B2FC4 /* Build configuration list for PBXProject "PlanetDefender" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05AFD3401E75FE7E001B2FC4 /* Debug */,
@@ -424,7 +424,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05AFD3421E75FE7E001B2FC4 /* Build configuration list for PBXNativeTarget "EarthDefender" */ = {
+		05AFD3421E75FE7E001B2FC4 /* Build configuration list for PBXNativeTarget "PlanetDefender" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05AFD3431E75FE7E001B2FC4 /* Debug */,

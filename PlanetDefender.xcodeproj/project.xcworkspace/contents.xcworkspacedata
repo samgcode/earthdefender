@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:EarthDefender.xcodeproj">
+      location = "self:/Users/dean/Documents/Code/SamCode/EarthDefender/PlanetDefender.xcodeproj">
    </FileRef>
 </Workspace>
