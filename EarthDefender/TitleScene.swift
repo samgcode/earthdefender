@@ -13,6 +13,7 @@ class TitleScene: SKScene {
     
     let clickToStartLabel: SKLabelNode = SKLabelNode()
     let creditsSprite = SKSpriteNode(imageNamed: "EarthDefenderButton2")
+    let CREDITS_LABEL_SPRITE_NAME = "CREDITS_LABEL_SPRITE_NAME"
     let CREDITS_SPRITE_NAME = "CREDITS_SPRITE_NAME"
     let creditsButtonLabel: SKLabelNode = SKLabelNode()
     let planetLabel: SKLabelNode = SKLabelNode()
@@ -47,12 +48,13 @@ class TitleScene: SKScene {
         clickToStartLabel.fontSize = 30
         clickToStartLabel.fontName = "AmericanTypewriter"
         
-        creditsButtonLabel.position = CGPoint(x: size.width * 0.5, y: 250)
+        creditsButtonLabel.position = CGPoint(x: size.width * 0.5, y: 213)
         creditsButtonLabel.zPosition = background.zPosition + 2
         creditsButtonLabel.text = "credits:"
         creditsButtonLabel.fontColor = UIColor.blue
         creditsButtonLabel.fontSize = 30
         creditsButtonLabel.fontName = "AmericanTypewriter"
+        creditsButtonLabel.name = CREDITS_LABEL_SPRITE_NAME
         
         creditsSprite.xScale = 0.5
         creditsSprite.yScale = 0.5
@@ -86,7 +88,7 @@ class TitleScene: SKScene {
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(positionInScene)
             if let name = touchedNode.name {
-                if name == CREDITS_SPRITE_NAME {
+                if name == CREDITS_SPRITE_NAME || name == CREDITS_LABEL_SPRITE_NAME {
                     showCredits()
                 }
             }
