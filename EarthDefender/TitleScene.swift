@@ -11,6 +11,8 @@ import SpriteKit
 
 class TitleScene: SKScene {
     
+    var font = "AmericanTypewriter-Bold"
+    
     let clickToStartLabel: SKLabelNode = SKLabelNode()
     let creditsSprite = SKSpriteNode(imageNamed: "EarthDefenderButton2")
     let CREDITS_LABEL_SPRITE_NAME = "CREDITS_LABEL_SPRITE_NAME"
@@ -31,29 +33,29 @@ class TitleScene: SKScene {
         planetLabel.zPosition = 100
         planetLabel.text = "P L A N E T"
         planetLabel.fontColor = UIColor.yellow
-        planetLabel.fontSize = 50
-        planetLabel.fontName = "AmericanTypewriter"
+        planetLabel.fontSize = 40
+        planetLabel.fontName = font
         
         defenderLabel.position = CGPoint(x: size.width * 0.5, y: size.height - 220)
         defenderLabel.zPosition = 100
         defenderLabel.text = "Defender"
         defenderLabel.fontColor = UIColor.orange
         defenderLabel.fontSize = 40
-        defenderLabel.fontName = "AmericanTypewriter"
+        defenderLabel.fontName = font
         
         clickToStartLabel.position = CGPoint(x: 180, y: 300)
         clickToStartLabel.zPosition = 100
         clickToStartLabel.text = "tap screen to start"
         clickToStartLabel.fontColor = UIColor.blue
         clickToStartLabel.fontSize = 30
-        clickToStartLabel.fontName = "AmericanTypewriter"
+        clickToStartLabel.fontName = font
         
         creditsButtonLabel.position = CGPoint(x: size.width * 0.5, y: 213)
         creditsButtonLabel.zPosition = background.zPosition + 2
         creditsButtonLabel.text = "credits:"
         creditsButtonLabel.fontColor = UIColor.blue
         creditsButtonLabel.fontSize = 30
-        creditsButtonLabel.fontName = "AmericanTypewriter"
+        creditsButtonLabel.fontName = font
         creditsButtonLabel.name = CREDITS_LABEL_SPRITE_NAME
         
         creditsSprite.xScale = 0.5

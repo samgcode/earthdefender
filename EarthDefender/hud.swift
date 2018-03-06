@@ -11,6 +11,7 @@ import SpriteKit
 
 class hud: SKNode {
     
+    var font = "AmericanTypewriter-Bold"
     private let _player: Player
     private var _numberOfMonsters: Int
     private let _monstersLeftLabel: SKLabelNode
@@ -27,12 +28,12 @@ class hud: SKNode {
         _livesLabel = SKLabelNode()
         _livesLabel.fontColor = UIColor.red
         _livesLabel.fontSize = labelTextSize
-        _livesLabel.fontName = "AmericanTypewriter"
+        _livesLabel.fontName = font
         
         _monstersLeftLabel = SKLabelNode()
         _monstersLeftLabel.fontColor = UIColor.green
         _monstersLeftLabel.fontSize = labelTextSize
-        _monstersLeftLabel.fontName = "AmericanTypewriter"
+        _monstersLeftLabel.fontName = font
         
         super.init()
         

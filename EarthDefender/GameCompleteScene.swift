@@ -10,6 +10,9 @@ import Foundation
 import SpriteKit
 
 class GameCompleteScene: SKScene {
+    
+    var font = "AmericanTypewriter-Bold"
+    
     let player: Player = Player.sharedInstance
     let levelService: LevelService = LevelService.sharedInstance
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
@@ -28,28 +31,28 @@ class GameCompleteScene: SKScene {
         scoreLabel.position = CGPoint(x: 165, y: 50)
         scoreLabel.fontColor = UIColor.blue
         scoreLabel.fontSize = 30
-        scoreLabel.fontName = "AmericanTypewriter"
+        scoreLabel.fontName = font
         
         shotsFired.text = "shots fired: \(player._shotsFired)"
         shotsFired.zPosition = 100
         shotsFired.position = CGPoint(x: 165, y: 100)
         shotsFired.fontColor = UIColor.cyan
         shotsFired.fontSize = 30
-        shotsFired.fontName = "AmericanTypewriter"
+        shotsFired.fontName = font
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 200)
         monstersKilledLabel.zPosition = 100
         monstersKilledLabel.text = "Monsters Killed: \(player.totalMonstersKilled)"
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontColor = UIColor.cyan
-        monstersKilledLabel.fontName = "AmericanTypewriter"
+        monstersKilledLabel.fontName = font
         
         levelsBeatLabel.position = CGPoint(x: 155, y: 150)
         levelsBeatLabel.zPosition = 100
         levelsBeatLabel.text = "Levels Completed \(levelService.currentLevel - 1)"
         levelsBeatLabel.fontSize = 25
         levelsBeatLabel.fontColor = UIColor.orange
-        levelsBeatLabel.fontName = "AmericanTypewriter"
+        levelsBeatLabel.fontName = font
         
         addChild(scoreLabel)
         addChild(shotsFired)

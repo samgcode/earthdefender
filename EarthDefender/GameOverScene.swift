@@ -2,6 +2,7 @@ import Foundation
 import SpriteKit
 
 class GameOverScene: SKScene {
+    var font = "AmericanTypewriter-Bold"
     var gameOverService: GameOverService = GameOverService.sharedInstance
     var player: Player = Player.sharedInstance
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
@@ -36,42 +37,42 @@ class GameOverScene: SKScene {
         scoreLabel.position = CGPoint(x: 165, y: 100)
         scoreLabel.fontColor = UIColor.blue
         scoreLabel.fontSize = 30
-        scoreLabel.fontName = "AmericanTypewriter"
+        scoreLabel.fontName = font
         
         shotsFired.text = "shots fired: \(player._shotsFired)"
         shotsFired.zPosition = 100
         shotsFired.position = CGPoint(x: 165, y: 200)
         shotsFired.fontColor = UIColor.cyan
         shotsFired.fontSize = 25
-        shotsFired.fontName = "AmericanTypewriter"
+        shotsFired.fontName = font
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 170)
         monstersKilledLabel.zPosition = 100
         monstersKilledLabel.text = "Monsters Killed: \(monstersKilled)"
         monstersKilledLabel.fontColor = UIColor.blue
         monstersKilledLabel.fontSize = 25
-        monstersKilledLabel.fontName = "AmericanTypewriter"
+        monstersKilledLabel.fontName = font
         
         completedLevelsLabel.position = CGPoint(x: 155, y: 130)
         completedLevelsLabel.zPosition = 100
         completedLevelsLabel.text = "Levels completed \(currentLevel - 1)"
         completedLevelsLabel.fontColor = UIColor.green
         completedLevelsLabel.fontSize = 25
-        completedLevelsLabel.fontName = "AmericanTypewriter"
+        completedLevelsLabel.fontName = font
         
         youLoseLabel.position = CGPoint(x: 165, y: 300)
         youLoseLabel.zPosition = 100
         youLoseLabel.text = "You Lose"
         youLoseLabel.fontColor = UIColor.red
         youLoseLabel.fontSize = 70
-        youLoseLabel.fontName = "AmericanTypewriter"
+        youLoseLabel.fontName = font
         
         tapToStartLabel.position = CGPoint(x: 155, y: 60)
         tapToStartLabel.zPosition = 100
         tapToStartLabel.text = "Tap to restart"
         tapToStartLabel.fontColor = UIColor.red
         tapToStartLabel.fontSize = 25
-        tapToStartLabel.fontName = "AmericanTypewriter"
+        tapToStartLabel.fontName = font
         
         addChild(scoreLabel)
         addChild(shotsFired)
