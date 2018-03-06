@@ -71,7 +71,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addMonster() {
         let actualY = size.height
-        let actualX = random(min: 1, max: 350)
+        let actualX = random(min: 40, max: 340) //30
         let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: monsterType)
         monsterNode.zPosition = background.zPosition + 1
         

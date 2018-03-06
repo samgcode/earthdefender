@@ -120,16 +120,19 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     
     func addMonster(enemyType: MonsterType) {
         let actualY = size.height
-        let actualX = random(min: 1, max: 350)
-        let minSpeed = CGFloat(1.5)
+        let actualX = random(min: 40, max: 340)
+        let minSpeed = CGFloat(5.0)
         
         let monsterNode = Monster.init(position: CGPoint(x: actualX, y: actualY), monsterType: enemyType)
         monsterNode.zPosition = background.zPosition + 1
         
+        var monsterMaxSpeed = CGFloat(getSpeed(for: enemyType))
+        monsterMaxSpeed += 10
+        
         // Add the monster to the scene
         addChild(monsterNode)
         
-         let actualDuration = random(min: minSpeed, max: CGFloat(getSpeed(for: enemyType)))
+         let actualDuration = random(min: minSpeed, max: monsterMaxSpeed)
         
         // Create the actions
         let actionMove = SKAction.move(to: CGPoint(x: actualX, y: actualY - actualY), duration: TimeInterval(actualDuration))
