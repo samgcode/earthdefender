@@ -11,7 +11,7 @@ import SpriteKit
 
 class GameCompleteScene: SKScene {
     
-    var font = "AmericanTypewriter-Bold"
+    var font = ThemeService.getfont()
     
     let player: Player = Player.sharedInstance
     let levelService: LevelService = LevelService.sharedInstance

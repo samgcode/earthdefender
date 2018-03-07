@@ -15,15 +15,18 @@ class Player {
     var monstersLeftForLevel: Int
     var _shotsFired: Int
     var score: Int
+    var LevelShotsFired: Int
+
     
     static let sharedInstance = Player()
     
     init() {
-        self.lives = 9
+        self.lives = 4
         self.totalMonstersKilled = 0
         self.monstersLeftForLevel = 25
         self._shotsFired = 0
         self.score = 0
+        self.LevelShotsFired = 0
     }
     
     func incrementMonsterCount() {

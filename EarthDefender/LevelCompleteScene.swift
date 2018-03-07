@@ -11,7 +11,7 @@ import SpriteKit
 
 class LevelCompleteScene: SKScene {
     
-    var font = "AmericanTypewriter-Bold"
+    var font = ThemeService.getfont()
     var levelNumberLabel: SKLabelNode = SKLabelNode()
     var monstersKilledLabel: SKLabelNode = SKLabelNode()
     let background = SKSpriteNode(imageNamed: "LevelComplete")

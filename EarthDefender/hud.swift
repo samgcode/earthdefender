@@ -11,7 +11,7 @@ import SpriteKit
 
 class hud: SKNode {
     
-    var font = "AmericanTypewriter-Bold"
+    var font = ThemeService.getfont()
     private let _player: Player
     private var _numberOfMonsters: Int
     private let _monstersLeftLabel: SKLabelNode

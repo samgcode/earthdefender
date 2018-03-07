@@ -2,7 +2,7 @@ import Foundation
 import SpriteKit
 
 class GameOverScene: SKScene {
-    var font = "AmericanTypewriter-Bold"
+    var font = ThemeService.getfont()
     var gameOverService: GameOverService = GameOverService.sharedInstance
     var player: Player = Player.sharedInstance
     let monstersKilledLabel: SKLabelNode = SKLabelNode()

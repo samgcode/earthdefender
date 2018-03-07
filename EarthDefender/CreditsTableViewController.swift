@@ -10,6 +10,9 @@ import UIKit
 import MessageUI
 
 class CreditsTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    
+    let font = ThemeService.getfont()
+    
     private var tableData: NSMutableArray = []
     private var socialMediaIndexPath: IndexPath = IndexPath(row: 0, section: 0)
     private var iconsIndexPath: IndexPath = IndexPath(row: 0, section: 0)
@@ -57,10 +60,10 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         
         cell.backgroundColor = UIColor.lightGray
         cell.InformationLabel?.textColor = UIColor.yellow
-        cell.InformationLabel?.font = UIFont(name: "AmericanTypewriter", size: 20)
+        cell.InformationLabel?.font = UIFont(name: font, size: 20)
         
         cell.InformationSubTitleLable?.textColor = UIColor.yellow
-        cell.InformationSubTitleLable?.font = UIFont(name: "AmericanTypewriter", size: 13)
+        cell.InformationSubTitleLable?.font = UIFont(name: font, size: 13)
         cell.InformationSubTitleLable?.text = ""
         
         if let row: [String: [String]] = tableData[indexPath.section] as? [String : [String]] {
@@ -117,7 +120,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as? UITableViewHeaderFooterView
-        header?.textLabel?.font = UIFont(name: "AmericanTypewriter", size: 18)
+        header?.textLabel?.font = UIFont(name: font, size: 18)
         header?.textLabel?.textColor = UIColor.blue
         header?.backgroundView?.backgroundColor = UIColor.green
     }
@@ -148,7 +151,7 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         
         let attrs = [
             NSForegroundColorAttributeName: UIColor.red,
-            NSFontAttributeName: UIFont(name: "AmericanTypewriter", size: 24)!
+            NSFontAttributeName: UIFont(name: font, size: 24)!
         ]
         
         UINavigationBar.appearance().titleTextAttributes = attrs

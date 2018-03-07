@@ -3,17 +3,18 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     private var player: Player = Player.sharedInstance
     private let background: SKSpriteNode
-    private let hudNode: hud
-    
+    private let hudNode: hud    
     private (set) var monsterType: MonsterType
     
-    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType) {
+    
+    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType, shotBonus: Int) {
         monsterType = monster
         let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
         self.background = SKSpriteNode(imageNamed: backgroundImage)
         self.hudNode = hud.init(inViewSize: size, withPlayer: player, numberOfMonsters: numberOfMonsters, isBossLevel: false)
-        
+        var shotBonus = shotBonus
         super.init(size: size)
+        player.LevelShotsFired = 0
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -101,7 +102,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         // 1 - Choose one of the touches to work with
         guard let touch = touches.first else {
             return
@@ -135,6 +135,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         run(SKAction.playSoundFileNamed("lazersound.m4a", waitForCompletion: false))
 
         // 5 - OK to add now - you've double checked position
+        player.LevelShotsFired += 1
         addChild(projectile)
         
         // 6 - Get the direction of where to shoot

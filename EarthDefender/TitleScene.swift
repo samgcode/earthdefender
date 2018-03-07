@@ -11,7 +11,7 @@ import SpriteKit
 
 class TitleScene: SKScene {
     
-    var font = "AmericanTypewriter-Bold"
+    var font = ThemeService.getfont()
     
     let clickToStartLabel: SKLabelNode = SKLabelNode()
     let creditsSprite = SKSpriteNode(imageNamed: "EarthDefenderButton2")
