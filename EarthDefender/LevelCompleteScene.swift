@@ -14,6 +14,7 @@ class LevelCompleteScene: SKScene {
     var font = ThemeService.getfont()
     var levelNumberLabel: SKLabelNode = SKLabelNode()
     var monstersKilledLabel: SKLabelNode = SKLabelNode()
+    var shotsBonusLabel: SKLabelNode = SKLabelNode()
     let background = SKSpriteNode(imageNamed: "LevelComplete")
     var player: Player = Player.sharedInstance
     var shotsFired: SKLabelNode = SKLabelNode()
@@ -33,6 +34,18 @@ class LevelCompleteScene: SKScene {
     
     
     override func didMove(to view: SKView) {
+        
+        if player.LevelShotsFired <= player.shotsBonus {
+            shotsBonusLabel.text = "shot bonus: 100"
+        } else {
+            shotsBonusLabel.text = "shot bonus: 0"
+        }
+        
+        shotsBonusLabel.position = CGPoint(x: size.width * 0.5, y: 500)
+        shotsBonusLabel.zPosition = 100
+        shotsBonusLabel.fontName = font
+        shotsBonusLabel.fontColor = UIColor.green
+        shotsBonusLabel.fontSize = 30
         
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
@@ -66,6 +79,7 @@ class LevelCompleteScene: SKScene {
         monstersKilledLabel.fontSize = 30
         monstersKilledLabel.fontName = font
         
+        addChild(shotsBonusLabel)
         addChild(scoreLabel)
         addChild(shotsFired)
         addChild(monstersKilledLabel)
