@@ -37,8 +37,10 @@ class LevelCompleteScene: SKScene {
         
         if player.LevelShotsFired == player.shotsBonus {
             shotsBonusLabel.text = "shot bonus: 100"
+            player.bonusPoints += 100
         } else if player.LevelShotsFired < player.shotsBonus {
             shotsBonusLabel.text = "shot bonus: 50"
+            player.bonusPoints += 50
         } else {
             shotsBonusLabel.text = "shot bonus: 0"
         }

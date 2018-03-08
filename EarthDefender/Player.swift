@@ -17,7 +17,7 @@ class Player {
     var score: Int
     var LevelShotsFired: Int
     var shotsBonus: Int
-
+    var bonusPoints: Int
     
     static let sharedInstance = Player()
     
@@ -29,6 +29,7 @@ class Player {
         self.score = 0
         self.LevelShotsFired = 0
         self.shotsBonus = 0
+        self.bonusPoints = 0
     }
     
     func incrementMonsterCount() {
@@ -56,7 +57,7 @@ class Player {
     }
     
     func updateScore() {
-        score = lives * 5 + totalMonstersKilled - _shotsFired / 4
+        score = lives * 5 + totalMonstersKilled - _shotsFired / 4 + bonusPoints
     }
     
     func resetPlayer() {
