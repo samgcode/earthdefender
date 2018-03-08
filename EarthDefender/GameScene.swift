@@ -11,7 +11,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
         self.background = SKSpriteNode(imageNamed: backgroundImage)
         self.hudNode = hud.init(inViewSize: size, withPlayer: player, numberOfMonsters: numberOfMonsters, isBossLevel: false)
-        player.LevelShotsFired = shotBonus
+        player.shotsBonus = shotBonus
         super.init(size: size)
         player.LevelShotsFired = 0
     }
@@ -135,7 +135,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         run(SKAction.playSoundFileNamed("lazersound.m4a", waitForCompletion: false))
 
         // 5 - OK to add now - you've double checked position
-        player.LevelShotsFired += 1
         addChild(projectile)
         
         // 6 - Get the direction of where to shoot
