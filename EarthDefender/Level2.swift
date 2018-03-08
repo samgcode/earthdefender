@@ -50,14 +50,14 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     private (set) var bossLives: Int
     private let hudNode: hud
     
-    init(monster: MonsterType, size: CGSize, backgroundType: BackgroundType, boss: MonsterType) {
+    init(monster: MonsterType, size: CGSize, backgroundType: BackgroundType, boss: MonsterType , shotBonus: Int) {
         monsterType = monster
         bossType = boss
         bossLives = getLives(for: bossType)
         let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
         self.background = SKSpriteNode(imageNamed: backgroundImage)
         self.hudNode = hud.init(inViewSize: size, withPlayer: player, numberOfMonsters:  bossLives, isBossLevel: true)
-        
+        player.shotsBonus = shotBonus
         super.init(size: size)
     }
     
@@ -193,6 +193,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         
         player.incrementShotsFired()
         player.updateScore()
+        player.LevelShotsFired += 1
         
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)
         projectile.physicsBody?.isDynamic = true
