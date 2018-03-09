@@ -49,24 +49,25 @@ class LevelCompleteScene: SKScene {
         }
         player.updateScore()
 
-        if level == 1 {
+        if level == 10 || level == 20 {
             monsterDifficulty.text = "the next Monsters "
+            monsterDifficulty2.text = "are more difficult!"
         } else {
             monsterDifficulty.text = ""
             monsterDifficulty2.text = ""
         }
 
-        monsterDifficulty.position = CGPoint(x: size.width / 2, y: 650)
+        monsterDifficulty.position = CGPoint(x: size.width / 2, y: 630)
         monsterDifficulty.zPosition = 100
         monsterDifficulty.fontName = font
         monsterDifficulty.fontColor = UIColor.purple
         monsterDifficulty.fontSize = 25
         
-        monsterDifficulty.position = CGPoint(x: size.width / 2, y: 600)
-        monsterDifficulty.zPosition = 100
-        monsterDifficulty.fontName = font
-        monsterDifficulty.fontColor = UIColor.purple
-        monsterDifficulty.fontSize = 25
+        monsterDifficulty2.position = CGPoint(x: size.width / 2, y: 580)
+        monsterDifficulty2.zPosition = 100
+        monsterDifficulty2.fontName = font
+        monsterDifficulty2.fontColor = UIColor.purple
+        monsterDifficulty2.fontSize = 25
 
         
         shotsBonusLabel.position = CGPoint(x: size.width * 0.5, y: 500)
@@ -108,6 +109,7 @@ class LevelCompleteScene: SKScene {
         monstersKilledLabel.fontName = font
         
         addChild(monsterDifficulty)
+        addChild(monsterDifficulty2)
         addChild(shotsBonusLabel)
         addChild(scoreLabel)
         addChild(shotsFired)
