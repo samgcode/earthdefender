@@ -20,6 +20,9 @@ class LevelCompleteScene: SKScene {
     var shotsFired: SKLabelNode = SKLabelNode()
     var scoreLabel: SKLabelNode = SKLabelNode()
     private let level: Int
+    var monsterDifficulty: SKLabelNode = SKLabelNode()
+    var monsterDifficulty2: SKLabelNode = SKLabelNode()
+    
     
     init(size: CGSize, level: Int) {
         self.level = level
@@ -44,6 +47,27 @@ class LevelCompleteScene: SKScene {
         } else {
             shotsBonusLabel.text = "shot bonus: 0"
         }
+        player.updateScore()
+
+        if level == 1 {
+            monsterDifficulty.text = "the next Monsters "
+        } else {
+            monsterDifficulty.text = ""
+            monsterDifficulty2.text = ""
+        }
+
+        monsterDifficulty.position = CGPoint(x: size.width / 2, y: 650)
+        monsterDifficulty.zPosition = 100
+        monsterDifficulty.fontName = font
+        monsterDifficulty.fontColor = UIColor.purple
+        monsterDifficulty.fontSize = 25
+        
+        monsterDifficulty.position = CGPoint(x: size.width / 2, y: 600)
+        monsterDifficulty.zPosition = 100
+        monsterDifficulty.fontName = font
+        monsterDifficulty.fontColor = UIColor.purple
+        monsterDifficulty.fontSize = 25
+
         
         shotsBonusLabel.position = CGPoint(x: size.width * 0.5, y: 500)
         shotsBonusLabel.zPosition = 100
@@ -83,6 +107,7 @@ class LevelCompleteScene: SKScene {
         monstersKilledLabel.fontSize = 30
         monstersKilledLabel.fontName = font
         
+        addChild(monsterDifficulty)
         addChild(shotsBonusLabel)
         addChild(scoreLabel)
         addChild(shotsFired)
