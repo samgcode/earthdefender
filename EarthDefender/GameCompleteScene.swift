@@ -19,6 +19,10 @@ class GameCompleteScene: SKScene {
     let levelsBeatLabel: SKLabelNode = SKLabelNode()
     var shotsFired: SKLabelNode = SKLabelNode()
     var scoreLabel: SKLabelNode = SKLabelNode()
+    var line1: SKLabelNode = SKLabelNode()
+    var line2: SKLabelNode = SKLabelNode()
+    var line3: SKLabelNode = SKLabelNode()
+    
     
     override func didMove(to view: SKView) {
         let backgroundImage = FileNameRetriever.imageFileName(fileName: "GameComplete")
@@ -26,6 +30,27 @@ class GameCompleteScene: SKScene {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
 
+        line1.text = "Congrats you beat"
+        line1.position = CGPoint(x: size.width / 2, y: 450)
+        line1.zPosition = 100
+        line1.fontSize = 30
+        line1.fontName = font
+        line1.fontColor = UIColor.blue
+        
+        line2.text = "the game ... "
+        line2.position = CGPoint(x: size.width / 2, y: 400)
+        line2.zPosition = 100
+        line2.fontSize = 30
+        line2.fontName = font
+        line2.fontColor = UIColor.blue
+        
+        line3.text = "now go outside!"
+        line3.position = CGPoint(x: size.width / 2, y: 350)
+        line3.zPosition = 100
+        line3.fontSize = 30
+        line3.fontName = font
+        line3.fontColor = UIColor.blue
+        
         scoreLabel.text = "score: \(player.score)"
         scoreLabel.zPosition = 100
         scoreLabel.position = CGPoint(x: 165, y: 50)
@@ -54,6 +79,9 @@ class GameCompleteScene: SKScene {
         levelsBeatLabel.fontColor = UIColor.orange
         levelsBeatLabel.fontName = font
         
+        addChild(line1)
+        addChild(line2)
+        addChild(line3)
         addChild(scoreLabel)
         addChild(shotsFired)
         addChild(levelsBeatLabel)
