@@ -22,11 +22,12 @@ class LevelCompleteScene: SKScene {
     private let level: Int
     var monsterDifficulty: SKLabelNode = SKLabelNode()
     var monsterDifficulty2: SKLabelNode = SKLabelNode()
+    var shotBonus: Int
     
     
-    init(size: CGSize, level: Int) {
+    init(size: CGSize, level: Int, monsterCount: Int) {
         self.level = level
-        
+        self.shotBonus = monsterCount
         super.init(size: size)
     }
     
@@ -34,17 +35,14 @@ class LevelCompleteScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     override func didMove(to view: SKView) {
         
-        let superShotBonus = player.shotsBonus - 10
-        let bossShotBonus = player.shotsBonus - 20
+        let lowShotBonus = shotBonus + 10
         
-        if player.LevelShotsFired <= superShotBonus || player.LevelShotsFired <= bossShotBonus {
+        if player.LevelShotsFired == shotBonus {
             shotsBonusLabel.text = "shot bonus: 100"
             player.bonusPoints += 100
-        } else if player.LevelShotsFired <= player.shotsBonus {
+        } else if player.LevelShotsFired <= lowShotBonus {
             shotsBonusLabel.text = "shot bonus: 50"
             player.bonusPoints += 50
         } else {

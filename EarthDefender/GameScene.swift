@@ -5,13 +5,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let background: SKSpriteNode
     private let hudNode: hud    
     private (set) var monsterType: MonsterType
+    private var monsterCount: Int
     
-    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType, shotBonus: Int) {
+    init(monster: MonsterType, size: CGSize, numberOfMonsters: Int, backgroundType: BackgroundType) {
         monsterType = monster
         let backgroundImage = FileNameRetriever.imageFileName(fileName: fileName(for: backgroundType))
         self.background = SKSpriteNode(imageNamed: backgroundImage)
         self.hudNode = hud.init(inViewSize: size, withPlayer: player, numberOfMonsters: numberOfMonsters, isBossLevel: false)
-        player.shotsBonus = shotBonus
+        self.monsterCount = numberOfMonsters * getLives(for: monsterType)
         super.init(size: size)
         player.LevelShotsFired = 0
     }
@@ -169,7 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let levelService: LevelService = LevelService.sharedInstance
             
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameScene = levelService.loadLevelComplete(size: self.size)
+            let gameScene = levelService.loadLevelComplete(size: self.size, monsterCount: monsterCount)
             self.view?.presentScene(gameScene, transition: reveal)
         }
     }
