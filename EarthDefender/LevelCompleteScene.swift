@@ -23,11 +23,13 @@ class LevelCompleteScene: SKScene {
     var monsterDifficulty: SKLabelNode = SKLabelNode()
     var monsterDifficulty2: SKLabelNode = SKLabelNode()
     var shotBonus: Int
+    var isBossLevel: Bool
     
     
-    init(size: CGSize, level: Int, monsterCount: Int) {
+    init(size: CGSize, level: Int, monsterCount: Int, bossLevel: Bool) {
         self.level = level
         self.shotBonus = monsterCount
+        isBossLevel = bossLevel
         super.init(size: size)
     }
     
@@ -39,7 +41,9 @@ class LevelCompleteScene: SKScene {
         
         let lowShotBonus = shotBonus + 10
         
-        if player.LevelShotsFired == shotBonus {
+        if isBossLevel == true {
+            shotsBonusLabel.text = ""
+        } else if player.LevelShotsFired == shotBonus {
             shotsBonusLabel.text = "shot bonus: 100"
             player.bonusPoints += 100
         } else if player.LevelShotsFired <= lowShotBonus {

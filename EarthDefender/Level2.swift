@@ -250,7 +250,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             let levelService: LevelService = LevelService.sharedInstance
             
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            let gameScene = levelService.loadLevelComplete(size: self.size, monsterCount: monsterCount)
+            let gameScene = levelService.loadLevelComplete(size: self.size, monsterCount: monsterCount, isBossLevel: true)
             self.view?.presentScene(gameScene, transition: reveal)
         }
     }

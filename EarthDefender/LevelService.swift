@@ -77,8 +77,8 @@ class LevelService {
         return GameScene.init(monster: monsterType, size: size, numberOfMonsters: monsterCount, backgroundType: backgroundType)
     }
     
-    func loadLevelComplete(size: CGSize, monsterCount: Int) -> SKScene {
-        return LevelCompleteScene(size: size, level: currentLevel, monsterCount: monsterCount)
+    func loadLevelComplete(size: CGSize, monsterCount: Int, isBossLevel: Bool) -> SKScene {
+        return LevelCompleteScene(size: size, level: currentLevel, monsterCount: monsterCount, bossLevel: isBossLevel)
     }
     
     func resetCurrentLevel() {
