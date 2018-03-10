@@ -38,10 +38,13 @@ class LevelCompleteScene: SKScene {
     
     override func didMove(to view: SKView) {
         
-        if player.LevelShotsFired == player.shotsBonus {
+        let superShotBonus = player.shotsBonus - 10
+        let bossShotBonus = player.shotsBonus - 15
+        
+        if player.LevelShotsFired <= superShotBonus || player.LevelShotsFired <= bossShotBonus {
             shotsBonusLabel.text = "shot bonus: 100"
             player.bonusPoints += 100
-        } else if player.LevelShotsFired < player.shotsBonus {
+        } else if player.LevelShotsFired <= player.shotsBonus {
             shotsBonusLabel.text = "shot bonus: 50"
             player.bonusPoints += 50
         } else {
