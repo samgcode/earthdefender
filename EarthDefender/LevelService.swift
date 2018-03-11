@@ -15,7 +15,7 @@ class LevelService {
     var player: Player = Player.sharedInstance
     
     init() {
-        self.currentLevel = 34
+        self.currentLevel = 1
     }
     
     func loadTitleScene(size: CGSize) -> SKScene {
