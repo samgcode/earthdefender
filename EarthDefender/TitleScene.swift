@@ -29,28 +29,30 @@ class TitleScene: SKScene {
         background.zPosition = 1
         background.aspectFillToSize(fillSize: (self.view?.frame.size)!)
         
-        planetLabel.position = CGPoint(x: size.width * 0.5, y: size.height - 150)
+        let center = ThemeService.screenCenter(size: size.width)
+        
+        planetLabel.position = CGPoint(x: center, y: size.height - 150)
         planetLabel.zPosition = 100
         planetLabel.text = "P L A N E T"
         planetLabel.fontColor = UIColor.yellow
         planetLabel.fontSize = 40
         planetLabel.fontName = font
         
-        defenderLabel.position = CGPoint(x: size.width * 0.5, y: size.height - 220)
+        defenderLabel.position = CGPoint(x: center, y: size.height - 220)
         defenderLabel.zPosition = 100
         defenderLabel.text = "Defender"
         defenderLabel.fontColor = UIColor.orange
         defenderLabel.fontSize = 40
         defenderLabel.fontName = font
         
-        clickToStartLabel.position = CGPoint(x: 180, y: 300)
+        clickToStartLabel.position = CGPoint(x: center, y: 300)
         clickToStartLabel.zPosition = 100
         clickToStartLabel.text = "Tap screen to start"
         clickToStartLabel.fontColor = UIColor.blue
         clickToStartLabel.fontSize = 30
         clickToStartLabel.fontName = font
         
-        creditsButtonLabel.position = CGPoint(x: size.width * 0.5, y: 213)
+        creditsButtonLabel.position = CGPoint(x: center, y: 213)
         creditsButtonLabel.zPosition = background.zPosition + 2
         creditsButtonLabel.text = "Credits:"
         creditsButtonLabel.fontColor = UIColor.blue
@@ -60,7 +62,7 @@ class TitleScene: SKScene {
         
         creditsSprite.xScale = 0.5
         creditsSprite.yScale = 0.5
-        creditsSprite.position = CGPoint(x: size.width * 0.5, y: 220)
+        creditsSprite.position = CGPoint(x: center, y: 220)
         creditsSprite.zPosition = background.zPosition + 1
         creditsSprite.name = CREDITS_SPRITE_NAME
         

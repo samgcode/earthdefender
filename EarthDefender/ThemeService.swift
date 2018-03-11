@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import SpriteKit
 
 class ThemeService {
     static func getfont() -> String {
        return "ChalkboardSE-Bold"
     }
+    
+    static func screenCenter(size: CGFloat) -> CGFloat {
+        return size * 0.5
+    }
+    
 }

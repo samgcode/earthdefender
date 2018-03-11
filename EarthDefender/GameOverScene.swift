@@ -32,42 +32,45 @@ class GameOverScene: SKScene {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         
+        let center = ThemeService.screenCenter(size: size.width)
+
+        
         scoreLabel.text = "Score: \(player.score)"
         scoreLabel.zPosition = 100
-        scoreLabel.position = CGPoint(x: 165, y: 100)
+        scoreLabel.position = CGPoint(x: center, y: 100)
         scoreLabel.fontColor = UIColor.blue
         scoreLabel.fontSize = 30
         scoreLabel.fontName = font
         
         shotsFired.text = "Shots fired: \(player._shotsFired)"
         shotsFired.zPosition = 100
-        shotsFired.position = CGPoint(x: 165, y: 200)
+        shotsFired.position = CGPoint(x: center, y: 200)
         shotsFired.fontColor = UIColor.cyan
         shotsFired.fontSize = 25
         shotsFired.fontName = font
         
-        monstersKilledLabel.position = CGPoint(x: 155, y: 170)
+        monstersKilledLabel.position = CGPoint(x: center, y: 170)
         monstersKilledLabel.zPosition = 100
         monstersKilledLabel.text = "Enemys Killed: \(monstersKilled)"
         monstersKilledLabel.fontColor = UIColor.blue
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontName = font
         
-        completedLevelsLabel.position = CGPoint(x: 155, y: 130)
+        completedLevelsLabel.position = CGPoint(x: center, y: 130)
         completedLevelsLabel.zPosition = 100
         completedLevelsLabel.text = "Levels completed \(currentLevel - 1)"
         completedLevelsLabel.fontColor = UIColor.green
         completedLevelsLabel.fontSize = 25
         completedLevelsLabel.fontName = font
         
-        youLoseLabel.position = CGPoint(x: 165, y: 300)
+        youLoseLabel.position = CGPoint(x: center, y: 300)
         youLoseLabel.zPosition = 100
         youLoseLabel.text = "You Lose"
         youLoseLabel.fontColor = UIColor.red
         youLoseLabel.fontSize = 70
         youLoseLabel.fontName = font
         
-        tapToStartLabel.position = CGPoint(x: 155, y: 60)
+        tapToStartLabel.position = CGPoint(x: center, y: 60)
         tapToStartLabel.zPosition = 100
         tapToStartLabel.text = "Tap to restart"
         tapToStartLabel.fontColor = UIColor.red

@@ -12,7 +12,6 @@ import SpriteKit
 class GameCompleteScene: SKScene {
     
     var font = ThemeService.getfont()
-    
     let player: Player = Player.sharedInstance
     let levelService: LevelService = LevelService.sharedInstance
     let monstersKilledLabel: SKLabelNode = SKLabelNode()
@@ -30,22 +29,25 @@ class GameCompleteScene: SKScene {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
 
+        let center = ThemeService.screenCenter(size: size.width)
+
+        
         line1.text = "Congrats you beat"
-        line1.position = CGPoint(x: size.width / 2, y: 450)
+        line1.position = CGPoint(x: center, y: 450)
         line1.zPosition = 100
         line1.fontSize = 30
         line1.fontName = font
         line1.fontColor = UIColor.blue
         
         line2.text = "the game ... "
-        line2.position = CGPoint(x: size.width / 2, y: 400)
+        line2.position = CGPoint(x: center, y: 400)
         line2.zPosition = 100
         line2.fontSize = 30
         line2.fontName = font
         line2.fontColor = UIColor.blue
         
         line3.text = "now go outside!"
-        line3.position = CGPoint(x: size.width / 2, y: 350)
+        line3.position = CGPoint(x: center, y: 350)
         line3.zPosition = 100
         line3.fontSize = 30
         line3.fontName = font
@@ -53,26 +55,26 @@ class GameCompleteScene: SKScene {
         
         scoreLabel.text = "Score: \(player.score)"
         scoreLabel.zPosition = 100
-        scoreLabel.position = CGPoint(x: 165, y: 50)
+        scoreLabel.position = CGPoint(x: center, y: 50)
         scoreLabel.fontColor = UIColor.blue
         scoreLabel.fontSize = 30
         scoreLabel.fontName = font
         
         shotsFired.text = "Shots fired: \(player._shotsFired)"
         shotsFired.zPosition = 100
-        shotsFired.position = CGPoint(x: 165, y: 100)
+        shotsFired.position = CGPoint(x: center, y: 100)
         shotsFired.fontColor = UIColor.cyan
         shotsFired.fontSize = 30
         shotsFired.fontName = font
         
-        monstersKilledLabel.position = CGPoint(x: 155, y: 200)
+        monstersKilledLabel.position = CGPoint(x: center, y: 200)
         monstersKilledLabel.zPosition = 100
         monstersKilledLabel.text = "Enemys Killed: \(player.totalMonstersKilled)"
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontColor = UIColor.cyan
         monstersKilledLabel.fontName = font
         
-        levelsBeatLabel.position = CGPoint(x: 155, y: 150)
+        levelsBeatLabel.position = CGPoint(x: center, y: 150)
         levelsBeatLabel.zPosition = 100
         levelsBeatLabel.text = "Levels Completed \(levelService.currentLevel - 1)"
         levelsBeatLabel.fontSize = 25
