@@ -69,7 +69,7 @@ class GameCompleteScene: SKScene {
         
         monstersKilledLabel.position = CGPoint(x: center, y: 200)
         monstersKilledLabel.zPosition = 100
-        monstersKilledLabel.text = "Enemys Killed: \(player.totalMonstersKilled)"
+        monstersKilledLabel.text = "Enemies Killed: \(player.totalMonstersKilled)"
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontColor = UIColor.cyan
         monstersKilledLabel.fontName = font

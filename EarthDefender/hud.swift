@@ -62,7 +62,7 @@ class hud: SKNode {
     
     private func updateMonstersLabel(monstersLeft: Int){
         if _isBossLevel == false{
-            _monstersLeftLabel.text = "Enemys left: \(monstersLeft)"
+            _monstersLeftLabel.text = "Enemies left: \(monstersLeft)"
         } else {
             _monstersLeftLabel.text = "Boss health: \(monstersLeft)"
         }

@@ -51,7 +51,7 @@ class GameOverScene: SKScene {
         
         monstersKilledLabel.position = CGPoint(x: center, y: 170)
         monstersKilledLabel.zPosition = 100
-        monstersKilledLabel.text = "Enemys Killed: \(monstersKilled)"
+        monstersKilledLabel.text = "Enemies Killed: \(monstersKilled)"
         monstersKilledLabel.fontColor = UIColor.blue
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontName = font
