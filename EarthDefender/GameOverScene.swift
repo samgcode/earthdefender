@@ -32,14 +32,14 @@ class GameOverScene: SKScene {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         
-        scoreLabel.text = "score: \(player.score)"
+        scoreLabel.text = "Score: \(player.score)"
         scoreLabel.zPosition = 100
         scoreLabel.position = CGPoint(x: 165, y: 100)
         scoreLabel.fontColor = UIColor.blue
         scoreLabel.fontSize = 30
         scoreLabel.fontName = font
         
-        shotsFired.text = "shots fired: \(player._shotsFired)"
+        shotsFired.text = "Shots fired: \(player._shotsFired)"
         shotsFired.zPosition = 100
         shotsFired.position = CGPoint(x: 165, y: 200)
         shotsFired.fontColor = UIColor.cyan
@@ -48,7 +48,7 @@ class GameOverScene: SKScene {
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 170)
         monstersKilledLabel.zPosition = 100
-        monstersKilledLabel.text = "Monsters Killed: \(monstersKilled)"
+        monstersKilledLabel.text = "Enemys Killed: \(monstersKilled)"
         monstersKilledLabel.fontColor = UIColor.blue
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontName = font

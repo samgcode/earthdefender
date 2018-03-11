@@ -59,7 +59,7 @@ class Player {
     }
     
     func resetPlayer() {
-        lives = 9
+        lives = 4
         totalMonstersKilled = 0
         _shotsFired = 0
     }

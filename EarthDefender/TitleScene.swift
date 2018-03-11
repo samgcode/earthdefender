@@ -45,14 +45,14 @@ class TitleScene: SKScene {
         
         clickToStartLabel.position = CGPoint(x: 180, y: 300)
         clickToStartLabel.zPosition = 100
-        clickToStartLabel.text = "tap screen to start"
+        clickToStartLabel.text = "Tap screen to start"
         clickToStartLabel.fontColor = UIColor.blue
         clickToStartLabel.fontSize = 30
         clickToStartLabel.fontName = font
         
         creditsButtonLabel.position = CGPoint(x: size.width * 0.5, y: 213)
         creditsButtonLabel.zPosition = background.zPosition + 2
-        creditsButtonLabel.text = "credits:"
+        creditsButtonLabel.text = "Credits:"
         creditsButtonLabel.fontColor = UIColor.blue
         creditsButtonLabel.fontSize = 30
         creditsButtonLabel.fontName = font

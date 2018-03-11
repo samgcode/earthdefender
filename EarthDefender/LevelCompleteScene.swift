@@ -44,18 +44,18 @@ class LevelCompleteScene: SKScene {
         if isBossLevel == true {
             shotsBonusLabel.text = ""
         } else if player.LevelShotsFired == shotBonus {
-            shotsBonusLabel.text = "shot bonus: 100"
+            shotsBonusLabel.text = "Shot bonus: 100"
             player.bonusPoints += 100
         } else if player.LevelShotsFired <= lowShotBonus {
-            shotsBonusLabel.text = "shot bonus: 50"
+            shotsBonusLabel.text = "Shot bonus: 50"
             player.bonusPoints += 50
         } else {
-            shotsBonusLabel.text = "shot bonus: 0"
+            shotsBonusLabel.text = "Shot bonus: 0"
         }
         player.updateScore()
 
         if level == 10 || level == 20 {
-            monsterDifficulty.text = "the next Monsters "
+            monsterDifficulty.text = "The next enemys "
             monsterDifficulty2.text = "are more difficult!"
         } else {
             monsterDifficulty.text = ""
@@ -85,14 +85,14 @@ class LevelCompleteScene: SKScene {
         background.position = CGPoint(x: size.width * 0.5, y: size.height * 0.5)
         background.zPosition = 1
         
-        scoreLabel.text = "score: \(player.score)"
+        scoreLabel.text = "Score: \(player.score)"
         scoreLabel.zPosition = 100
         scoreLabel.position = CGPoint(x: 165, y: 100)
         scoreLabel.fontColor = UIColor.blue
         scoreLabel.fontSize = 30
         scoreLabel.fontName = font
         
-        shotsFired.text = "shots fired: \(player._shotsFired)"
+        shotsFired.text = "Shots fired: \(player._shotsFired)"
         shotsFired.zPosition = 100
         shotsFired.position = CGPoint(x: 165, y: 200)
         shotsFired.fontColor = UIColor.cyan
@@ -106,7 +106,7 @@ class LevelCompleteScene: SKScene {
         levelNumberLabel.fontSize = 30
         levelNumberLabel.fontName = font
         
-        monstersKilledLabel.text = "monsters killed: \(player.totalMonstersKilled)"
+        monstersKilledLabel.text = "Enemys killed: \(player.totalMonstersKilled)"
         monstersKilledLabel.zPosition = 100
         monstersKilledLabel.position = CGPoint(x: 165, y: 300)
         monstersKilledLabel.fontColor = UIColor.red

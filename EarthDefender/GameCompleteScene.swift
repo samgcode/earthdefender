@@ -51,14 +51,14 @@ class GameCompleteScene: SKScene {
         line3.fontName = font
         line3.fontColor = UIColor.blue
         
-        scoreLabel.text = "score: \(player.score)"
+        scoreLabel.text = "Score: \(player.score)"
         scoreLabel.zPosition = 100
         scoreLabel.position = CGPoint(x: 165, y: 50)
         scoreLabel.fontColor = UIColor.blue
         scoreLabel.fontSize = 30
         scoreLabel.fontName = font
         
-        shotsFired.text = "shots fired: \(player._shotsFired)"
+        shotsFired.text = "Shots fired: \(player._shotsFired)"
         shotsFired.zPosition = 100
         shotsFired.position = CGPoint(x: 165, y: 100)
         shotsFired.fontColor = UIColor.cyan
@@ -67,7 +67,7 @@ class GameCompleteScene: SKScene {
         
         monstersKilledLabel.position = CGPoint(x: 155, y: 200)
         monstersKilledLabel.zPosition = 100
-        monstersKilledLabel.text = "Monsters Killed: \(player.totalMonstersKilled)"
+        monstersKilledLabel.text = "Enemys Killed: \(player.totalMonstersKilled)"
         monstersKilledLabel.fontSize = 25
         monstersKilledLabel.fontColor = UIColor.cyan
         monstersKilledLabel.fontName = font
