@@ -30,6 +30,7 @@ class LevelService {
         var backgroundType: BackgroundType = .earth
         switch currentLevel {
         case 1, 2, 3, 4:
+            monsterType = .commet
             monsterCount = currentLevel * 5 + 20
         case 5:
             return Level2.init(monster: .commet, size: size, backgroundType: .earth, boss: .commetBoss)
@@ -62,7 +63,7 @@ class LevelService {
            monsterCount = currentLevel * 5 - 105
            backgroundType = .pluto
         case 30:
-            return Level2.init(monster: .alien2, size: size, backgroundType: .pluto, boss: .alienBoss)
+            return Level2.init(monster: .spaceship3, size: size, backgroundType: .pluto, boss: .alienBoss)
         case 31, 32, 33, 34:
             monsterType = .spaceship3
             monsterCount = currentLevel * 5 - 130
