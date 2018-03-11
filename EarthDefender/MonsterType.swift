@@ -51,12 +51,12 @@ func getLives(for monsterType: MonsterType) -> Int {
     case .spaceship3: return 3
     case .alien: return 3
     case .alien2: return 3
-    case .commetBoss: return 10
-    case .asteroidBoss: return 15
-    case .spaceshipBoss1: return 18
-    case .spaceshipBoss2: return 20
-    case .alienBoss: return 24
-    case .spaceshipBoss3: return 35
+    case .commetBoss: return 20
+    case .asteroidBoss: return 30
+    case .spaceshipBoss1: return 35
+    case .spaceshipBoss2: return 40
+    case .alienBoss: return 45
+    case .spaceshipBoss3: return 40
     }
 }
 
