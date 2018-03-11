@@ -55,7 +55,7 @@ class LevelCompleteScene: SKScene {
         player.updateScore()
 
         if level == 10 || level == 20 {
-            monsterDifficulty.text = "The next enemys "
+            monsterDifficulty.text = "The next enemies"
             monsterDifficulty2.text = "are more difficult!"
         } else {
             monsterDifficulty.text = ""
@@ -106,7 +106,7 @@ class LevelCompleteScene: SKScene {
         levelNumberLabel.fontSize = 30
         levelNumberLabel.fontName = font
         
-        monstersKilledLabel.text = "Enemys killed: \(player.totalMonstersKilled)"
+        monstersKilledLabel.text = "Enemies killed: \(player.totalMonstersKilled)"
         monstersKilledLabel.zPosition = 100
         monstersKilledLabel.position = CGPoint(x: 165, y: 300)
         monstersKilledLabel.fontColor = UIColor.red
