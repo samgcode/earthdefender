@@ -177,7 +177,11 @@ class CreditsTableViewController: UITableViewController, MFMailComposeViewContro
         if(UIApplication.shared.canOpenURL(url)){
             let alert = UIAlertController.init(title: "Load page", message: "Do you want to leave \(applicationName) and load this page in browser?", preferredStyle: UIAlertControllerStyle.alert)
             let defaultAction = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default) { action in
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
             }
             
             let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel) { action in }
